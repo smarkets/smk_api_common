@@ -1,0 +1,14 @@
+.include [ .module eto ]
+
+.extend [
+  .name login-payload
+
+  .field [
+    .name username
+    .type string
+  ]
+  .field [
+    .name password
+    .type string
+  ]
+]
