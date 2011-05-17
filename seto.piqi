@@ -12,3 +12,50 @@
     .type string
   ]
 ]
+
+.extend [
+  .name message-payload
+  .option [ .name order .type order-payload ]
+]
+
+.record [
+  .name order-payload
+  .field [
+    .name quantity
+    .type int
+  ]
+  .field [
+    .name price
+    .type price
+  ]
+  .field [
+    .name side
+    .type side
+  ]
+  .field [
+    .name group
+    .type group
+  ]
+  .field [
+    .name contract
+    .type contract
+  ]
+]
+
+.alias [
+  .name price
+  .type string
+]
+.enum [
+  .name side
+  .option [ .name buy ]
+  .option [ .name sell ]
+]
+.alias [
+  .name group
+  .type binary
+]
+.alias [
+  .name contract
+  .type binary
+]
