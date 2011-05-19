@@ -16,6 +16,20 @@
 .extend [
   .name message-payload
   .option [ .name order .type order-payload ]
+  .option [ .name range .type range-payload ]
+  .option [ .name integer .type int ]
+]
+
+.record [
+  .name range-payload
+  .field [
+    .name from
+    .type int
+  ]
+  .field [
+    .name to
+    .type int
+  ]
 ]
 
 .record [
