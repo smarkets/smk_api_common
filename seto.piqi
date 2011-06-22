@@ -5,19 +5,18 @@
 
   .field [
     .name username
-    .type string
+    .type binary
   ]
   .field [
     .name password
-    .type string
+    .type binary
   ]
 ]
 
 .extend [
   .name message-payload
   .option [ .name order .type order-payload ]
-  .option [ .name range .type range-payload ]
-  .option [ .name integer .type int ]
+  .option [ .name order-accepted .type order-accepted-payload ]
 ]
 
 .record [
@@ -34,6 +33,10 @@
 
 .record [
   .name order-payload
+  .field [
+    .name req
+    .type req
+  ]
   .field [
     .name quantity
     .type int
@@ -55,10 +58,25 @@
     .type contract
   ]
 ]
+.record [
+  .name order-accepted-payload
+  .field [
+    .name req
+    .type req
+  ]
+  .field [
+    .name order
+    .type order
+  ]
+]
 
 .alias [
+  .name req
+  .type binary
+]
+.alias [
   .name price
-  .type string
+  .type binary
 ]
 .enum [
   .name side
@@ -71,5 +89,9 @@
 ]
 .alias [
   .name contract
+  .type binary
+]
+.alias [
+  .name order
   .type binary
 ]
