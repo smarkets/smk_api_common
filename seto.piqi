@@ -17,6 +17,9 @@
   .name message-payload
   .option [ .name order .type order-payload ]
   .option [ .name order-accepted .type order-accepted-payload ]
+  .option [ .name order-executed .type order-executed-payload ]
+  .option [ .name order-cancel .type order-cancel-payload ]
+  .option [ .name order-cancelled .type order-cancelled-payload ]
 ]
 
 .record [
@@ -39,7 +42,7 @@
   ]
   .field [
     .name quantity
-    .type int
+    .type quantity
   ]
   .field [
     .name price
@@ -64,6 +67,35 @@
     .name req
     .type req
   ]
+  .field [
+    .name order
+    .type order
+  ]
+]
+.record [
+  .name order-executed-payload
+  .field [
+    .name order
+    .type order
+  ]
+  .field [
+    .name price
+    .type price
+  ]
+  .field [
+    .name quantity
+    .type quantity
+  ]
+]
+.record [
+  .name order-cancel-payload
+  .field [
+    .name order
+    .type order
+  ]
+]
+.record [
+  .name order-cancelled-payload
   .field [
     .name order
     .type order
@@ -94,4 +126,8 @@
 .alias [
   .name order
   .type binary
+]
+.alias [
+  .name quantity
+  .type int
 ]
