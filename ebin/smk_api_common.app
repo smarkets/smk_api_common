@@ -1,4 +1,5 @@
 {application, smk_api_common, [
   {description, "common files for all Smarkets API development"},
-  {vsn, "0"}
+  {vsn, "0"},
+  {modules, []}
 ]}.
