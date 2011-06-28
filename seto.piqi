@@ -16,6 +16,7 @@
 .extend [
   .name message-payload
   .option [ .name order .type order-payload ]
+  .option [ .name order-rejected .type order-rejected-payload ]
   .option [ .name order-accepted .type order-accepted-payload ]
   .option [ .name order-executed .type order-executed-payload ]
   .option [ .name order-cancel .type order-cancel-payload ]
@@ -72,6 +73,27 @@
     .type order
   ]
 ]
+.record [
+  .name order-rejected-payload
+  .field [
+    .name req
+    .type req
+  ]
+  .field [
+    .name reason
+    .type order-rejected-reason
+  ]
+]
+.enum [
+  .name order-rejected-reason
+  .option [ .name insufficient-funds ]
+  .option [ .name limit-exceeded ]
+  .option [ .name market-not-open ]
+  .option [ .name market-settled ]
+  .option [ .name market-halted ]
+  .option [ .name crossed-self ]
+]
+
 .record [
   .name order-executed-payload
   .field [
