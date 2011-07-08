@@ -153,3 +153,33 @@
   .name quantity
   .type int
 ]
+
+# non-sequenced messages
+
+.record [
+  .name pp # push price
+  .field [
+    .name contract
+    .type contract
+  ]
+  .field [
+    .name group
+    .type group
+  ]
+  .field [
+    .name price
+    .type price
+  ]
+  .field [
+    .name side
+    .type side
+  ]
+  .field [
+    .name quantity
+    .type quantity
+  ]
+  .field [
+    .name ts
+    .type ts
+  ]
+]
