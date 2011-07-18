@@ -38,10 +38,6 @@
 .record [
   .name order-payload
   .field [
-    .name req
-    .type req
-  ]
-  .field [
     .name quantity
     .type quantity
   ]
@@ -65,8 +61,8 @@
 .record [
   .name order-accepted-payload
   .field [
-    .name req
-    .type req
+    .name seq
+    .type int
   ]
   .field [
     .name order
@@ -76,8 +72,8 @@
 .record [
   .name order-rejected-payload
   .field [
-    .name req
-    .type req
+    .name seq
+    .type int
   ]
   .field [
     .name reason
@@ -124,10 +120,6 @@
   ]
 ]
 
-.alias [
-  .name req
-  .type binary
-]
 .alias [
   .name price
   .type binary
