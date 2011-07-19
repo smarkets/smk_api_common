@@ -88,6 +88,7 @@
   .option [ .name market-settled ]
   .option [ .name market-halted ]
   .option [ .name crossed-self ]
+  .option [ .name error ]
 ]
 
 .record [
@@ -118,6 +119,14 @@
     .name order
     .type order
   ]
+  .field [
+    .type order-cancelled-reason
+    .optional
+  ]
+]
+.enum [
+  .name order-cancelled-reason
+  .option [ .name member_request ]
 ]
 
 .alias [
