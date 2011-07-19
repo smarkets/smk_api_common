@@ -120,6 +120,7 @@
     .type order
   ]
   .field [
+    .name reason
     .type order-cancelled-reason
     .optional
   ]
