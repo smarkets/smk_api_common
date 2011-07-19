@@ -126,7 +126,7 @@
 ]
 .enum [
   .name order-cancelled-reason
-  .option [ .name member_request ]
+  .option [ .name member-requested ]
 ]
 
 .alias [
