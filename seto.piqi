@@ -21,6 +21,18 @@
   .option [ .type order-executed ]
   .option [ .type order-cancel ]
   .option [ .type order-cancelled ]
+  .option [ .type market-subscription ]
+  .option [ .type market-unsubscription ]
+]
+
+.record [
+  .name market-subscription
+  .field [ .type group ]
+]
+
+.record [
+  .name market-unsubscription
+  .field [ .type group ]
 ]
 
 .record [
