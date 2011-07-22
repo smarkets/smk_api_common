@@ -31,9 +31,6 @@
   .option [ .type market-subscribed ]
   .option [ .type market-unsubscription ]
   .option [ .type market-unsubscribed ]
-
-  .option [ .type push-accepted ]
-  .option [ .type push-executed ]
 ]
 
 .record [
@@ -68,22 +65,6 @@
 .record [
   .name market-unsubscribed
   .field [ .type group ]
-]
-.record [
-  .name push-accepted
-  .field [ .type quantity ]
-  .field [ .type price ]
-  .field [ .type side ]
-  .field [ .type group ]
-  .field [ .type contract ]
-]
-.record [
-  .name push-executed
-  .field [ .type quantity ]
-  .field [ .type price ]
-  .field [ .type side ]
-  .field [ .type group ]
-  .field [ .type contract ]
 ]
 
 .record [
@@ -172,6 +153,29 @@
 ]
 
 % non-sequenced messages
+
+.variant [
+  .name transient
+  .option [ .type push-accepted ]
+  .option [ .type push-executed ]
+]
+
+.record [
+  .name push-accepted
+  .field [ .type quantity ]
+  .field [ .type price ]
+  .field [ .type side ]
+  .field [ .type group ]
+  .field [ .type contract ]
+]
+.record [
+  .name push-executed
+  .field [ .type quantity ]
+  .field [ .type price ]
+  .field [ .type side ]
+  .field [ .type group ]
+  .field [ .type contract ]
+]
 
 .record [
   .name push-price % push price
