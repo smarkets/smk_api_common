@@ -21,12 +21,36 @@
   .option [ .type order-executed ]
   .option [ .type order-cancel ]
   .option [ .type order-cancelled ]
+
+  .option [ .type order-subscription ]
+  .option [ .type order-subscribed ]
+  .option [ .type order-unsubscription ]
+  .option [ .type order-unsubscribed ]
+
   .option [ .type market-subscription ]
   .option [ .type market-subscribed ]
   .option [ .type market-unsubscription ]
   .option [ .type market-unsubscribed ]
+
   .option [ .type push-accepted ]
   .option [ .type push-executed ]
+]
+
+.record [
+  .name order-subscription
+  .field [ .type order ]
+]
+.record [
+  .name order-subscribed
+  .field [ .type order ]
+]
+.record [
+  .name order-unsubscription
+  .field [ .type order ]
+]
+.record [
+  .name order-unsubscribed
+  .field [ .type order ]
 ]
 
 .record [
