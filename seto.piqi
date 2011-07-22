@@ -1,7 +1,7 @@
 .include [ .module eto ]
 
 .extend [
-  .name login-payload
+  .name login
 
   .field [
     .name username
@@ -14,67 +14,31 @@
 ]
 
 .extend [
-  .name message-payload
-  .option [ .name order .type order-payload ]
-  .option [ .name order-rejected .type order-rejected-payload ]
-  .option [ .name order-accepted .type order-accepted-payload ]
-  .option [ .name order-executed .type order-executed-payload ]
-  .option [ .name order-cancel .type order-cancel-payload ]
-  .option [ .name order-cancelled .type order-cancelled-payload ]
+  .name payload
+  .option [ .type order-create ]
+  .option [ .type order-rejected ]
+  .option [ .type order-accepted ]
+  .option [ .type order-executed ]
+  .option [ .type order-cancel ]
+  .option [ .type order-cancelled ]
 ]
 
 .record [
-  .name range-payload
-  .field [
-    .name from
-    .type int
-  ]
-  .field [
-    .name to
-    .type int
-  ]
-]
-
-.record [
-  .name order-payload
-  .field [
-    .name quantity
-    .type quantity
-  ]
-  .field [
-    .name price
-    .type price
-  ]
-  .field [
-    .name side
-    .type side
-  ]
-  .field [
-    .name group
-    .type group
-  ]
-  .field [
-    .name contract
-    .type contract
-  ]
+  .name order-create
+  .field [ .type quantity ]
+  .field [ .type price ]
+  .field [ .type side ]
+  .field [ .type group ]
+  .field [ .type contract ]
 ]
 .record [
-  .name order-accepted-payload
-  .field [
-    .name seq
-    .type int
-  ]
-  .field [
-    .name order
-    .type order
-  ]
+  .name order-accepted
+  .field [ .type seq ]
+  .field [ .type order ]
 ]
 .record [
-  .name order-rejected-payload
-  .field [
-    .name seq
-    .type int
-  ]
+  .name order-rejected
+  .field [ .type seq ]
   .field [
     .name reason
     .type order-rejected-reason
@@ -92,39 +56,27 @@
 ]
 
 .record [
-  .name order-executed-payload
-  .field [
-    .name order
-    .type order
-  ]
-  .field [
-    .name price
-    .type price
-  ]
-  .field [
-    .name quantity
-    .type quantity
-  ]
+  .name order-executed
+  .field [ .type order ]
+  .field [ .type price ]
+  .field [ .type quantity ]
 ]
+
 .record [
-  .name order-cancel-payload
-  .field [
-    .name order
-    .type order
-  ]
+  .name order-cancel
+  .field [ .type order ]
 ]
+
 .record [
-  .name order-cancelled-payload
-  .field [
-    .name order
-    .type order
-  ]
+  .name order-cancelled
+  .field [ .type order ]
   .field [
     .name reason
     .type order-cancelled-reason
     .optional
   ]
 ]
+
 .enum [
   .name order-cancelled-reason
   .option [ .name member-requested ]
@@ -156,32 +108,14 @@
   .type int
 ]
 
-# non-sequenced messages
+% non-sequenced messages
 
 .record [
-  .name pp # push price
-  .field [
-    .name contract
-    .type contract
-  ]
-  .field [
-    .name group
-    .type group
-  ]
-  .field [
-    .name price
-    .type price
-  ]
-  .field [
-    .name side
-    .type side
-  ]
-  .field [
-    .name quantity
-    .type quantity
-  ]
-  .field [
-    .name ts
-    .type ts
-  ]
+  .name push-price % push price
+  .field [ .type contract ]
+  .field [ .type group ]
+  .field [ .type price ]
+  .field [ .type side ]
+  .field [ .type quantity ]
+  .field [ .type ts ]
 ]
