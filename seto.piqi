@@ -31,6 +31,7 @@
   .option [ .type market-subscribed ]
   .option [ .type market-unsubscription ]
   .option [ .type market-unsubscribed ]
+  .option [ .type market-request ]
 ]
 
 .record [
@@ -48,6 +49,11 @@
 .record [
   .name order-unsubscribed
   .field [ .type order ]
+]
+
+.record [
+  .name market-request
+  .field [ .type group ]
 ]
 
 .record [
@@ -158,6 +164,30 @@
   .name transient
   .option [ .type push-accepted ]
   .option [ .type push-executed ]
+  .option [ .type market-data ]
+  .option [ .type contract-data ]
+]
+
+.record [
+  .name market-data
+  .field [ .type group ]
+  .field [
+    .name contract-count
+    .type int
+  ]
+  .field [
+    .name name
+    .type binary
+  ]
+]
+
+.record [
+  .name contract-data
+  .field [ .type contract ]
+  .field [
+    .name name
+    .type binary
+  ]
 ]
 
 .record [
