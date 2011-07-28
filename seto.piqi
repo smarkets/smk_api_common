@@ -164,6 +164,7 @@
   .name transient
   .option [ .type push-accepted ]
   .option [ .type push-executed ]
+  .option [ .type push-cancelled ]
   .option [ .type market-data ]
   .option [ .type contract-data ]
 ]
@@ -200,6 +201,14 @@
 ]
 .record [
   .name push-executed
+  .field [ .type quantity ]
+  .field [ .type price ]
+  .field [ .type side ]
+  .field [ .type group ]
+  .field [ .type contract ]
+]
+.record [
+  .name push-cancelled
   .field [ .type quantity ]
   .field [ .type price ]
   .field [ .type side ]
