@@ -32,6 +32,35 @@
   .option [ .type market-unsubscription ]
   .option [ .type market-unsubscribed ]
   .option [ .type market-request ]
+
+  .option [ .type market-quotes ]
+]
+
+.record [
+  .name market-quotes
+  .field [ .type group ]
+  .field [ .type contracts-quotes-list ]
+]
+
+.list [
+  .name contracts-quotes-list
+  .type contract-quotes
+]
+
+.record [
+  .name contract-quotes
+  .field [ .type contract ]
+  .field [ .name buy .type quote-list ]
+  .field [ .name sell .type quote-list ]
+]
+.list [
+  .name quote-list
+  .type quote
+]
+.record [
+  .name quote
+  .field [ .type price ]
+  .field [ .type quantity ]
 ]
 
 .record [
