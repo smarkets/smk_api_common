@@ -34,6 +34,7 @@
   .option [ .type market-request ]
 
   .option [ .type market-quotes ]
+  .option [ .type contract-quote ]
 ]
 
 .record [
@@ -52,6 +53,12 @@
   .field [ .type contract ]
   .field [ .name buy .type quote-list ]
   .field [ .name sell .type quote-list ]
+]
+.record [
+  .name contract-quote
+  .field [ .type contract ]
+  .field [ .type side ]
+  .field [ .type quote ]
 ]
 .list [
   .name quote-list
