@@ -58,7 +58,7 @@
   .name contract-quote
   .field [ .type contract ]
   .field [ .type side ]
-  .field [ .type quote ]
+  .field [ .type quote-list ]
 ]
 .list [
   .name quote-list
