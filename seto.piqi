@@ -126,7 +126,7 @@
 .record [
   .name order-invalid
   .field [
-    .name reason
+    .name reasons
     .type order-invalid-reason-list
   ]
 ]
