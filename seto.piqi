@@ -40,7 +40,7 @@
 ]
 .record [
   .name id-invalid
-  .field [ .name field .type binary ]
+  .field [ .name field .type binary .optional ]
 ]
 
 .record [
