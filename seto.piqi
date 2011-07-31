@@ -21,6 +21,7 @@
   .option [ .type order-executed ]
   .option [ .type order-cancel ]
   .option [ .type order-cancelled ]
+  .option [ .type order-invalid ]
 
   .option [ .type order-subscription ]
   .option [ .type order-subscribed ]
@@ -35,6 +36,11 @@
 
   .option [ .type market-quotes ]
   .option [ .type contract-quote ]
+  .option [ .type id-invalid ]
+]
+.record [
+  .name id-invalid
+  .field [ .name field .type binary ]
 ]
 
 .record [
@@ -117,6 +123,23 @@
   .field [ .type group ]
   .field [ .type contract ]
 ]
+.record [
+  .name order-invalid
+  .field [
+    .name reason
+    .type order-invalid-reason-list
+  ]
+]
+.list [
+  .name order-invalid-reason-list
+  .type order-invalid-reason
+]
+.enum [
+  .name order-invalid-reason
+  .option [ .name price-not-in-range ]
+  .option [ .name quantity-too-small ]
+]
+
 .record [
   .name order-accepted
   .field [ .type seq ]
