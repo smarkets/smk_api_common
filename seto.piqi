@@ -219,8 +219,8 @@
 
 % non-sequenced messages
 
-.variant [
-  .name transient
+.extend [
+  .name frame
   .option [ .type push-accepted ]
   .option [ .type push-executed ]
   .option [ .type push-cancelled ]
