@@ -1,6 +1,6 @@
 .PHONY: deps
 
-VSN="0.1-alpha"
+VSN="dev"
 NAME="smk_api_common-$(VSN)"
 
 deps:
