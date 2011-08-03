@@ -4,7 +4,7 @@ VSN="dev"
 NAME="smk_api_common-$(VSN)"
 
 deps:
-	./rebar get-deps
+	./rebar get-deps update-deps
 
 proto: deps
 	piqi to-proto -I deps/eto_common/ \

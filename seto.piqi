@@ -14,7 +14,7 @@
 ]
 
 .extend [
-  .name payload
+  .name message
   .option [ .type order-create ]
   .option [ .type order-rejected ]
   .option [ .type order-accepted ]
@@ -220,7 +220,7 @@
 % non-sequenced messages
 
 .extend [
-  .name frame
+  .name payload
   .option [ .type push-accepted ]
   .option [ .type push-executed ]
   .option [ .type push-cancelled ]
