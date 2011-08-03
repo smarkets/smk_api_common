@@ -27,6 +27,7 @@
   .option [ .type market-unsubscription ]
   .option [ .type market-request ]
 
+  .option [ .type market-quotes-request ]
   .option [ .type market-quotes ]
   .option [ .type contract-quote ]
   .option [ .type id-invalid ]
@@ -35,7 +36,10 @@
   .name id-invalid
   .field [ .name field .type binary .optional ]
 ]
-
+.record [
+  .name market-quotes-request
+  .field [ .type group ]
+]
 .record [
   .name market-quotes
   .field [ .type group ]
