@@ -23,15 +23,8 @@
   .option [ .type order-cancelled ]
   .option [ .type order-invalid ]
 
-  .option [ .type order-subscription ]
-  .option [ .type order-subscribed ]
-  .option [ .type order-unsubscription ]
-  .option [ .type order-unsubscribed ]
-
   .option [ .type market-subscription ]
-  .option [ .type market-subscribed ]
   .option [ .type market-unsubscription ]
-  .option [ .type market-unsubscribed ]
   .option [ .type market-request ]
 
   .option [ .type market-quotes ]
@@ -77,23 +70,6 @@
 ]
 
 .record [
-  .name order-subscription
-  .field [ .type order ]
-]
-.record [
-  .name order-subscribed
-  .field [ .type order ]
-]
-.record [
-  .name order-unsubscription
-  .field [ .type order ]
-]
-.record [
-  .name order-unsubscribed
-  .field [ .type order ]
-]
-
-.record [
   .name market-request
   .field [ .type group ]
 ]
@@ -103,15 +79,7 @@
   .field [ .type group ]
 ]
 .record [
-  .name market-subscribed
-  .field [ .type group ]
-]
-.record [
   .name market-unsubscription
-  .field [ .type group ]
-]
-.record [
-  .name market-unsubscribed
   .field [ .type group ]
 ]
 
@@ -221,9 +189,6 @@
 
 .extend [
   .name payload
-  .option [ .type push-accepted ]
-  .option [ .type push-executed ]
-  .option [ .type push-cancelled ]
   .option [ .type market-data ]
   .option [ .type contract-data ]
 ]
@@ -248,39 +213,4 @@
     .name name
     .type binary
   ]
-]
-
-.record [
-  .name push-accepted
-  .field [ .type quantity ]
-  .field [ .type price ]
-  .field [ .type side ]
-  .field [ .type group ]
-  .field [ .type contract ]
-]
-.record [
-  .name push-executed
-  .field [ .type quantity ]
-  .field [ .type price ]
-  .field [ .type side ]
-  .field [ .type group ]
-  .field [ .type contract ]
-]
-.record [
-  .name push-cancelled
-  .field [ .type quantity ]
-  .field [ .type price ]
-  .field [ .type side ]
-  .field [ .type group ]
-  .field [ .type contract ]
-]
-
-.record [
-  .name push-price % push price
-  .field [ .type contract ]
-  .field [ .type group ]
-  .field [ .type price ]
-  .field [ .type side ]
-  .field [ .type quantity ]
-  .field [ .type ts ]
 ]
