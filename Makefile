@@ -19,7 +19,7 @@ proto: deps
 
 docs: deps
 	cd deps/smk_api_docs/ && \
-		make
+		make VSN=$(VSN)
 
 buildclean:
 	rm -rf build
