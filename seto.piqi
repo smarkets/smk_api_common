@@ -204,9 +204,18 @@
   ]
 ]
 
-.alias [
+.variant [
   .name price
-  .type binary
+  .option [ .type price-percent ]
+  .option [ .type price-decimal ]
+]
+.alias [
+  .name price-percent
+  .type uint32
+]
+.alias [
+  .name price-decimal
+  .type uint32
 ]
 .enum [
   .name side
