@@ -31,6 +31,9 @@
   .option [ .type market-quotes ]
   .option [ .type contract-quote ]
   .option [ .type id-invalid ]
+
+  .option [ .type disconnect-instruction ]
+  .option [ .type disconnect-instruction-response ]
 ]
 .record [
   .name id-invalid
@@ -163,6 +166,24 @@
 .enum [
   .name order-cancelled-reason
   .option [ .name member-requested ]
+]
+
+.record [
+  .name disconnect-instruction
+  .field [
+    .name action
+    .type disconnect-instruction-action
+  ]
+]
+.record [
+  .name disconnect-instruction-response
+  .field [ .type seq ]
+  .field [ .type disconnect-instruction-action ]
+]
+.enum [
+  .name disconnect-instruction-action
+  .option [ .name none ]
+  .option [ .name cancel-all ]
 ]
 
 .alias [
