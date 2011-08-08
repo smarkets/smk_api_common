@@ -229,7 +229,7 @@
   .field [ .type group ]
   .field [
     .name contract-count
-    .type int
+    .type uint32
   ]
   .field [
     .name name
