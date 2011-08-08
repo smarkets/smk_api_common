@@ -190,6 +190,20 @@
   .option [ .name cancel-all ]
 ]
 
+.record [
+  .name uuid-128
+  .field [
+    .name low
+    .type uint64
+  ]
+  .field [
+    .name high
+    .type uint64
+    .optional
+    .default 0
+  ]
+]
+
 .alias [
   .name price
   .type binary
@@ -201,15 +215,15 @@
 ]
 .alias [
   .name group
-  .type binary
+  .type uuid-128
 ]
 .alias [
   .name contract
-  .type binary
+  .type uuid-128
 ]
 .alias [
   .name order
-  .type binary
+  .type uuid-128
 ]
 .alias [
   .name quantity
