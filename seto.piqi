@@ -29,6 +29,7 @@
 
   .option [ .type market-quotes-request ]
   .option [ .type market-quotes ]
+  .option [ .type contract-quotes ]
   .option [ .type contract-quote ]
   .option [ .type id-invalid ]
 ]
