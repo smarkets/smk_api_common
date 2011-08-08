@@ -38,7 +38,11 @@
 .record [
   .name id-invalid
   .field [ .type seq ]
-  .field [ .name field .type binary .optional ]
+  .field [
+    .name field
+    .type binary
+    .optional
+  ]
 ]
 .record [
   .name market-quotes-request
