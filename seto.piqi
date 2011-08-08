@@ -213,7 +213,7 @@
 ]
 .alias [
   .name quantity
-  .type int
+  .type uint32
 ]
 
 % non-sequenced messages
