@@ -1,0 +1,148 @@
+.proto-package "smarkets.eto"
+
+.alias [
+    .name seq
+    .type uint64
+]
+
+.alias [
+    .name session-id
+    .type string
+]
+
+.record [
+    .name sequenced
+    .proto-name "Sequenced"
+    .field [
+        .type seq
+    ]
+    .field [
+        .type payload
+        .optional
+    ]
+    .field [
+        .name replay
+        .type bool
+        .optional
+        .default false
+    ]
+]
+
+.record [
+    .name payload
+    .proto-name "Payload"
+    .field [
+        .name type
+        .type payload-type
+    ]
+    .field [
+        .type replay
+        .optional
+    ]
+    .field [
+        .type login
+        .optional
+    ]
+    .field [
+        .type login-response
+        .optional
+    ]
+    .field [
+        .type logout
+        .optional
+    ]
+]
+
+.enum [
+    .name payload-type
+    .proto-name "Payload_Type"
+    .option [
+        .name ping
+        .proto-name "Payload_PING"
+    ]
+    .option [
+        .name pong
+        .proto-name "Payload_PONG"
+    ]
+    .option [
+        .name gapfill
+        .proto-name "Payload_GAPFILL"
+    ]
+    .option [
+        .name heartbeat
+        .proto-name "Payload_HEARTBEAT"
+    ]
+    .option [
+        .name replay
+        .proto-name "Payload_REPLAY"
+    ]
+    .option [
+        .name login
+        .proto-name "Payload_LOGIN"
+    ]
+    .option [
+        .name login-response
+        .proto-name "Payload_LOGIN_RESPONSE"
+    ]
+    .option [
+        .name logout
+        .proto-name "Payload_LOGOUT"
+    ]
+]
+
+.record [
+    .name replay
+    .proto-name "Replay"
+    .field [
+        .type seq
+    ]
+]
+
+.record [
+    .name login
+    .proto-name "Login"
+    .field [
+        .type session-id
+        .optional
+    ]
+]
+
+.record [
+    .name login-response
+    .proto-name "LoginResponse"
+    .field [
+        .type session-id
+    ]
+    .field [
+        .name reset
+        .type uint64
+        .optional
+    ]
+]
+
+.record [
+    .name logout
+    .proto-name "Logout"
+    .field [
+        .name reason
+        .type logout-reason
+        .optional
+    ]
+]
+
+.enum [
+    .name logout-reason
+    .proto-name "Logout_Reason"
+    .option [
+        .name none
+        .proto-name "Logout_NONE"
+    ]
+    .option [
+        .name heartbeat-timeout
+        .proto-name "Logout_HEARTBEAT_TIMEOUT"
+    ]
+    .option [
+        .name confirmation
+        .proto-name "Logout_CONFIRMATION"
+    ]
+]
