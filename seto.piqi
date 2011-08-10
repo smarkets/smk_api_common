@@ -216,9 +216,6 @@
     .name login
     .proto-name "Login"
     .field [
-        .type eto/login
-    ]
-    .field [
         .name username
         .type string
     ]
