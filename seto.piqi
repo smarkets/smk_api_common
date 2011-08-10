@@ -34,70 +34,87 @@
         .type eto/sequenced
     ]
     .field [
+        .name login
         .type login
         .optional
     ]
     .field [
+        .name order-create
         .type order-create
         .optional
     ]
     .field [
+        .name order-rejected
         .type order-rejected
         .optional
     ]
     .field [
+        .name order-accepted
         .type order-accepted
         .optional
     ]
     .field [
+        .name order-executed
         .type order-executed
         .optional
     ]
     .field [
+        .name order-cancel
         .type order-cancel
         .optional
     ]
     .field [
+        .name order-cancelled
         .type order-cancelled
         .optional
     ]
     .field [
+        .name order-invalid
         .type order-invalid
         .optional
     ]
     .field [
+        .name market-subscription
         .type market-subscription
         .optional
     ]
     .field [
+        .name market-unsubscription
         .type market-unsubscription
         .optional
     ]
     .field [
+        .name market-request
         .type market-request
         .optional
     ]
     .field [
+        .name market-quotes-request
         .type market-quotes-request
         .optional
     ]
     .field [
+        .name market-quotes
         .type market-quotes
         .optional
     ]
     .field [
+        .name contract-quote
         .type contract-quote
         .optional
     ]
     .field [
+        .name id-invalid
         .type id-invalid
         .optional
     ]
     .field [
+        .name disconnect-instruction
         .type disconnect-instruction
         .optional
     ]
     .field [
+        .name disconnect-instruction-response
         .type disconnect-instruction-response
         .optional
     ]
@@ -231,9 +248,11 @@
         .type contract
     ]
     .field [
+        .name side
         .type side
     ]
     .field [
+        .name quantity-type
         .type quantity-type
     ]
     .field [
@@ -245,6 +264,7 @@
         .type uint32
     ]
     .field [
+        .name price-type
         .type price-type
         .optional
     ]
@@ -403,6 +423,7 @@
         .type uint32
     ]
     .field [
+        .name quantity-type
         .type quantity-type
     ]
     .field [
@@ -523,6 +544,7 @@
         .type uint32
     ]
     .field [
+        .name contract-quotes
         .type contract-quotes
         .repeated
     ]
@@ -553,6 +575,7 @@
         .type contract
     ]
     .field [
+        .name side
         .type side
     ]
     .field [
@@ -566,6 +589,7 @@
     .name quote
     .proto-name "Quote"
     .field [
+        .name price-type
         .type price-type
     ]
     .field [
@@ -573,6 +597,7 @@
         .type uint32
     ]
     .field [
+        .name quantity-type
         .type quantity-type
     ]
     .field [
