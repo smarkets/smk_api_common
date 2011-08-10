@@ -1,270 +1,660 @@
-.include [ .module eto ]
+.proto-package "smarkets.seto"
 
-.extend [
-  .name login
+.import [ .module eto ]
 
-  .field [
-    .name username
-    .type binary
-  ]
-  .field [
-    .name password
-    .type binary
-  ]
-]
-
-.extend [
-  .name message
-  .option [ .type order-create ]
-  .option [ .type order-rejected ]
-  .option [ .type order-accepted ]
-  .option [ .type order-executed ]
-  .option [ .type order-cancel ]
-  .option [ .type order-cancelled ]
-  .option [ .type order-invalid ]
-
-  .option [ .type market-subscription ]
-  .option [ .type market-unsubscription ]
-  .option [ .type market-request ]
-
-  .option [ .type market-quotes-request ]
-  .option [ .type market-quotes ]
-  .option [ .type contract-quote ]
-  .option [ .type id-invalid ]
-
-  .option [ .type disconnect-instruction ]
-  .option [ .type disconnect-instruction-response ]
-]
-.record [
-  .name id-invalid
-  .field [ .type seq ]
-  .field [
-    .name field
-    .type binary
-    .optional
-  ]
-]
-.record [
-  .name market-quotes-request
-  .field [ .type group ]
-]
-.record [
-  .name market-quotes
-  .field [ .type group ]
-  .field [ .type contracts-quotes-list ]
-]
-
-.list [
-  .name contracts-quotes-list
-  .type contract-quotes
-]
-
-.record [
-  .name contract-quotes
-  .field [ .type contract ]
-  .field [ .name buy .type quote-list ]
-  .field [ .name sell .type quote-list ]
-]
-.record [
-  .name contract-quote
-  .field [ .type contract ]
-  .field [ .type side ]
-  .field [ .type quote-list ]
-]
-.list [
-  .name quote-list
-  .type quote
-]
-.record [
-  .name quote
-  .field [ .type price ]
-  .field [ .type quantity ]
-]
-
-.record [
-  .name market-request
-  .field [ .type group ]
-]
-
-.record [
-  .name market-subscription
-  .field [ .type group ]
-]
-.record [
-  .name market-unsubscription
-  .field [ .type group ]
-]
-
-.record [
-  .name order-create
-  .field [ .type quantity ]
-  .field [ .type price ]
-  .field [ .type side ]
-  .field [ .type group ]
-  .field [ .type contract ]
-]
-.record [
-  .name order-invalid
-  .field [ .type seq ]
-  .field [
-    .name reasons
-    .type order-invalid-reason-list
-  ]
-]
-.list [
-  .name order-invalid-reason-list
-  .type order-invalid-reason
-]
-.enum [
-  .name order-invalid-reason
-  .option [ .name price-not-in-range ]
-  .option [ .name quantity-too-small ]
-]
-
-.record [
-  .name order-accepted
-  .field [ .type seq ]
-  .field [ .type order ]
-]
-.record [
-  .name order-rejected
-  .field [ .type seq ]
-  .field [
-    .name reason
-    .type order-rejected-reason
-  ]
-]
-.enum [
-  .name order-rejected-reason
-  .option [ .name insufficient-funds ]
-  .option [ .name limit-exceeded ]
-  .option [ .name market-not-open ]
-  .option [ .name market-settled ]
-  .option [ .name market-halted ]
-  .option [ .name crossed-self ]
-  .option [ .name error ]
-]
-
-.record [
-  .name order-executed
-  .field [ .type order ]
-  .field [ .type price ]
-  .field [ .type quantity ]
-]
-
-.record [
-  .name order-cancel
-  .field [ .type order ]
-]
-
-.record [
-  .name order-cancelled
-  .field [ .type order ]
-  .field [
-    .name reason
-    .type order-cancelled-reason
-    .optional
-  ]
-]
-
-.enum [
-  .name order-cancelled-reason
-  .option [ .name member-requested ]
-]
-
-.record [
-  .name disconnect-instruction
-  .field [
-    .name action
-    .type disconnect-instruction-action
-  ]
-]
-.record [
-  .name disconnect-instruction-response
-  .field [ .type seq ]
-  .field [ .type disconnect-instruction-action ]
-]
-.enum [
-  .name disconnect-instruction-action
-  .option [ .name none ]
-  .option [ .name cancel-all ]
-]
-
-.record [
-  .name uuid-128
-  .field [
-    .name low
+.alias [
+    .name seq
     .type uint64
-  ]
-  .field [
-    .name high
-    .type uint64
-    .optional
-    .default 0
-  ]
 ]
 
-.variant [
-  .name price
-  .option [ .type price-percent ]
-  .option [ .type price-decimal ]
-]
 .alias [
-  .name price-percent
-  .type uint32
+    .name market
+    .type uuid-128
 ]
+
 .alias [
-  .name price-decimal
-  .type uint32
+    .name contract
+    .type uuid-128
 ]
+
+.alias [
+    .name order
+    .type uuid-128
+]
+
+.record [
+    .name payload
+    .proto-name "Payload"
+    .field [
+        .name type
+        .type payload-type
+    ]
+    .field [
+        .name eto-seq
+        .type eto/sequenced
+    ]
+    .field [
+        .type login
+        .optional
+    ]
+    .field [
+        .type order-create
+        .optional
+    ]
+    .field [
+        .type order-rejected
+        .optional
+    ]
+    .field [
+        .type order-accepted
+        .optional
+    ]
+    .field [
+        .type order-executed
+        .optional
+    ]
+    .field [
+        .type order-cancel
+        .optional
+    ]
+    .field [
+        .type order-cancelled
+        .optional
+    ]
+    .field [
+        .type order-invalid
+        .optional
+    ]
+    .field [
+        .type market-subscription
+        .optional
+    ]
+    .field [
+        .type market-unsubscription
+        .optional
+    ]
+    .field [
+        .type market-request
+        .optional
+    ]
+    .field [
+        .type market-quotes-request
+        .optional
+    ]
+    .field [
+        .type market-quotes
+        .optional
+    ]
+    .field [
+        .type contract-quote
+        .optional
+    ]
+    .field [
+        .type id-invalid
+        .optional
+    ]
+    .field [
+        .type disconnect-instruction
+        .optional
+    ]
+    .field [
+        .type disconnect-instruction-response
+        .optional
+    ]
+]
+
 .enum [
-  .name side
-  .option [ .name buy ]
-  .option [ .name sell ]
-]
-.alias [
-  .name group
-  .type uuid-128
-]
-.alias [
-  .name contract
-  .type uuid-128
-]
-.alias [
-  .name order
-  .type uuid-128
-]
-.alias [
-  .name quantity
-  .type uint32
-]
-
-% non-sequenced messages
-
-.extend [
-  .name payload
-  .option [ .type market-data ]
-  .option [ .type contract-data ]
+    .name payload-type
+    .proto-name "Payload_Type"
+    .option [
+        .name eto
+        .proto-name "Payload_ETO"
+    ]
+    .option [
+        .name login
+        .proto-name "Payload_LOGIN"
+    ]
+    .option [
+        .name order-create
+        .proto-name "Payload_ORDER_CREATE"
+    ]
+    .option [
+        .name order-rejected
+        .proto-name "Payload_ORDER_REJECTED"
+    ]
+    .option [
+        .name order-accepted
+        .proto-name "Payload_ORDER_ACCEPTED"
+    ]
+    .option [
+        .name order-executed
+        .proto-name "Payload_ORDER_EXECUTED"
+    ]
+    .option [
+        .name order-cancel
+        .proto-name "Payload_ORDER_CANCEL"
+    ]
+    .option [
+        .name order-cancelled
+        .proto-name "Payload_ORDER_CANCELLED"
+    ]
+    .option [
+        .name order-invalid
+        .proto-name "Payload_ORDER_INVALID"
+    ]
+    .option [
+        .name market-subscription
+        .proto-name "Payload_MARKET_SUBSCRIPTION"
+    ]
+    .option [
+        .name market-unsubscription
+        .proto-name "Payload_MARKET_UNSUBSCRIPTION"
+    ]
+    .option [
+        .name market-request
+        .proto-name "Payload_MARKET_REQUEST"
+    ]
+    .option [
+        .name market-quotes-request
+        .proto-name "Payload_MARKET_QUOTES_REQUEST"
+    ]
+    .option [
+        .name market-quotes
+        .proto-name "Payload_MARKET_QUOTES"
+    ]
+    .option [
+        .name contract-quote
+        .proto-name "Payload_CONTRACT_QUOTE"
+    ]
+    .option [
+        .name id-invalid
+        .proto-name "Payload_ID_INVALID"
+    ]
+    .option [
+        .name disconnect-instruction
+        .proto-name "Payload_DISCONNECT_INSTRUCTION"
+    ]
+    .option [
+        .name disconnect-instruction-response
+        .proto-name "Payload_DISCONNECT_INSTRUCTION_RESPONSE"
+    ]
 ]
 
 .record [
-  .name market-data
-  .field [ .type group ]
-  .field [
-    .name contract-count
-    .type uint32
-  ]
-  .field [
-    .name name
-    .type binary
-  ]
+    .name uuid-128
+    .proto-name "Uuid128"
+    .field [
+        .name low
+        .type uint64
+    ]
+    .field [
+        .name high
+        .type uint64
+        .optional
+        .default 0
+    ]
 ]
 
 .record [
-  .name contract-data
-  .field [ .type contract ]
-  .field [
-    .name name
-    .type binary
-  ]
+    .name login
+    .proto-name "Login"
+    .field [
+        .type eto/login
+    ]
+    .field [
+        .name username
+        .type string
+    ]
+    .field [
+        .name password
+        .type string
+        .optional
+    ]
+    .field [
+        .name cookie
+        .type binary
+        .optional
+    ]
+]
+
+.record [
+    .name order-create
+    .proto-name "OrderCreate"
+    .field [
+        .name type
+        .type order-create-type
+    ]
+    .field [
+        .type market
+    ]
+    .field [
+        .type contract
+    ]
+    .field [
+        .type side
+    ]
+    .field [
+        .type quantity-type
+    ]
+    .field [
+        .name quantity
+        .type uint32
+    ]
+    .field [
+        .name display-quantity
+        .type uint32
+    ]
+    .field [
+        .type price-type
+        .optional
+    ]
+    .field [
+        .name price
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name tif
+        .type order-create-time-in-force
+        .optional
+    ]
+    .field [
+        .name auto-cancel
+        .type order-create-auto-cancel
+        .optional
+    ]
+    .field [
+        .name minimum-quantity
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name stop-price
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name liquidity
+        .type order-create-liquidity
+        .optional
+    ]
+]
+
+.enum [
+    .name order-create-type
+    .proto-name "OrderCreate_Type"
+    .option [
+        .name market
+        .proto-name "OrderCreate_MARKET"
+    ]
+    .option [
+        .name limit
+        .proto-name "OrderCreate_LIMIT"
+    ]
+    .option [
+        .name stop
+        .proto-name "OrderCreate_STOP"
+    ]
+]
+
+.enum [
+    .name order-create-time-in-force
+    .proto-name "OrderCreate_TimeInForce"
+    .option [
+        .name gtc
+        .proto-name "OrderCreate_GTC"
+    ]
+    .option [
+        .name ioc
+        .proto-name "OrderCreate_IOC"
+    ]
+]
+
+.enum [
+    .name order-create-auto-cancel
+    .proto-name "OrderCreate_AutoCancel"
+    .option [
+        .name preference
+        .proto-name "OrderCreate_PREFERENCE"
+    ]
+    .option [
+        .name ignore-preference
+        .proto-name "OrderCreate_IGNORE_PREFERENCE"
+    ]
+]
+
+.enum [
+    .name order-create-liquidity
+    .proto-name "OrderCreate_Liquidity"
+    .option [
+        .name any
+        .proto-name "OrderCreate_ANY"
+    ]
+    .option [
+        .name make
+        .proto-name "OrderCreate_MAKE"
+    ]
+    .option [
+        .name take
+        .proto-name "OrderCreate_TAKE"
+    ]
+]
+
+.record [
+    .name order-rejected
+    .proto-name "OrderRejected"
+    .field [
+        .type seq
+    ]
+    .field [
+        .name reason
+        .type order-rejected-reason
+    ]
+]
+
+.enum [
+    .name order-rejected-reason
+    .proto-name "OrderRejected_Reason"
+    .option [
+        .name insufficient-funds
+        .proto-name "OrderRejected_INSUFFICIENT_FUNDS"
+    ]
+    .option [
+        .name limit-exceeded
+        .proto-name "OrderRejected_LIMIT_EXCEEDED"
+    ]
+    .option [
+        .name market-not-open
+        .proto-name "OrderRejected_MARKET_NOT_OPEN"
+    ]
+    .option [
+        .name market-settled
+        .proto-name "OrderRejected_MARKET_SETTLED"
+    ]
+    .option [
+        .name market-halted
+        .proto-name "OrderRejected_MARKET_HALTED"
+    ]
+    .option [
+        .name crossed-self
+        .proto-name "OrderRejected_CROSSED_SELF"
+    ]
+]
+
+.record [
+    .name order-accepted
+    .proto-name "OrderAccepted"
+    .field [
+        .type seq
+    ]
+    .field [
+        .type order
+    ]
+]
+
+.record [
+    .name order-executed
+    .proto-name "OrderExecuted"
+    .field [
+        .type order
+    ]
+    .field [
+        .name price
+        .type uint32
+    ]
+    .field [
+        .type quantity-type
+    ]
+    .field [
+        .name quantity
+        .type uint32
+    ]
+]
+
+.record [
+    .name order-cancel
+    .proto-name "OrderCancel"
+    .field [
+        .type order
+    ]
+]
+
+.record [
+    .name order-cancelled
+    .proto-name "OrderCancelled"
+    .field [
+        .type order
+    ]
+    .field [
+        .name reason
+        .type order-cancelled-reason
+    ]
+]
+
+.enum [
+    .name order-cancelled-reason
+    .proto-name "OrderCancelled_Reason"
+    .option [
+        .name member-requested
+        .proto-name "OrderCancelled_MEMBER_REQUESTED"
+    ]
+    .option [
+        .name market-halted
+        .proto-name "OrderCancelled_MARKET_HALTED"
+    ]
+    .option [
+        .name insufficient-liquidity
+        .proto-name "OrderCancelled_INSUFFICIENT_LIQUIDITY"
+    ]
+]
+
+.record [
+    .name order-invalid
+    .proto-name "OrderInvalid"
+    .field [
+        .type seq
+    ]
+    .field [
+        .name reasons
+        .type order-invalid-reason
+        .repeated
+    ]
+]
+
+.enum [
+    .name order-invalid-reason
+    .proto-name "OrderInvalid_Reason"
+    .option [
+        .name invalid-price
+        .proto-name "OrderInvalid_INVALID_PRICE"
+    ]
+    .option [
+        .name invalid-quantity
+        .proto-name "OrderInvalid_INVALID_QUANTITY"
+    ]
+]
+
+.record [
+    .name market-subscription
+    .proto-name "MarketSubscription"
+    .field [
+        .type market
+    ]
+]
+
+.record [
+    .name market-unsubscription
+    .proto-name "MarketUnsubscription"
+    .field [
+        .type market
+    ]
+]
+
+.record [
+    .name market-request
+    .proto-name "MarketRequest"
+    .field [
+        .type market
+    ]
+]
+
+.record [
+    .name market-quotes-request
+    .proto-name "MarketQuotesRequest"
+    .field [
+        .type market
+    ]
+    .field [
+        .name depth
+        .type uint32
+        .optional
+        .default 5
+    ]
+]
+
+.record [
+    .name market-quotes
+    .proto-name "MarketQuotes"
+    .field [
+        .type market
+    ]
+    .field [
+        .name depth
+        .type uint32
+    ]
+    .field [
+        .type contract-quotes
+        .repeated
+    ]
+]
+
+.record [
+    .name contract-quotes
+    .proto-name "ContractQuotes"
+    .field [
+        .type contract
+    ]
+    .field [
+        .name buy-quotes
+        .type quote
+        .repeated
+    ]
+    .field [
+        .name sell-quotes
+        .type quote
+        .repeated
+    ]
+]
+
+.record [
+    .name contract-quote
+    .proto-name "ContractQuote"
+    .field [
+        .type contract
+    ]
+    .field [
+        .type side
+    ]
+    .field [
+        .name quotes
+        .type quote
+        .repeated
+    ]
+]
+
+.record [
+    .name quote
+    .proto-name "Quote"
+    .field [
+        .type price-type
+    ]
+    .field [
+        .name price
+        .type uint32
+    ]
+    .field [
+        .type quantity-type
+    ]
+    .field [
+        .name quantity
+        .type uint32
+    ]
+]
+
+.record [
+    .name id-invalid
+    .proto-name "IdInvalid"
+    .field [
+        .type seq
+    ]
+    .field [
+        .name field
+        .type string
+        .optional
+    ]
+]
+
+.record [
+    .name disconnect-instruction
+    .proto-name "DisconnectInstruction"
+    .field [
+        .name preference
+        .type disconnect-instruction-preference
+    ]
+]
+
+.record [
+    .name disconnect-instruction-response
+    .proto-name "DisconnectInstructionResponse"
+    .field [
+        .type seq
+    ]
+    .field [
+        .name preference
+        .type disconnect-instruction-preference
+    ]
+]
+
+.enum [
+    .name quantity-type
+    .proto-name "QuantityType"
+    .option [
+        .name payoff-currency
+    ]
+    .option [
+        .name premium-currency
+    ]
+]
+
+.enum [
+    .name price-type
+    .proto-name "PriceType"
+    .option [
+        .name percent-odds
+    ]
+    .option [
+        .name decimal-odds
+    ]
+]
+
+.enum [
+    .name side
+    .proto-name "Side"
+    .option [
+        .name buy
+    ]
+    .option [
+        .name sell
+    ]
+]
+
+.enum [
+    .name disconnect-instruction-preference
+    .proto-name "DisconnectInstructionPreference"
+    .option [
+        .name none
+    ]
+    .option [
+        .name cancel-all
+    ]
 ]
