@@ -7,7 +7,7 @@ all: proto docs buildclean
 	mkdir -p build/
 	cp seto.piqi build/
 	cp deps/eto_common/eto.piqi build/
-	cp seto.proto build/
+	cp seto.piqi.proto build/
 	cp -r deps/smk_api_docs/build build/docs
 
 deps:
@@ -15,7 +15,7 @@ deps:
 
 proto: deps
 	piqi to-proto -I deps/eto_common/ \
-		seto.piqi -o seto.proto
+		seto.piqi -o seto.piqi.proto
 
 docs: deps
 	cd deps/smk_api_docs/ && \
