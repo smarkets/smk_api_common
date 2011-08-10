@@ -58,6 +58,7 @@
   .field [ .type contract ]
   .field [ .name buy .type quote-list ]
   .field [ .name sell .type quote-list ]
+  .field [ .type match-list ]
 ]
 .record [
   .name contract-quote
@@ -220,4 +221,14 @@
     .name name
     .type binary
   ]
+]
+
+.record [
+  .name match
+  .field [ .type price ]
+  .field [ .type quantity ]
+]
+.list [
+  .name match-list
+  .type match
 ]
