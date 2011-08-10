@@ -30,7 +30,6 @@
   .option [ .type market-quotes-request ]
   .option [ .type market-quotes ]
   .option [ .type contract-quotes ]
-  .option [ .type contract-quote ]
   .option [ .type id-invalid ]
 ]
 .record [
@@ -58,13 +57,7 @@
   .field [ .type contract ]
   .field [ .name buy .type quote-list ]
   .field [ .name sell .type quote-list ]
-  .field [ .type match-list ]
-]
-.record [
-  .name contract-quote
-  .field [ .type contract ]
-  .field [ .type side ]
-  .field [ .type quote-list ]
+  .field [ .type execution-list ]
 ]
 .list [
   .name quote-list
@@ -224,11 +217,11 @@
 ]
 
 .record [
-  .name match
+  .name execution
   .field [ .type price ]
   .field [ .type quantity ]
 ]
 .list [
-  .name match-list
-  .type match
+  .name execution-list
+  .type execution
 ]
