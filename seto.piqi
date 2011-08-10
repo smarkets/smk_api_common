@@ -105,78 +105,78 @@
 
 .enum [
     .name payload-type
-    .proto-name "Payload_Type"
+    .proto-name "PayloadType"
     .option [
         .name eto
-        .proto-name "Payload_ETO"
+        .proto-name "PAYLOAD_ETO"
     ]
     .option [
         .name login
-        .proto-name "Payload_LOGIN"
+        .proto-name "PAYLOAD_LOGIN"
     ]
     .option [
         .name order-create
-        .proto-name "Payload_ORDER_CREATE"
+        .proto-name "PAYLOAD_ORDER_CREATE"
     ]
     .option [
         .name order-rejected
-        .proto-name "Payload_ORDER_REJECTED"
+        .proto-name "PAYLOAD_ORDER_REJECTED"
     ]
     .option [
         .name order-accepted
-        .proto-name "Payload_ORDER_ACCEPTED"
+        .proto-name "PAYLOAD_ORDER_ACCEPTED"
     ]
     .option [
         .name order-executed
-        .proto-name "Payload_ORDER_EXECUTED"
+        .proto-name "PAYLOAD_ORDER_EXECUTED"
     ]
     .option [
         .name order-cancel
-        .proto-name "Payload_ORDER_CANCEL"
+        .proto-name "PAYLOAD_ORDER_CANCEL"
     ]
     .option [
         .name order-cancelled
-        .proto-name "Payload_ORDER_CANCELLED"
+        .proto-name "PAYLOAD_ORDER_CANCELLED"
     ]
     .option [
         .name order-invalid
-        .proto-name "Payload_ORDER_INVALID"
+        .proto-name "PAYLOAD_ORDER_INVALID"
     ]
     .option [
         .name market-subscription
-        .proto-name "Payload_MARKET_SUBSCRIPTION"
+        .proto-name "PAYLOAD_MARKET_SUBSCRIPTION"
     ]
     .option [
         .name market-unsubscription
-        .proto-name "Payload_MARKET_UNSUBSCRIPTION"
+        .proto-name "PAYLOAD_MARKET_UNSUBSCRIPTION"
     ]
     .option [
         .name market-request
-        .proto-name "Payload_MARKET_REQUEST"
+        .proto-name "PAYLOAD_MARKET_REQUEST"
     ]
     .option [
         .name market-quotes-request
-        .proto-name "Payload_MARKET_QUOTES_REQUEST"
+        .proto-name "PAYLOAD_MARKET_QUOTES_REQUEST"
     ]
     .option [
         .name market-quotes
-        .proto-name "Payload_MARKET_QUOTES"
+        .proto-name "PAYLOAD_MARKET_QUOTES"
     ]
     .option [
         .name contract-quote
-        .proto-name "Payload_CONTRACT_QUOTE"
+        .proto-name "PAYLOAD_CONTRACT_QUOTE"
     ]
     .option [
         .name id-invalid
-        .proto-name "Payload_ID_INVALID"
+        .proto-name "PAYLOAD_ID_INVALID"
     ]
     .option [
         .name disconnect-instruction
-        .proto-name "Payload_DISCONNECT_INSTRUCTION"
+        .proto-name "PAYLOAD_DISCONNECT_INSTRUCTION"
     ]
     .option [
         .name disconnect-instruction-response
-        .proto-name "Payload_DISCONNECT_INSTRUCTION_RESPONSE"
+        .proto-name "PAYLOAD_DISCONNECT_INSTRUCTION_RESPONSE"
     ]
 ]
 
@@ -282,61 +282,61 @@
 
 .enum [
     .name order-create-type
-    .proto-name "OrderCreate_Type"
+    .proto-name "OrderCreateType"
     .option [
         .name market
-        .proto-name "OrderCreate_MARKET"
+        .proto-name "ORDER_CREATE_MARKET"
     ]
     .option [
         .name limit
-        .proto-name "OrderCreate_LIMIT"
+        .proto-name "ORDER_CREATE_LIMIT"
     ]
     .option [
         .name stop
-        .proto-name "OrderCreate_STOP"
+        .proto-name "ORDER_CREATE_STOP"
     ]
 ]
 
 .enum [
     .name order-create-time-in-force
-    .proto-name "OrderCreate_TimeInForce"
+    .proto-name "OrderCreateTimeInForce"
     .option [
         .name gtc
-        .proto-name "OrderCreate_GTC"
+        .proto-name "ORDER_CREATE_GTC"
     ]
     .option [
         .name ioc
-        .proto-name "OrderCreate_IOC"
+        .proto-name "ORDER_CREATE_IOC"
     ]
 ]
 
 .enum [
     .name order-create-auto-cancel
-    .proto-name "OrderCreate_AutoCancel"
+    .proto-name "OrderCreateAutoCancel"
     .option [
         .name preference
-        .proto-name "OrderCreate_PREFERENCE"
+        .proto-name "ORDER_CREATE_PREFERENCE"
     ]
     .option [
         .name ignore-preference
-        .proto-name "OrderCreate_IGNORE_PREFERENCE"
+        .proto-name "ORDER_CREATE_IGNORE_PREFERENCE"
     ]
 ]
 
 .enum [
     .name order-create-liquidity
-    .proto-name "OrderCreate_Liquidity"
+    .proto-name "OrderCreateLiquidity"
     .option [
         .name any
-        .proto-name "OrderCreate_ANY"
+        .proto-name "ORDER_CREATE_LIQUIDITY_ANY"
     ]
     .option [
         .name make
-        .proto-name "OrderCreate_MAKE"
+        .proto-name "ORDER_CREATE_LIQUIDITY_MAKE"
     ]
     .option [
         .name take
-        .proto-name "OrderCreate_TAKE"
+        .proto-name "ORDER_CREATE_LIQUIDITY_TAKE"
     ]
 ]
 
@@ -354,30 +354,30 @@
 
 .enum [
     .name order-rejected-reason
-    .proto-name "OrderRejected_Reason"
+    .proto-name "OrderRejectedReason"
     .option [
         .name insufficient-funds
-        .proto-name "OrderRejected_INSUFFICIENT_FUNDS"
+        .proto-name "ORDER_REJECTED_INSUFFICIENT_FUNDS"
     ]
     .option [
         .name limit-exceeded
-        .proto-name "OrderRejected_LIMIT_EXCEEDED"
+        .proto-name "ORDER_REJECTED_LIMIT_EXCEEDED"
     ]
     .option [
         .name market-not-open
-        .proto-name "OrderRejected_MARKET_NOT_OPEN"
+        .proto-name "ORDER_REJECTED_MARKET_NOT_OPEN"
     ]
     .option [
         .name market-settled
-        .proto-name "OrderRejected_MARKET_SETTLED"
+        .proto-name "ORDER_REJECTED_MARKET_SETTLED"
     ]
     .option [
         .name market-halted
-        .proto-name "OrderRejected_MARKET_HALTED"
+        .proto-name "ORDER_REJECTED_MARKET_HALTED"
     ]
     .option [
         .name crossed-self
-        .proto-name "OrderRejected_CROSSED_SELF"
+        .proto-name "ORDER_REJECTED_CROSSED_SELF"
     ]
 ]
 
@@ -433,18 +433,18 @@
 
 .enum [
     .name order-cancelled-reason
-    .proto-name "OrderCancelled_Reason"
+    .proto-name "OrderCancelledReason"
     .option [
         .name member-requested
-        .proto-name "OrderCancelled_MEMBER_REQUESTED"
+        .proto-name "ORDER_CANCELLED_MEMBER_REQUESTED"
     ]
     .option [
         .name market-halted
-        .proto-name "OrderCancelled_MARKET_HALTED"
+        .proto-name "ORDER_CANCELLED_MARKET_HALTED"
     ]
     .option [
         .name insufficient-liquidity
-        .proto-name "OrderCancelled_INSUFFICIENT_LIQUIDITY"
+        .proto-name "ORDER_CANCELLED_INSUFFICIENT_LIQUIDITY"
     ]
 ]
 
@@ -463,14 +463,14 @@
 
 .enum [
     .name order-invalid-reason
-    .proto-name "OrderInvalid_Reason"
+    .proto-name "OrderInvalidReason"
     .option [
         .name invalid-price
-        .proto-name "OrderInvalid_INVALID_PRICE"
+        .proto-name "ORDER_INVALID_INVALID_PRICE"
     ]
     .option [
         .name invalid-quantity
-        .proto-name "OrderInvalid_INVALID_QUANTITY"
+        .proto-name "ORDER_INVALID_INVALID_QUANTITY"
     ]
 ]
 
@@ -620,9 +620,11 @@
     .proto-name "QuantityType"
     .option [
         .name payoff-currency
+        .proto-name "QUANTITY_PAYOFF_CURRENCY"
     ]
     .option [
         .name premium-currency
+        .proto-name "QUANTITY_PREMIUM_CURRENCY"
     ]
 ]
 
@@ -631,9 +633,11 @@
     .proto-name "PriceType"
     .option [
         .name percent-odds
+        .proto-name "PRICE_PERCENT_ODDS"
     ]
     .option [
         .name decimal-odds
+        .proto-name "PRICE_DECIMAL_ODDS"
     ]
 ]
 
@@ -642,9 +646,11 @@
     .proto-name "Side"
     .option [
         .name buy
+        .proto-name "SIDE_BUY"
     ]
     .option [
         .name sell
+        .proto-name "SIDE_SELL"
     ]
 ]
 
@@ -653,8 +659,10 @@
     .proto-name "DisconnectInstructionPreference"
     .option [
         .name none
+        .proto-name "DISCONNECT_INSTRUCTION_NONE"
     ]
     .option [
         .name cancel-all
+        .proto-name "DISCONNECT_INSTRUCTION_CANCEL_ALL"
     ]
 ]
