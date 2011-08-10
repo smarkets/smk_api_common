@@ -270,31 +270,31 @@
         .type uint32
         .optional
     ]
-    .field [
-        .name tif
-        .type order-create-time-in-force
-        .optional
-    ]
-    .field [
-        .name auto-cancel
-        .type order-create-auto-cancel
-        .optional
-    ]
-    .field [
-        .name minimum-quantity
-        .type uint32
-        .optional
-    ]
-    .field [
-        .name stop-price
-        .type uint32
-        .optional
-    ]
-    .field [
-        .name liquidity
-        .type order-create-liquidity
-        .optional
-    ]
+    % .field [
+    %     .name tif
+    %     .type order-create-time-in-force
+    %     .optional
+    % ]
+    % .field [
+    %     .name auto-cancel
+    %     .type order-create-auto-cancel
+    %     .optional
+    % ]
+    % .field [
+    %     .name minimum-quantity
+    %     .type uint32
+    %     .optional
+    % ]
+    % .field [
+    %     .name stop-price
+    %     .type uint32
+    %     .optional
+    % ]
+    % .field [
+    %     .name liquidity
+    %     .type order-create-liquidity
+    %     .optional
+    % ]
 ]
 
 .enum [
