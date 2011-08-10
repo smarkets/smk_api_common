@@ -30,8 +30,8 @@
         .type payload-type
     ]
     .field [
-        .name eto-seq
-        .type eto/sequenced
+        .name eto-payload
+        .type eto/payload
     ]
     .field [
         .name login
