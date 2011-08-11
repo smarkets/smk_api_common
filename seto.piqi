@@ -243,10 +243,10 @@
   .field [ .type contract ]
   .field [ .type price ]
   .field [ .type quantity ]
-  .field [ .type timestamp ]
+  .field [ .type microseconds ]
 ]
 
 .alias [
-  .name timestamp
+  .name microseconds
   .type uint64
 ]
