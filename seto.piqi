@@ -47,6 +47,7 @@
   .field [
     .name contract-quotes
     .type contract-quotes-list
+    .optional
   ]
 ]
 
