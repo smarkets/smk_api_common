@@ -44,11 +44,18 @@
 .record [
   .name market-quotes
   .field [ .type group ]
-  .field [ .type contracts-quotes-list ]
+  .field [
+    .name contracts
+    .type contract-quotes-list
+  ]
+  .field [
+    .name last-executions
+    .type contract-execution-list
+  ]
 ]
 
 .list [
-  .name contracts-quotes-list
+  .name contract-quotes-list
   .type contract-quotes
 ]
 
@@ -224,4 +231,22 @@
 .list [
   .name execution-list
   .type execution
+]
+
+.list [
+  .name contract-execution-list
+  .type contract-execution
+]
+
+.record [
+  .name contract-execution
+  .field [ .type contract ]
+  .field [ .type price ]
+  .field [ .type quantity ]
+  .field [ .type timestamp ]
+]
+
+.alias [
+  .name timestamp
+  .type uint64
 ]
