@@ -118,6 +118,16 @@
         .type disconnect-instruction-response
         .optional
     ]
+    .field [
+        .name market-state
+        .type market-state
+        .optional
+    ]
+    .field [
+        .name contract-state
+        .type contract-state
+        .optional
+    ]
 ]
 
 .enum [
@@ -194,6 +204,14 @@
     .option [
         .name disconnect-instruction-response
         .proto-name "PAYLOAD_DISCONNECT_INSTRUCTION_RESPONSE"
+    ]
+    .option [
+        .name market-state
+        .proto-name "PAYLOAD_MARKET_STATE"
+    ]
+    .option [
+        .name contract-state
+        .proto-name "PAYLOAD_CONTRACT_STATE"
     ]
 ]
 
@@ -634,6 +652,34 @@
     .field [
         .name preference
         .type disconnect-instruction-preference
+    ]
+]
+
+.record [
+    .name market-state
+    .proto-name "MarketState"
+    .field [
+        .type market
+    ]
+    .field [
+        .name name
+        .type string
+    ]
+    .field [
+        .name contract-count
+        .type uint32
+    ]
+]
+
+.record [
+    .name contract-state
+    .proto-name "ContractState"
+    .field [
+        .type contract
+    ]
+    .field [
+        .name name
+        .type string
     ]
 ]
 
