@@ -48,10 +48,6 @@
     .name contract-quotes
     .type contract-quotes-list
   ]
-  .field [
-    .name last-executions
-    .type contract-execution-list
-  ]
 ]
 
 .list [
@@ -62,9 +58,26 @@
 .record [
   .name contract-quotes
   .field [ .type contract ]
-  .field [ .name buy .type quote-list ]
-  .field [ .name sell .type quote-list ]
-  .field [ .name executions .type execution-list ]
+  .field [
+    .name buy
+    .type quote-list
+    .optional
+  ]
+  .field [
+    .name sell
+    .type quote-list
+    .optional
+  ]
+  .field [
+    .name executions
+    .type execution-list
+    .optional
+  ]
+  .field [
+    .name last-execution
+    .type execution
+    .optional
+  ]
 ]
 .list [
   .name quote-list
@@ -227,23 +240,14 @@
   .name execution
   .field [ .type price ]
   .field [ .type quantity ]
+  .field [
+    .type microseconds
+    .optional
+  ]
 ]
 .list [
   .name execution-list
   .type execution
-]
-
-.list [
-  .name contract-execution-list
-  .type contract-execution
-]
-
-.record [
-  .name contract-execution
-  .field [ .type contract ]
-  .field [ .type price ]
-  .field [ .type quantity ]
-  .field [ .type microseconds ]
 ]
 
 .alias [
