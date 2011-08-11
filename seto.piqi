@@ -45,7 +45,7 @@
   .name market-quotes
   .field [ .type group ]
   .field [
-    .name contracts
+    .name contract-quotes
     .type contract-quotes-list
   ]
   .field [
