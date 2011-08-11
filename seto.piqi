@@ -57,7 +57,7 @@
   .field [ .type contract ]
   .field [ .name buy .type quote-list ]
   .field [ .name sell .type quote-list ]
-  .field [ .type execution-list ]
+  .field [ .name executions .type execution-list ]
 ]
 .list [
   .name quote-list
