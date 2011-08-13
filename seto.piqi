@@ -26,11 +26,17 @@
   .option [ .type market-subscription ]
   .option [ .type market-unsubscription ]
   .option [ .type market-request ]
+  .option [ .type market-state ]
+  .option [ .type contract-state ]
 
   .option [ .type market-quotes-request ]
   .option [ .type market-quotes ]
   .option [ .type contract-quotes ]
   .option [ .type id-invalid ]
+
+  .option [ .name events-request ]
+
+  .option [ .type http-found ]
 ]
 .record [
   .name id-invalid
@@ -207,36 +213,6 @@
   .type int
 ]
 
-% non-sequenced messages
-
-.extend [
-  .name payload
-  .option [ .type market-data ]
-  .option [ .type contract-data ]
-]
-
-.record [
-  .name market-data
-  .field [ .type group ]
-  .field [
-    .name contract-count
-    .type int
-  ]
-  .field [
-    .name name
-    .type binary
-  ]
-]
-
-.record [
-  .name contract-data
-  .field [ .type contract ]
-  .field [
-    .name name
-    .type binary
-  ]
-]
-
 .record [
   .name execution
   .field [ .type price ]
@@ -254,4 +230,232 @@
 .alias [
   .name microseconds
   .type uint64
+]
+
+.record [
+  .name events
+  .field [
+    .name with-markets
+    .type event-state-list
+  ]
+  .field [
+    .name parents
+    .type event-state-list
+  ]
+  .field [
+    .name entities
+    .type entity-state-list
+  ]
+]
+
+.record [
+  .name event-state
+  .field [
+    .name id
+    .type int
+  ]
+  .field [
+    .name parent
+    .type int
+    .optional
+  ]
+  .field [
+    .name type
+    .type event-type
+    .optional
+  ]
+  .field [
+    .name name
+    .type binary
+  ]
+  .field [
+    .name entities
+    .type entity-relationship-list
+    .optional
+  ]
+  .field [
+    .name markets
+    .type market-state-list
+    .optional
+  ]
+]
+.list [
+  .name market-state-list
+  .type market-state
+]
+.list [
+  .name event-state-list
+  .type event-state
+]
+
+.record [
+  .name market-state
+  .field [
+    .name id
+    .type int
+  ]
+  .field [
+    .name name
+    .type binary
+  ]
+  .field [
+    .name contracts
+    .type contract-state-list
+  ]
+  .field [
+    .name entities
+    .type entity-relationship-list
+    .optional
+  ]
+]
+
+.list [
+  .name contract-state-list
+  .type contract-state
+]
+.record [
+  .name contract-state
+  .field [
+    .name id
+    .type int
+  ]
+  .field [
+    .name type
+    .type contract-type
+    .optional
+  ]
+  .field [ .type slug .optional ]
+  .field [
+    .name entities
+    .type entity-relationship-list
+    .optional
+  ]
+  .field [
+    .name name
+    .type binary
+  ]
+  .field [
+    .name shortname
+    .type binary
+    .optional
+  ]
+]
+
+.enum [
+  .name contract-type
+  .option [ .name half-time-full-time ]
+  .option [ .name correct-score ]
+  .option [ .name generic ]
+  .option [ .name winner ]
+  .option [ .name binary ]
+]
+.list [
+  .name int-list
+  .type int
+]
+.enum [
+  .name event-type
+  .option [ .name football-match ]
+  .option [ .name football-season ]
+  .option [ .name football ]
+  .option [ .name generic ]
+  .option [ .name football-generic ]
+  .option [ .name golf-season ]
+  .option [ .name boxing-season ]
+  .option [ .name formula-1-race ]
+  .option [ .name formula-1-season ]
+  .option [ .name horse-racing-race ]
+  .option [ .name horse-racing-course ]
+  .option [ .name horse-racing ]
+  .option [ .name golf-generic ]
+  .option [ .name eurovision-season ]
+  .option [ .name tennis-match ]
+  .option [ .name tennis-season ]
+  .option [ .name cycling-season ]
+  .option [ .name cycling-race ]
+  .option [ .name motogp-season ]
+]
+
+.record [
+  .name entity-state
+  .field [
+    .name id
+    .type int
+  ]
+  .field [
+    .name type
+    .type entity-type
+    .optional
+  ]
+  .field [
+    .name slug
+    .type binary
+  ]
+  .field [
+    .name shortname
+    .type binary
+  ]
+  .field [
+    .name name
+    .type binary
+  ]
+]
+.list [
+  .name entity-state-list
+  .type entity-state
+]
+.enum [
+  .name entity-type
+  .option [ .name football-national-team ]
+  .option [ .name football-team ]
+  .option [ .name football-competition ]
+  .option [ .name horse-racing-jockey ]
+  .option [ .name horse-racing-horse ]
+  .option [ .name football-player ]
+  .option [ .name football-manager ]
+  .option [ .name generic ]
+]
+.enum [
+  .name entity-relationship-type
+  .option [ .name football-home-team ]
+  .option [ .name football-away-team ]
+  .option [ .name football-competition ]
+  .option [ .name horse-racing-course ]
+  .option [ .name horse-racing-horse ]
+  .option [ .name horse-racing-jockey ]
+  .option [ .name contract-associated ]
+]
+.list [
+  .name entity-relationship-list
+  .type entity-relationship
+]
+.record [
+  .name entity-relationship
+  .field [
+    .name entity
+    .type int
+  ]
+  .field [
+    .name relationship
+    .type entity-relationship-type
+  ]
+]
+
+.alias [
+  .name slug
+  .type binary
+]
+
+.record [
+  .name http-found
+  .field [
+    .type seq
+  ]
+  .field [
+    .type url
+  ]
+]
+.alias [
+  .name url
+  .type binary
 ]
