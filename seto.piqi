@@ -8,6 +8,11 @@
 ]
 
 .alias [
+    .name event
+    .type uuid-128
+]
+
+.alias [
     .name market
     .type uuid-128
 ]
@@ -20,6 +25,26 @@
 .alias [
     .name order
     .type uuid-128
+]
+
+.alias [
+    .name entity
+    .type uuid-128
+]
+
+.alias [
+    .name microseconds
+    .type uint64
+]
+
+.alias [
+    .name slug
+    .type string
+]
+
+.alias [
+    .name url
+    .type string
 ]
 
 .record [
@@ -128,6 +153,16 @@
         .type contract-state
         .optional
     ]
+    .field [
+        .name events-request
+        .type events-request
+        .optional
+    ]
+    .field [
+        .name http-found
+        .type http-found
+        .optional
+    ]
 ]
 
 .enum [
@@ -212,6 +247,14 @@
     .option [
         .name contract-state
         .proto-name "PAYLOAD_CONTRACT_STATE"
+    ]
+    .option [
+        .name events-request
+        .proto-name "PAYLOAD_EVENTS_REQUEST"
+    ]
+    .option [
+        .name http-found
+        .proto-name "PAYLOAD_HTTP_FOUND"
     ]
 ]
 
@@ -555,10 +598,6 @@
         .type market
     ]
     .field [
-        .name depth
-        .type uint32
-    ]
-    .field [
         .name contract-quotes
         .type contract-quotes
         .repeated
@@ -580,6 +619,16 @@
         .name sell-quotes
         .type quote
         .repeated
+    ]
+    .field [
+        .name executions
+        .type execution
+        .repeated
+    ]
+    .field [
+        .name last-execution
+        .type execution
+        .optional
     ]
 ]
 
@@ -732,5 +781,507 @@
     .option [
         .name cancel-all
         .proto-name "DISCONNECT_INSTRUCTION_CANCEL_ALL"
+    ]
+]
+
+.record [
+    .name execution
+    .proto-name "Execution"
+    .field [
+        .name price-type
+        .type price-type
+    ]
+    .field [
+        .name price
+        .type uint32
+    ]
+    .field [
+        .name quantity-type
+        .type quantity-type
+    ]
+    .field [
+        .name quantity
+        .type uint32
+    ]
+    .field [
+        .name microseconds
+        .type microseconds
+        .optional
+    ]
+]
+
+.record [
+    .name events-request
+    .proto-name "EventsRequest"
+    .field [
+        .name type
+        .type events-request-type
+    ]
+    .field [
+        .name politics
+        .type bool
+        .optional
+        .default false
+    ]
+    .field [
+        .name current-affairs
+        .type bool
+        .optional
+        .default false
+    ]
+    .field [
+        .name tv-and-entertainment
+        .type bool
+        .optional
+        .default false
+    ]
+    .field [
+        .name sport-by-date
+        .type sport-by-date
+        .optional
+    ]
+    .field [
+        .name sport-other
+        .type bool
+        .optional
+        .default false
+    ]
+]
+
+.enum [
+    .name events-request-type
+    .proto-name "EventsRequestType"
+    .option [
+        .name politics
+        .proto-name "EVENTS_REQUEST_POLITICS"
+    ]
+    .option [
+        .name current-affairs
+        .proto-name "EVENTS_REQUEST_CURRENT_AFFAIRS"
+    ]
+    .option [
+        .name tv-and-entertainment
+        .proto-name "EVENTS_REQUEST_TV_AND_ENTERTAINMENT"
+    ]
+    .option [
+        .name sport-by-date
+        .proto-name "EVENTS_REQUEST_SPORT_BY_DATE"
+    ]
+    .option [
+        .name sport-other
+        .proto-name "EVENTS_REQUEST_SPORT_OTHER"
+    ]
+]
+
+.record [
+    .name sport-by-date
+    .proto-name "SportByDate"
+    .field [
+        .name type
+        .type sport-by-date-type
+    ]
+    .field [
+        .name date
+        .type date
+    ]
+]
+
+.enum [
+    .name sport-by-date-type
+    .proto-name "SportByDateType"
+    .option [
+        .name football
+        .proto-name "SPORT_BY_DATE_FOOTBALL"
+    ]
+    .option [
+        .name horse-racing
+        .proto-name "SPORT_BY_DATE_HORSE_RACING"
+    ]
+    .option [
+        .name tennis
+        .proto-name "SPORT_BY_DATE_TENNIS"
+    ]
+]
+
+.record [
+    .name events
+    .proto-name "Events"
+    .field [
+        .name with-markets
+        .type event-info
+        .repeated
+    ]
+    .field [
+        .name parents
+        .type event-info
+        .repeated
+    ]
+]
+
+.record [
+    .name event-info
+    .proto-name "EventInfo"
+    .field [
+        .name event
+        .type event
+    ]
+    .field [
+        .name type
+        .type event-type
+    ]
+    .field [
+        .name category
+        .type event-category
+    ]
+    .field [
+        .name slug
+        .type slug
+    ]
+    .field [
+        .name name
+        .type string
+    ]
+    .field [
+        .name parent
+        .type event
+        .optional
+    ]
+    .field [
+        .name start-date
+        .type date
+        .optional
+    ]
+    .field [
+        .name start-time
+        .type time
+        .optional
+    ]
+    .field [
+        .name end-date
+        .type date
+        .optional
+    ]
+    .field [
+        .name end-time
+        .type time
+        .optional
+    ]
+    .field [
+        .name entities
+        .type entity-relationship
+        .repeated
+    ]
+    .field [
+        .name markets
+        .type market-info
+        .repeated
+    ]
+    .field [
+        .name description
+        .type string
+        .optional
+    ]
+]
+
+.record [
+    .name market-info
+    .proto-name "MarketInfo"
+    .field [
+        .name market
+        .type market
+    ]
+    .field [
+        .name contracts
+        .type contract-info
+        .repeated
+    ]
+    .field [
+        .name slug
+        .type slug
+    ]
+    .field [
+        .name name
+        .type string
+    ]
+    .field [
+        .name start-date
+        .type date
+        .optional
+    ]
+    .field [
+        .name start-time
+        .type time
+        .optional
+    ]
+    .field [
+        .name end-date
+        .type date
+        .optional
+    ]
+    .field [
+        .name end-time
+        .type time
+        .optional
+    ]
+    .field [
+        .name entities
+        .type entity-relationship
+        .repeated
+    ]
+    .field [
+        .name shortname
+        .type string
+        .optional
+    ]
+]
+
+.record [
+    .name contract-info
+    .proto-name "ContractInfo"
+    .field [
+        .name contract
+        .type contract
+    ]
+    .field [
+        .name type
+        .type contract-type
+    ]
+    .field [
+        .name slug
+        .type slug
+    ]
+    .field [
+        .name name
+        .type string
+    ]
+    .field [
+        .name entities
+        .type entity-relationship
+        .repeated
+    ]
+    .field [
+        .name shortname
+        .type string
+        .optional
+    ]
+]
+
+.enum [
+    .name contract-type
+    .proto-name "ContractType"
+    .option [
+        .name half-time-full-time
+        .proto-name "CONTRACT_HALF_TIME_FULL_TIME"
+    ]
+    .option [
+        .name correct-score
+        .proto-name "CONTRACT_CORRECT_SCORE"
+    ]
+    .option [
+        .name generic
+        .proto-name "CONTRACT_GENERIC"
+    ]
+    .option [
+        .name winner
+        .proto-name "CONTRACT_WINNER"
+    ]
+    .option [
+        .name binary
+        .proto-name "CONTRACT_BINARY"
+    ]
+    .option [
+        .name over-under
+        .proto-name "CONTRACT_OVER_UNDER"
+    ]
+]
+
+.enum [
+    .name event-type
+    .proto-name "EventType"
+    .option [
+        .name football-match
+        .proto-name "EVENT_FOOTBALL_MATCH"
+    ]
+    .option [
+        .name football-season
+        .proto-name "EVENT_FOOTBALL_SEASON"
+    ]
+    .option [
+        .name football
+        .proto-name "EVENT_FOOTBALL"
+    ]
+    .option [
+        .name generic
+        .proto-name "EVENT_GENERIC"
+    ]
+    .option [
+        .name football-generic
+        .proto-name "EVENT_FOOTBALL_GENERIC"
+    ]
+    .option [
+        .name golf-season
+        .proto-name "EVENT_GOLF_SEASON"
+    ]
+    .option [
+        .name boxing-season
+        .proto-name "EVENT_BOXING_SEASON"
+    ]
+    .option [
+        .name formula-1-race
+        .proto-name "EVENT_FORMULA_1_RACE"
+    ]
+    .option [
+        .name formula-1-season
+        .proto-name "EVENT_FORMULA_1_SEASON"
+    ]
+    .option [
+        .name horse-racing-race
+        .proto-name "EVENT_HORSE_RACING_RACE"
+    ]
+    .option [
+        .name horse-racing-course
+        .proto-name "EVENT_HORSE_RACING_COURSE"
+    ]
+    .option [
+        .name horse-racing
+        .proto-name "EVENT_HORSE_RACING"
+    ]
+    .option [
+        .name golf-generic
+        .proto-name "EVENT_GOLF_GENERIC"
+    ]
+    .option [
+        .name eurovision-season
+        .proto-name "EVENT_EUROVISION_SEASON"
+    ]
+    .option [
+        .name tennis-match
+        .proto-name "EVENT_TENNIS_MATCH"
+    ]
+    .option [
+        .name tennis-season
+        .proto-name "EVENT_TENNIS_SEASON"
+    ]
+    .option [
+        .name cycling-season
+        .proto-name "EVENT_CYCLING_SEASON"
+    ]
+    .option [
+        .name cycling-race
+        .proto-name "EVENT_CYCLING_RACE"
+    ]
+    .option [
+        .name motogp-season
+        .proto-name "EVENT_MOTOGP_SEASON"
+    ]
+]
+
+.enum [
+    .name entity-relationship-type
+    .proto-name "EntityRelationshipType"
+    .option [
+        .name football-home-team
+        .proto-name "ENTITY_RELATIONSHIP_FOOTBALL_HOME_TEAM"
+    ]
+    .option [
+        .name football-away-team
+        .proto-name "ENTITY_RELATIONSHIP_FOOTBALL_AWAY_TEAM"
+    ]
+    .option [
+        .name football-competition
+        .proto-name "ENTITY_RELATIONSHIP_FOOTBALL_COMPETITION"
+    ]
+    .option [
+        .name horse-racing-course
+        .proto-name "ENTITY_RELATIONSHIP_HORSE_RACING_COURSE"
+    ]
+    .option [
+        .name horse-racing-horse
+        .proto-name "ENTITY_RELATIONSHIP_HORSE_RACING_HORSE"
+    ]
+    .option [
+        .name horse-racing-jockey
+        .proto-name "ENTITY_RELATIONSHIP_HORSE_RACING_JOCKEY"
+    ]
+    .option [
+        .name contract-associated
+        .proto-name "ENTITY_RELATIONSHIP_CONTRACT_ASSOCIATED"
+    ]
+]
+
+.record [
+    .name entity-relationship
+    .proto-name "EntityRelationship"
+    .field [
+        .name entity
+        .type entity
+    ]
+    .field [
+        .name relationship
+        .type entity-relationship-type
+    ]
+]
+
+.record [
+    .name http-found
+    .proto-name "HttpFound"
+    .field [
+        .name seq
+        .type seq
+    ]
+    .field [
+        .name url
+        .type url
+    ]
+]
+
+.record [
+    .name date
+    .proto-name "Date"
+    .field [
+        .name year
+        .type uint32
+    ]
+    .field [
+        .name month
+        .type uint32
+    ]
+    .field [
+        .name day
+        .type uint32
+    ]
+]
+
+.record [
+    .name time
+    .proto-name "Time"
+    .field [
+        .name hour
+        .type uint32
+    ]
+    .field [
+        .name minute
+        .type uint32
+    ]
+]
+
+.enum [
+    .name event-category
+    .proto-name "EventCategory"
+    .option [
+        .name sports
+        .proto-name "EVENT_CATEGORY_SPORTS"
+    ]
+    .option [
+        .name politics
+        .proto-name "EVENT_CATEGORY_POLITICS"
+    ]
+    .option [
+        .name current-affairs
+        .proto-name "EVENT_CATEGORY_CURRENT_AFFAIRS"
+    ]
+    .option [
+        .name tv-and-entertainment
+        .proto-name "EVENT_CATEGORY_TV_AND_ENTERTAINMENT"
     ]
 ]
