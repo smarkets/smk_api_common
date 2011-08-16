@@ -274,10 +274,10 @@
   .field [
     .name type
     .type event-type
-    .optional
   ]
   .field [
-    .type category
+    .name category
+    .type event-category
   ]
   .field [
     .name start-date
@@ -393,7 +393,6 @@
   .field [
     .name type
     .type contract-type
-    .optional
   ]
   .field [
     .name entities
@@ -520,7 +519,7 @@
   ]
 ]
 .enum [
-  .name category
+  .name event-category
   .option [ .name sports ]
   .option [ .name politics ]
   .option [ .name current-affairs ]
