@@ -229,9 +229,8 @@
   .option [ .name politics ]
   .option [ .name current-affairs ]
   .option [ .name tv-and-entertainment ]
-  .option [ .name football-other ]
-  .option [ .name sport-other ]
   .option [ .type sport-by-date ]
+  .option [ .name sport-other ]
 ]
 .record [
   .name sport-by-date
