@@ -25,7 +25,6 @@
 
   .option [ .type market-subscription ]
   .option [ .type market-unsubscription ]
-  .option [ .type market-request ]
 
   .option [ .type market-quotes-request ]
   .option [ .type market-quotes ]
@@ -92,11 +91,6 @@
   .name quote
   .field [ .type price ]
   .field [ .type quantity ]
-]
-
-.record [
-  .name market-request
-  .field [ .type group ]
 ]
 
 .record [
