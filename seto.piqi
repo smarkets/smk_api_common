@@ -26,15 +26,13 @@
   .option [ .type market-subscription ]
   .option [ .type market-unsubscription ]
   .option [ .type market-request ]
-  .option [ .type market-state ]
-  .option [ .type contract-state ]
 
   .option [ .type market-quotes-request ]
   .option [ .type market-quotes ]
   .option [ .type contract-quotes ]
   .option [ .type id-invalid ]
 
-  .option [ .name events-request ]
+  .option [ .type events-request ]
 
   .option [ .type http-found ]
 ]
@@ -232,24 +230,45 @@
   .type uint64
 ]
 
+.variant [
+  .name events-request
+  .option [ .name politics ]
+  .option [ .name current-affairs ]
+  .option [ .name tv-and-entertainment ]
+  .option [ .name football-other ]
+  .option [ .name sport-other ]
+  .option [ .type sport-by-date ]
+]
+.record [
+  .name sport-by-date
+  .field [
+    .name type
+    .type sport-by-date-type
+  ]
+  .field [
+    .type date
+  ]
+]
+.enum [
+  .name sport-by-date-type
+  .option [ .name football ]
+  .option [ .name horse-racing ]
+  .option [ .name tennis ]
+]
 .record [
   .name events
   .field [
     .name with-markets
-    .type event-state-list
+    .type event-info-list
   ]
   .field [
     .name parents
-    .type event-state-list
-  ]
-  .field [
-    .name entities
-    .type entity-state-list
+    .type event-info-list
   ]
 ]
 
 .record [
-  .name event-state
+  .name event-info
   .field [
     .name id
     .type int
@@ -265,8 +284,27 @@
     .optional
   ]
   .field [
-    .name name
-    .type binary
+    .type category
+  ]
+  .field [
+    .name start-date
+    .type date
+    .optional
+  ]
+  .field [
+    .name start-time
+    .type time
+    .optional
+  ]
+  .field [
+    .name end-date
+    .type date
+    .optional
+  ]
+  .field [
+    .name end-time
+    .type time
+    .optional
   ]
   .field [
     .name entities
@@ -275,46 +313,86 @@
   ]
   .field [
     .name markets
-    .type market-state-list
+    .type market-info-list
     .optional
   ]
-]
-.list [
-  .name market-state-list
-  .type market-state
-]
-.list [
-  .name event-state-list
-  .type event-state
-]
-
-.record [
-  .name market-state
   .field [
-    .name id
-    .type int
+    .type slug
   ]
   .field [
     .name name
     .type binary
   ]
   .field [
+    .name description
+    .type binary
+    .optional
+  ]
+]
+.list [
+  .name market-info-list
+  .type market-info
+]
+.list [
+  .name event-info-list
+  .type event-info
+]
+
+.record [
+  .name market-info
+  .field [
+    .name id
+    .type int
+  ]
+  .field [
+    .name start-date
+    .type date
+    .optional
+  ]
+  .field [
+    .name start-time
+    .type time
+    .optional
+  ]
+  .field [
+    .name end-date
+    .type date
+    .optional
+  ]
+  .field [
+    .name end-time
+    .type time
+    .optional
+  ]
+  .field [
     .name contracts
-    .type contract-state-list
+    .type contract-info-list
   ]
   .field [
     .name entities
     .type entity-relationship-list
     .optional
   ]
+  .field [
+    .type slug
+  ]
+  .field [
+    .name name
+    .type binary
+  ]
+  .field [
+    .name shortname
+    .type binary
+    .optional
+  ]
 ]
 
 .list [
-  .name contract-state-list
-  .type contract-state
+  .name contract-info-list
+  .type contract-info
 ]
 .record [
-  .name contract-state
+  .name contract-info
   .field [
     .name id
     .type int
@@ -324,11 +402,13 @@
     .type contract-type
     .optional
   ]
-  .field [ .type slug .optional ]
   .field [
     .name entities
     .type entity-relationship-list
     .optional
+  ]
+  .field [
+    .type slug
   ]
   .field [
     .name name
@@ -376,45 +456,6 @@
   .option [ .name motogp-season ]
 ]
 
-.record [
-  .name entity-state
-  .field [
-    .name id
-    .type int
-  ]
-  .field [
-    .name type
-    .type entity-type
-    .optional
-  ]
-  .field [
-    .name slug
-    .type binary
-  ]
-  .field [
-    .name shortname
-    .type binary
-  ]
-  .field [
-    .name name
-    .type binary
-  ]
-]
-.list [
-  .name entity-state-list
-  .type entity-state
-]
-.enum [
-  .name entity-type
-  .option [ .name football-national-team ]
-  .option [ .name football-team ]
-  .option [ .name football-competition ]
-  .option [ .name horse-racing-jockey ]
-  .option [ .name horse-racing-horse ]
-  .option [ .name football-player ]
-  .option [ .name football-manager ]
-  .option [ .name generic ]
-]
 .enum [
   .name entity-relationship-type
   .option [ .name football-home-team ]
@@ -458,4 +499,37 @@
 .alias [
   .name url
   .type binary
+]
+.record [
+  .name date
+  .field [
+    .name year
+    .type int
+  ]
+  .field [
+    .name month
+    .type int
+  ]
+  .field [
+    .name day
+    .type int
+  ]
+]
+.record [
+  .name time
+  .field [
+    .name hour
+    .type int
+  ]
+  .field [
+    .name minute
+    .type int
+  ]
+]
+.enum [
+  .name category
+  .option [ .name sports ]
+  .option [ .name politics ]
+  .option [ .name current-affairs ]
+  .option [ .name tv-and-entertainment ]
 ]
