@@ -124,16 +124,6 @@
         .optional
     ]
     .field [
-        .name disconnect-instruction
-        .type disconnect-instruction
-        .optional
-    ]
-    .field [
-        .name disconnect-instruction-response
-        .type disconnect-instruction-response
-        .optional
-    ]
-    .field [
         .name events-request
         .type events-request
         .optional
@@ -209,14 +199,6 @@
         .proto-name "PAYLOAD_ID_INVALID"
     ]
     .option [
-        .name disconnect-instruction
-        .proto-name "PAYLOAD_DISCONNECT_INSTRUCTION"
-    ]
-    .option [
-        .name disconnect-instruction-response
-        .proto-name "PAYLOAD_DISCONNECT_INSTRUCTION_RESPONSE"
-    ]
-    .option [
         .name events-request
         .proto-name "PAYLOAD_EVENTS_REQUEST"
     ]
@@ -268,9 +250,11 @@
         .type order-create-type
     ]
     .field [
+        .name market
         .type market
     ]
     .field [
+        .name contract
         .type contract
     ]
     .field [
@@ -286,10 +270,6 @@
         .type uint32
     ]
     .field [
-        .name display-quantity
-        .type uint32
-    ]
-    .field [
         .name price-type
         .type price-type
         .optional
@@ -299,90 +279,14 @@
         .type uint32
         .optional
     ]
-    % .field [
-    %     .name tif
-    %     .type order-create-time-in-force
-    %     .optional
-    % ]
-    % .field [
-    %     .name auto-cancel
-    %     .type order-create-auto-cancel
-    %     .optional
-    % ]
-    % .field [
-    %     .name minimum-quantity
-    %     .type uint32
-    %     .optional
-    % ]
-    % .field [
-    %     .name stop-price
-    %     .type uint32
-    %     .optional
-    % ]
-    % .field [
-    %     .name liquidity
-    %     .type order-create-liquidity
-    %     .optional
-    % ]
 ]
 
 .enum [
     .name order-create-type
     .proto-name "OrderCreateType"
     .option [
-        .name market
-        .proto-name "ORDER_CREATE_MARKET"
-    ]
-    .option [
         .name limit
         .proto-name "ORDER_CREATE_LIMIT"
-    ]
-    .option [
-        .name stop
-        .proto-name "ORDER_CREATE_STOP"
-    ]
-]
-
-.enum [
-    .name order-create-time-in-force
-    .proto-name "OrderCreateTimeInForce"
-    .option [
-        .name gtc
-        .proto-name "ORDER_CREATE_GTC"
-    ]
-    .option [
-        .name ioc
-        .proto-name "ORDER_CREATE_IOC"
-    ]
-]
-
-.enum [
-    .name order-create-auto-cancel
-    .proto-name "OrderCreateAutoCancel"
-    .option [
-        .name preference
-        .proto-name "ORDER_CREATE_PREFERENCE"
-    ]
-    .option [
-        .name ignore-preference
-        .proto-name "ORDER_CREATE_IGNORE_PREFERENCE"
-    ]
-]
-
-.enum [
-    .name order-create-liquidity
-    .proto-name "OrderCreateLiquidity"
-    .option [
-        .name any
-        .proto-name "ORDER_CREATE_LIQUIDITY_ANY"
-    ]
-    .option [
-        .name make
-        .proto-name "ORDER_CREATE_LIQUIDITY_MAKE"
-    ]
-    .option [
-        .name take
-        .proto-name "ORDER_CREATE_LIQUIDITY_TAKE"
     ]
 ]
 
@@ -436,6 +340,7 @@
         .type eto/seq
     ]
     .field [
+        .name order
         .type order
     ]
 ]
@@ -444,6 +349,7 @@
     .name order-executed
     .proto-name "OrderExecuted"
     .field [
+        .name order
         .type order
     ]
     .field [
@@ -464,6 +370,7 @@
     .name order-cancel
     .proto-name "OrderCancel"
     .field [
+        .name order
         .type order
     ]
 ]
@@ -472,6 +379,7 @@
     .name order-cancelled
     .proto-name "OrderCancelled"
     .field [
+        .name order
         .type order
     ]
     .field [
@@ -528,6 +436,7 @@
     .name market-subscription
     .proto-name "MarketSubscription"
     .field [
+        .name market
         .type market
     ]
 ]
@@ -536,6 +445,7 @@
     .name market-unsubscription
     .proto-name "MarketUnsubscription"
     .field [
+        .name market
         .type market
     ]
 ]
@@ -544,6 +454,7 @@
     .name market-quotes-request
     .proto-name "MarketQuotesRequest"
     .field [
+        .name market
         .type market
     ]
     .field [
@@ -558,6 +469,7 @@
     .name market-quotes
     .proto-name "MarketQuotes"
     .field [
+        .name market
         .type market
     ]
     .field [
@@ -565,21 +477,30 @@
         .type contract-quotes
         .repeated
     ]
+    .field [
+        .name price-type
+        .type price-type
+    ]
+    .field [
+        .name quantity-type
+        .type quantity-type
+    ]
 ]
 
 .record [
     .name contract-quotes
     .proto-name "ContractQuotes"
     .field [
+        .name contract
         .type contract
     ]
     .field [
-        .name buy-quotes
+        .name buys
         .type quote
         .repeated
     ]
     .field [
-        .name sell-quotes
+        .name sells
         .type quote
         .repeated
     ]
@@ -599,6 +520,7 @@
     .name contract-quote
     .proto-name "ContractQuote"
     .field [
+        .name contract
         .type contract
     ]
     .field [
@@ -616,16 +538,8 @@
     .name quote
     .proto-name "Quote"
     .field [
-        .name price-type
-        .type price-type
-    ]
-    .field [
         .name price
         .type uint32
-    ]
-    .field [
-        .name quantity-type
-        .type quantity-type
     ]
     .field [
         .name quantity
@@ -647,38 +561,12 @@
     ]
 ]
 
-.record [
-    .name disconnect-instruction
-    .proto-name "DisconnectInstruction"
-    .field [
-        .name preference
-        .type disconnect-instruction-preference
-    ]
-]
-
-.record [
-    .name disconnect-instruction-response
-    .proto-name "DisconnectInstructionResponse"
-    .field [
-        .name seq
-        .type eto/seq
-    ]
-    .field [
-        .name preference
-        .type disconnect-instruction-preference
-    ]
-]
-
 .enum [
     .name quantity-type
     .proto-name "QuantityType"
     .option [
         .name payoff-currency
         .proto-name "QUANTITY_PAYOFF_CURRENCY"
-    ]
-    .option [
-        .name premium-currency
-        .proto-name "QUANTITY_PREMIUM_CURRENCY"
     ]
 ]
 
@@ -688,10 +576,6 @@
     .option [
         .name percent-odds
         .proto-name "PRICE_PERCENT_ODDS"
-    ]
-    .option [
-        .name decimal-odds
-        .proto-name "PRICE_DECIMAL_ODDS"
     ]
 ]
 
@@ -705,19 +589,6 @@
     .option [
         .name sell
         .proto-name "SIDE_SELL"
-    ]
-]
-
-.enum [
-    .name disconnect-instruction-preference
-    .proto-name "DisconnectInstructionPreference"
-    .option [
-        .name none
-        .proto-name "DISCONNECT_INSTRUCTION_NONE"
-    ]
-    .option [
-        .name cancel-all
-        .proto-name "DISCONNECT_INSTRUCTION_CANCEL_ALL"
     ]
 ]
 
