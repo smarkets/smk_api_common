@@ -390,6 +390,7 @@
     .name order-rejected
     .proto-name "OrderRejected"
     .field [
+        .name seq
         .type eto/seq
     ]
     .field [
@@ -431,6 +432,7 @@
     .name order-accepted
     .proto-name "OrderAccepted"
     .field [
+        .name seq
         .type eto/seq
     ]
     .field [
@@ -499,6 +501,7 @@
     .name order-invalid
     .proto-name "OrderInvalid"
     .field [
+        .name seq
         .type eto/seq
     ]
     .field [
@@ -634,6 +637,7 @@
     .name id-invalid
     .proto-name "IdInvalid"
     .field [
+        .name seq
         .type eto/seq
     ]
     .field [
@@ -656,6 +660,7 @@
     .name disconnect-instruction-response
     .proto-name "DisconnectInstructionResponse"
     .field [
+        .name seq
         .type eto/seq
     ]
     .field [
