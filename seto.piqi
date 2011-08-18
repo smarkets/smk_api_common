@@ -3,11 +3,6 @@
 .import [ .module eto ]
 
 .alias [
-    .name seq
-    .type uint64
-]
-
-.alias [
     .name event
     .type uuid-128
 ]
@@ -109,11 +104,6 @@
         .optional
     ]
     .field [
-        .name market-request
-        .type market-request
-        .optional
-    ]
-    .field [
         .name market-quotes-request
         .type market-quotes-request
         .optional
@@ -141,16 +131,6 @@
     .field [
         .name disconnect-instruction-response
         .type disconnect-instruction-response
-        .optional
-    ]
-    .field [
-        .name market-state
-        .type market-state
-        .optional
-    ]
-    .field [
-        .name contract-state
-        .type contract-state
         .optional
     ]
     .field [
@@ -213,10 +193,6 @@
         .proto-name "PAYLOAD_MARKET_UNSUBSCRIPTION"
     ]
     .option [
-        .name market-request
-        .proto-name "PAYLOAD_MARKET_REQUEST"
-    ]
-    .option [
         .name market-quotes-request
         .proto-name "PAYLOAD_MARKET_QUOTES_REQUEST"
     ]
@@ -239,14 +215,6 @@
     .option [
         .name disconnect-instruction-response
         .proto-name "PAYLOAD_DISCONNECT_INSTRUCTION_RESPONSE"
-    ]
-    .option [
-        .name market-state
-        .proto-name "PAYLOAD_MARKET_STATE"
-    ]
-    .option [
-        .name contract-state
-        .proto-name "PAYLOAD_CONTRACT_STATE"
     ]
     .option [
         .name events-request
@@ -422,7 +390,7 @@
     .name order-rejected
     .proto-name "OrderRejected"
     .field [
-        .type seq
+        .type eto/seq
     ]
     .field [
         .name reason
@@ -463,7 +431,7 @@
     .name order-accepted
     .proto-name "OrderAccepted"
     .field [
-        .type seq
+        .type eto/seq
     ]
     .field [
         .type order
@@ -531,7 +499,7 @@
     .name order-invalid
     .proto-name "OrderInvalid"
     .field [
-        .type seq
+        .type eto/seq
     ]
     .field [
         .name reasons
@@ -564,14 +532,6 @@
 .record [
     .name market-unsubscription
     .proto-name "MarketUnsubscription"
-    .field [
-        .type market
-    ]
-]
-
-.record [
-    .name market-request
-    .proto-name "MarketRequest"
     .field [
         .type market
     ]
@@ -674,7 +634,7 @@
     .name id-invalid
     .proto-name "IdInvalid"
     .field [
-        .type seq
+        .type eto/seq
     ]
     .field [
         .name field
@@ -696,39 +656,11 @@
     .name disconnect-instruction-response
     .proto-name "DisconnectInstructionResponse"
     .field [
-        .type seq
+        .type eto/seq
     ]
     .field [
         .name preference
         .type disconnect-instruction-preference
-    ]
-]
-
-.record [
-    .name market-state
-    .proto-name "MarketState"
-    .field [
-        .type market
-    ]
-    .field [
-        .name name
-        .type string
-    ]
-    .field [
-        .name contract-count
-        .type uint32
-    ]
-]
-
-.record [
-    .name contract-state
-    .proto-name "ContractState"
-    .field [
-        .type contract
-    ]
-    .field [
-        .name name
-        .type string
     ]
 ]
 
@@ -1227,7 +1159,7 @@
     .proto-name "HttpFound"
     .field [
         .name seq
-        .type seq
+        .type eto/seq
     ]
     .field [
         .name url
