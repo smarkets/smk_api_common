@@ -1,4 +1,6 @@
 deps
 build
-seto.proto
 *.tar.gz
+*_pb2.py
+*.pyc
+*.proto

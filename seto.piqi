@@ -1,528 +1,1095 @@
-.include [ .module eto ]
+.proto-package "smarkets.seto"
 
-.extend [
-  .name login
+.import [ .module eto ]
 
-  .field [
-    .name username
-    .type binary
-  ]
-  .field [
-    .name password
-    .type binary
-  ]
-]
-
-.extend [
-  .name message
-  .option [ .type order-create ]
-  .option [ .type order-rejected ]
-  .option [ .type order-accepted ]
-  .option [ .type order-executed ]
-  .option [ .type order-cancel ]
-  .option [ .type order-cancelled ]
-  .option [ .type order-invalid ]
-
-  .option [ .type market-subscription ]
-  .option [ .type market-unsubscription ]
-
-  .option [ .type market-quotes-request ]
-  .option [ .type market-quotes ]
-  .option [ .type contract-quotes ]
-  .option [ .type id-invalid ]
-
-  .option [ .type events-request ]
-
-  .option [ .type http-found ]
-]
-.record [
-  .name id-invalid
-  .field [ .type seq ]
-  .field [ .name field .type binary .optional ]
-]
-.record [
-  .name market-quotes-request
-  .field [ .type group ]
-]
-.record [
-  .name market-quotes
-  .field [ .type group ]
-  .field [
-    .name contract-quotes
-    .type contract-quotes-list
-    .optional
-  ]
-]
-
-.list [
-  .name contract-quotes-list
-  .type contract-quotes
-]
-
-.record [
-  .name contract-quotes
-  .field [ .type contract ]
-  .field [
-    .name buy
-    .type quote-list
-    .optional
-  ]
-  .field [
-    .name sell
-    .type quote-list
-    .optional
-  ]
-  .field [
-    .name executions
-    .type execution-list
-    .optional
-  ]
-  .field [
-    .name last-execution
-    .type execution
-    .optional
-  ]
-]
-.list [
-  .name quote-list
-  .type quote
-]
-.record [
-  .name quote
-  .field [ .type price ]
-  .field [ .type quantity ]
-]
-
-.record [
-  .name market-subscription
-  .field [ .type group ]
-]
-.record [
-  .name market-unsubscription
-  .field [ .type group ]
-]
-
-.record [
-  .name order-create
-  .field [ .type quantity ]
-  .field [ .type price ]
-  .field [ .type side ]
-  .field [ .type group ]
-  .field [ .type contract ]
-]
-.record [
-  .name order-invalid
-  .field [ .type seq ]
-  .field [
-    .name reasons
-    .type order-invalid-reason-list
-  ]
-]
-.list [
-  .name order-invalid-reason-list
-  .type order-invalid-reason
-]
-.enum [
-  .name order-invalid-reason
-  .option [ .name price-not-in-range ]
-  .option [ .name quantity-too-small ]
-]
-
-.record [
-  .name order-accepted
-  .field [ .type seq ]
-  .field [ .type order ]
-]
-.record [
-  .name order-rejected
-  .field [ .type seq ]
-  .field [
-    .name reason
-    .type order-rejected-reason
-  ]
-]
-.enum [
-  .name order-rejected-reason
-  .option [ .name insufficient-funds ]
-  .option [ .name limit-exceeded ]
-  .option [ .name market-not-open ]
-  .option [ .name market-settled ]
-  .option [ .name market-halted ]
-  .option [ .name crossed-self ]
-  .option [ .name error ]
-]
-
-.record [
-  .name order-executed
-  .field [ .type order ]
-  .field [ .type price ]
-  .field [ .type quantity ]
-]
-
-.record [
-  .name order-cancel
-  .field [ .type order ]
-]
-
-.record [
-  .name order-cancelled
-  .field [ .type order ]
-  .field [
-    .name reason
-    .type order-cancelled-reason
-    .optional
-  ]
-]
-
-.enum [
-  .name order-cancelled-reason
-  .option [ .name member-requested ]
+.alias [
+    .name event
+    .type uuid-128
 ]
 
 .alias [
-  .name price
-  .type binary
-]
-.enum [
-  .name side
-  .option [ .name buy ]
-  .option [ .name sell ]
-]
-.alias [
-  .name group
-  .type binary
-]
-.alias [
-  .name contract
-  .type binary
-]
-.alias [
-  .name order
-  .type binary
-]
-.alias [
-  .name quantity
-  .type int
-]
-
-.record [
-  .name execution
-  .field [ .type price ]
-  .field [ .type quantity ]
-  .field [
-    .type microseconds
-    .optional
-  ]
-]
-.list [
-  .name execution-list
-  .type execution
+    .name market
+    .type uuid-128
 ]
 
 .alias [
-  .name microseconds
-  .type uint64
+    .name contract
+    .type uuid-128
 ]
 
-.variant [
-  .name events-request
-  .option [ .name politics ]
-  .option [ .name current-affairs ]
-  .option [ .name tv-and-entertainment ]
-  .option [ .type sport-by-date ]
-  .option [ .name sport-other ]
-]
-.record [
-  .name sport-by-date
-  .field [
-    .name type
-    .type sport-by-date-type
-  ]
-  .field [
-    .type date
-  ]
-]
-.enum [
-  .name sport-by-date-type
-  .option [ .name football ]
-  .option [ .name horse-racing ]
-  .option [ .name tennis ]
-]
-.record [
-  .name events
-  .field [
-    .name with-markets
-    .type event-info-list
-  ]
-  .field [
-    .name parents
-    .type event-info-list
-  ]
+.alias [
+    .name order
+    .type uuid-128
 ]
 
-.record [
-  .name event-info
-  .field [
-    .name id
-    .type int
-  ]
-  .field [
-    .name parent
-    .type int
-    .optional
-  ]
-  .field [
-    .name type
-    .type event-type
-  ]
-  .field [
-    .name category
-    .type event-category
-  ]
-  .field [
-    .name start-date
-    .type date
-    .optional
-  ]
-  .field [
-    .name start-time
-    .type time
-    .optional
-  ]
-  .field [
-    .name end-date
-    .type date
-    .optional
-  ]
-  .field [
-    .name end-time
-    .type time
-    .optional
-  ]
-  .field [
-    .name entities
-    .type entity-relationship-list
-    .optional
-  ]
-  .field [
-    .name markets
-    .type market-info-list
-    .optional
-  ]
-  .field [
-    .type slug
-  ]
-  .field [
-    .name name
-    .type binary
-  ]
-  .field [
-    .name description
-    .type binary
-    .optional
-  ]
-]
-.list [
-  .name market-info-list
-  .type market-info
-]
-.list [
-  .name event-info-list
-  .type event-info
-]
-
-.record [
-  .name market-info
-  .field [
-    .name id
-    .type int
-  ]
-  .field [
-    .name start-date
-    .type date
-    .optional
-  ]
-  .field [
-    .name start-time
-    .type time
-    .optional
-  ]
-  .field [
-    .name end-date
-    .type date
-    .optional
-  ]
-  .field [
-    .name end-time
-    .type time
-    .optional
-  ]
-  .field [
-    .name contracts
-    .type contract-info-list
-  ]
-  .field [
-    .name entities
-    .type entity-relationship-list
-    .optional
-  ]
-  .field [
-    .type slug
-  ]
-  .field [
-    .name name
-    .type binary
-  ]
-  .field [
-    .name shortname
-    .type binary
-    .optional
-  ]
-]
-
-.list [
-  .name contract-info-list
-  .type contract-info
-]
-.record [
-  .name contract-info
-  .field [
-    .name id
-    .type int
-  ]
-  .field [
-    .name type
-    .type contract-type
-  ]
-  .field [
-    .name entities
-    .type entity-relationship-list
-    .optional
-  ]
-  .field [
-    .type slug
-  ]
-  .field [
-    .name name
-    .type binary
-  ]
-  .field [
-    .name shortname
-    .type binary
-    .optional
-  ]
-]
-
-.enum [
-  .name contract-type
-  .option [ .name half-time-full-time ]
-  .option [ .name correct-score ]
-  .option [ .name generic ]
-  .option [ .name winner ]
-  .option [ .name binary ]
-  .option [ .name over-under ]
-]
-.list [
-  .name int-list
-  .type int
-]
-.enum [
-  .name event-type
-  .option [ .name football-match ]
-  .option [ .name football-season ]
-  .option [ .name football ]
-  .option [ .name generic ]
-  .option [ .name football-generic ]
-  .option [ .name golf-season ]
-  .option [ .name boxing-season ]
-  .option [ .name formula-1-race ]
-  .option [ .name formula-1-season ]
-  .option [ .name horse-racing-race ]
-  .option [ .name horse-racing-course ]
-  .option [ .name horse-racing ]
-  .option [ .name golf-generic ]
-  .option [ .name eurovision-season ]
-  .option [ .name tennis-match ]
-  .option [ .name tennis-season ]
-  .option [ .name cycling-season ]
-  .option [ .name cycling-race ]
-  .option [ .name motogp-season ]
-]
-
-.enum [
-  .name entity-relationship-type
-  .option [ .name football-home-team ]
-  .option [ .name football-away-team ]
-  .option [ .name football-competition ]
-  .option [ .name horse-racing-course ]
-  .option [ .name horse-racing-horse ]
-  .option [ .name horse-racing-jockey ]
-  .option [ .name contract-associated ]
-]
-.list [
-  .name entity-relationship-list
-  .type entity-relationship
-]
-.record [
-  .name entity-relationship
-  .field [
+.alias [
     .name entity
-    .type int
-  ]
-  .field [
-    .name relationship
-    .type entity-relationship-type
-  ]
+    .type uuid-128
 ]
 
 .alias [
-  .name slug
-  .type binary
+    .name microseconds
+    .type uint64
+]
+
+.alias [
+    .name slug
+    .type string
+]
+
+.alias [
+    .name url
+    .type string
 ]
 
 .record [
-  .name http-found
-  .field [
-    .type seq
-  ]
-  .field [
-    .type url
-  ]
+    .name payload
+    .proto-name "Payload"
+    .field [
+        .name type
+        .type payload-type
+    ]
+    .field [
+        .name eto-payload
+        .type eto/payload
+    ]
+    .field [
+        .name login
+        .type login
+        .optional
+    ]
+    .field [
+        .name order-create
+        .type order-create
+        .optional
+    ]
+    .field [
+        .name order-rejected
+        .type order-rejected
+        .optional
+    ]
+    .field [
+        .name order-accepted
+        .type order-accepted
+        .optional
+    ]
+    .field [
+        .name order-executed
+        .type order-executed
+        .optional
+    ]
+    .field [
+        .name order-cancel
+        .type order-cancel
+        .optional
+    ]
+    .field [
+        .name order-cancelled
+        .type order-cancelled
+        .optional
+    ]
+    .field [
+        .name order-invalid
+        .type order-invalid
+        .optional
+    ]
+    .field [
+        .name market-subscription
+        .type market-subscription
+        .optional
+    ]
+    .field [
+        .name market-unsubscription
+        .type market-unsubscription
+        .optional
+    ]
+    .field [
+        .name market-quotes-request
+        .type market-quotes-request
+        .optional
+    ]
+    .field [
+        .name market-quotes
+        .type market-quotes
+        .optional
+    ]
+    .field [
+        .name contract-quote
+        .type contract-quote
+        .optional
+    ]
+    .field [
+        .name id-invalid
+        .type id-invalid
+        .optional
+    ]
+    .field [
+        .name events-request
+        .type events-request
+        .optional
+    ]
+    .field [
+        .name http-found
+        .type http-found
+        .optional
+    ]
 ]
-.alias [
-  .name url
-  .type binary
-]
-.record [
-  .name date
-  .field [
-    .name year
-    .type int
-  ]
-  .field [
-    .name month
-    .type int
-  ]
-  .field [
-    .name day
-    .type int
-  ]
-]
-.record [
-  .name time
-  .field [
-    .name hour
-    .type int
-  ]
-  .field [
-    .name minute
-    .type int
-  ]
-]
+
 .enum [
-  .name event-category
-  .option [ .name sports ]
-  .option [ .name politics ]
-  .option [ .name current-affairs ]
-  .option [ .name tv-and-entertainment ]
+    .name payload-type
+    .proto-name "PayloadType"
+    .option [
+        .name eto
+        .proto-name "PAYLOAD_ETO"
+    ]
+    .option [
+        .name login
+        .proto-name "PAYLOAD_LOGIN"
+    ]
+    .option [
+        .name order-create
+        .proto-name "PAYLOAD_ORDER_CREATE"
+    ]
+    .option [
+        .name order-rejected
+        .proto-name "PAYLOAD_ORDER_REJECTED"
+    ]
+    .option [
+        .name order-accepted
+        .proto-name "PAYLOAD_ORDER_ACCEPTED"
+    ]
+    .option [
+        .name order-executed
+        .proto-name "PAYLOAD_ORDER_EXECUTED"
+    ]
+    .option [
+        .name order-cancel
+        .proto-name "PAYLOAD_ORDER_CANCEL"
+    ]
+    .option [
+        .name order-cancelled
+        .proto-name "PAYLOAD_ORDER_CANCELLED"
+    ]
+    .option [
+        .name order-invalid
+        .proto-name "PAYLOAD_ORDER_INVALID"
+    ]
+    .option [
+        .name market-subscription
+        .proto-name "PAYLOAD_MARKET_SUBSCRIPTION"
+    ]
+    .option [
+        .name market-unsubscription
+        .proto-name "PAYLOAD_MARKET_UNSUBSCRIPTION"
+    ]
+    .option [
+        .name market-quotes-request
+        .proto-name "PAYLOAD_MARKET_QUOTES_REQUEST"
+    ]
+    .option [
+        .name market-quotes
+        .proto-name "PAYLOAD_MARKET_QUOTES"
+    ]
+    .option [
+        .name contract-quote
+        .proto-name "PAYLOAD_CONTRACT_QUOTE"
+    ]
+    .option [
+        .name id-invalid
+        .proto-name "PAYLOAD_ID_INVALID"
+    ]
+    .option [
+        .name events-request
+        .proto-name "PAYLOAD_EVENTS_REQUEST"
+    ]
+    .option [
+        .name http-found
+        .proto-name "PAYLOAD_HTTP_FOUND"
+    ]
+]
+
+.record [
+    .name uuid-128
+    .proto-name "Uuid128"
+    .field [
+        .name low
+        .type uint64
+    ]
+    .field [
+        .name high
+        .type uint64
+        .optional
+        .default 0
+    ]
+]
+
+.record [
+    .name login
+    .proto-name "Login"
+    .field [
+        .name username
+        .type string
+    ]
+    .field [
+        .name password
+        .type string
+        .optional
+    ]
+    .field [
+        .name cookie
+        .type binary
+        .optional
+    ]
+]
+
+.record [
+    .name order-create
+    .proto-name "OrderCreate"
+    .field [
+        .name type
+        .type order-create-type
+    ]
+    .field [
+        .name market
+        .type market
+    ]
+    .field [
+        .name contract
+        .type contract
+    ]
+    .field [
+        .name side
+        .type side
+    ]
+    .field [
+        .name quantity-type
+        .type quantity-type
+    ]
+    .field [
+        .name quantity
+        .type uint32
+    ]
+    .field [
+        .name price-type
+        .type price-type
+        .optional
+    ]
+    .field [
+        .name price
+        .type uint32
+        .optional
+    ]
+]
+
+.enum [
+    .name order-create-type
+    .proto-name "OrderCreateType"
+    .option [
+        .name limit
+        .proto-name "ORDER_CREATE_LIMIT"
+    ]
+]
+
+.record [
+    .name order-rejected
+    .proto-name "OrderRejected"
+    .field [
+        .name seq
+        .type eto/seq
+    ]
+    .field [
+        .name reason
+        .type order-rejected-reason
+    ]
+]
+
+.enum [
+    .name order-rejected-reason
+    .proto-name "OrderRejectedReason"
+    .option [
+        .name insufficient-funds
+        .proto-name "ORDER_REJECTED_INSUFFICIENT_FUNDS"
+    ]
+    .option [
+        .name limit-exceeded
+        .proto-name "ORDER_REJECTED_LIMIT_EXCEEDED"
+    ]
+    .option [
+        .name market-not-open
+        .proto-name "ORDER_REJECTED_MARKET_NOT_OPEN"
+    ]
+    .option [
+        .name market-settled
+        .proto-name "ORDER_REJECTED_MARKET_SETTLED"
+    ]
+    .option [
+        .name market-halted
+        .proto-name "ORDER_REJECTED_MARKET_HALTED"
+    ]
+    .option [
+        .name crossed-self
+        .proto-name "ORDER_REJECTED_CROSSED_SELF"
+    ]
+]
+
+.record [
+    .name order-accepted
+    .proto-name "OrderAccepted"
+    .field [
+        .name seq
+        .type eto/seq
+    ]
+    .field [
+        .name order
+        .type order
+    ]
+]
+
+.record [
+    .name order-executed
+    .proto-name "OrderExecuted"
+    .field [
+        .name order
+        .type order
+    ]
+    .field [
+        .name price
+        .type uint32
+    ]
+    .field [
+        .name quantity-type
+        .type quantity-type
+    ]
+    .field [
+        .name quantity
+        .type uint32
+    ]
+]
+
+.record [
+    .name order-cancel
+    .proto-name "OrderCancel"
+    .field [
+        .name order
+        .type order
+    ]
+]
+
+.record [
+    .name order-cancelled
+    .proto-name "OrderCancelled"
+    .field [
+        .name order
+        .type order
+    ]
+    .field [
+        .name reason
+        .type order-cancelled-reason
+    ]
+]
+
+.enum [
+    .name order-cancelled-reason
+    .proto-name "OrderCancelledReason"
+    .option [
+        .name member-requested
+        .proto-name "ORDER_CANCELLED_MEMBER_REQUESTED"
+    ]
+    .option [
+        .name market-halted
+        .proto-name "ORDER_CANCELLED_MARKET_HALTED"
+    ]
+    .option [
+        .name insufficient-liquidity
+        .proto-name "ORDER_CANCELLED_INSUFFICIENT_LIQUIDITY"
+    ]
+]
+
+.record [
+    .name order-invalid
+    .proto-name "OrderInvalid"
+    .field [
+        .name seq
+        .type eto/seq
+    ]
+    .field [
+        .name reasons
+        .type order-invalid-reason
+        .repeated
+    ]
+]
+
+.enum [
+    .name order-invalid-reason
+    .proto-name "OrderInvalidReason"
+    .option [
+        .name invalid-price
+        .proto-name "ORDER_INVALID_INVALID_PRICE"
+    ]
+    .option [
+        .name invalid-quantity
+        .proto-name "ORDER_INVALID_INVALID_QUANTITY"
+    ]
+]
+
+.record [
+    .name market-subscription
+    .proto-name "MarketSubscription"
+    .field [
+        .name market
+        .type market
+    ]
+]
+
+.record [
+    .name market-unsubscription
+    .proto-name "MarketUnsubscription"
+    .field [
+        .name market
+        .type market
+    ]
+]
+
+.record [
+    .name market-quotes-request
+    .proto-name "MarketQuotesRequest"
+    .field [
+        .name market
+        .type market
+    ]
+    .field [
+        .name depth
+        .type uint32
+        .optional
+        .default 5
+    ]
+]
+
+.record [
+    .name market-quotes
+    .proto-name "MarketQuotes"
+    .field [
+        .name market
+        .type market
+    ]
+    .field [
+        .name contract-quotes
+        .type contract-quotes
+        .repeated
+    ]
+    .field [
+        .name price-type
+        .type price-type
+    ]
+    .field [
+        .name quantity-type
+        .type quantity-type
+    ]
+]
+
+.record [
+    .name contract-quotes
+    .proto-name "ContractQuotes"
+    .field [
+        .name contract
+        .type contract
+    ]
+    .field [
+        .name buys
+        .type quote
+        .repeated
+    ]
+    .field [
+        .name sells
+        .type quote
+        .repeated
+    ]
+    .field [
+        .name executions
+        .type execution
+        .repeated
+    ]
+    .field [
+        .name last-execution
+        .type execution
+        .optional
+    ]
+]
+
+.record [
+    .name contract-quote
+    .proto-name "ContractQuote"
+    .field [
+        .name contract
+        .type contract
+    ]
+    .field [
+        .name side
+        .type side
+    ]
+    .field [
+        .name quotes
+        .type quote
+        .repeated
+    ]
+]
+
+.record [
+    .name quote
+    .proto-name "Quote"
+    .field [
+        .name price
+        .type uint32
+    ]
+    .field [
+        .name quantity
+        .type uint32
+    ]
+]
+
+.record [
+    .name id-invalid
+    .proto-name "IdInvalid"
+    .field [
+        .name seq
+        .type eto/seq
+    ]
+    .field [
+        .name field
+        .type string
+        .optional
+    ]
+]
+
+.enum [
+    .name quantity-type
+    .proto-name "QuantityType"
+    .option [
+        .name payoff-currency
+        .proto-name "QUANTITY_PAYOFF_CURRENCY"
+    ]
+]
+
+.enum [
+    .name price-type
+    .proto-name "PriceType"
+    .option [
+        .name percent-odds
+        .proto-name "PRICE_PERCENT_ODDS"
+    ]
+]
+
+.enum [
+    .name side
+    .proto-name "Side"
+    .option [
+        .name buy
+        .proto-name "SIDE_BUY"
+    ]
+    .option [
+        .name sell
+        .proto-name "SIDE_SELL"
+    ]
+]
+
+.record [
+    .name execution
+    .proto-name "Execution"
+    .field [
+        .name price-type
+        .type price-type
+    ]
+    .field [
+        .name price
+        .type uint32
+    ]
+    .field [
+        .name quantity-type
+        .type quantity-type
+    ]
+    .field [
+        .name quantity
+        .type uint32
+    ]
+    .field [
+        .name microseconds
+        .type microseconds
+        .optional
+    ]
+]
+
+.record [
+    .name events-request
+    .proto-name "EventsRequest"
+    .field [
+        .name type
+        .type events-request-type
+    ]
+    .field [
+        .name politics
+        .type bool
+        .optional
+        .default false
+    ]
+    .field [
+        .name current-affairs
+        .type bool
+        .optional
+        .default false
+    ]
+    .field [
+        .name tv-and-entertainment
+        .type bool
+        .optional
+        .default false
+    ]
+    .field [
+        .name sport-by-date
+        .type sport-by-date
+        .optional
+    ]
+    .field [
+        .name sport-other
+        .type bool
+        .optional
+        .default false
+    ]
+]
+
+.enum [
+    .name events-request-type
+    .proto-name "EventsRequestType"
+    .option [
+        .name politics
+        .proto-name "EVENTS_REQUEST_POLITICS"
+    ]
+    .option [
+        .name current-affairs
+        .proto-name "EVENTS_REQUEST_CURRENT_AFFAIRS"
+    ]
+    .option [
+        .name tv-and-entertainment
+        .proto-name "EVENTS_REQUEST_TV_AND_ENTERTAINMENT"
+    ]
+    .option [
+        .name sport-by-date
+        .proto-name "EVENTS_REQUEST_SPORT_BY_DATE"
+    ]
+    .option [
+        .name sport-other
+        .proto-name "EVENTS_REQUEST_SPORT_OTHER"
+    ]
+]
+
+.record [
+    .name sport-by-date
+    .proto-name "SportByDate"
+    .field [
+        .name type
+        .type sport-by-date-type
+    ]
+    .field [
+        .name date
+        .type date
+    ]
+]
+
+.enum [
+    .name sport-by-date-type
+    .proto-name "SportByDateType"
+    .option [
+        .name football
+        .proto-name "SPORT_BY_DATE_FOOTBALL"
+    ]
+    .option [
+        .name horse-racing
+        .proto-name "SPORT_BY_DATE_HORSE_RACING"
+    ]
+    .option [
+        .name tennis
+        .proto-name "SPORT_BY_DATE_TENNIS"
+    ]
+]
+
+.record [
+    .name events
+    .proto-name "Events"
+    .field [
+        .name with-markets
+        .type event-info
+        .repeated
+    ]
+    .field [
+        .name parents
+        .type event-info
+        .repeated
+    ]
+]
+
+.record [
+    .name event-info
+    .proto-name "EventInfo"
+    .field [
+        .name event
+        .type event
+    ]
+    .field [
+        .name type
+        .type event-type
+    ]
+    .field [
+        .name category
+        .type event-category
+    ]
+    .field [
+        .name slug
+        .type slug
+    ]
+    .field [
+        .name name
+        .type string
+    ]
+    .field [
+        .name parent
+        .type event
+        .optional
+    ]
+    .field [
+        .name start-date
+        .type date
+        .optional
+    ]
+    .field [
+        .name start-time
+        .type time
+        .optional
+    ]
+    .field [
+        .name end-date
+        .type date
+        .optional
+    ]
+    .field [
+        .name end-time
+        .type time
+        .optional
+    ]
+    .field [
+        .name entities
+        .type entity-relationship
+        .repeated
+    ]
+    .field [
+        .name markets
+        .type market-info
+        .repeated
+    ]
+    .field [
+        .name description
+        .type string
+        .optional
+    ]
+]
+
+.record [
+    .name market-info
+    .proto-name "MarketInfo"
+    .field [
+        .name market
+        .type market
+    ]
+    .field [
+        .name contracts
+        .type contract-info
+        .repeated
+    ]
+    .field [
+        .name slug
+        .type slug
+    ]
+    .field [
+        .name name
+        .type string
+    ]
+    .field [
+        .name start-date
+        .type date
+        .optional
+    ]
+    .field [
+        .name start-time
+        .type time
+        .optional
+    ]
+    .field [
+        .name end-date
+        .type date
+        .optional
+    ]
+    .field [
+        .name end-time
+        .type time
+        .optional
+    ]
+    .field [
+        .name entities
+        .type entity-relationship
+        .repeated
+    ]
+    .field [
+        .name shortname
+        .type string
+        .optional
+    ]
+]
+
+.record [
+    .name contract-info
+    .proto-name "ContractInfo"
+    .field [
+        .name contract
+        .type contract
+    ]
+    .field [
+        .name type
+        .type contract-type
+    ]
+    .field [
+        .name slug
+        .type slug
+    ]
+    .field [
+        .name name
+        .type string
+    ]
+    .field [
+        .name entities
+        .type entity-relationship
+        .repeated
+    ]
+    .field [
+        .name shortname
+        .type string
+        .optional
+    ]
+]
+
+.enum [
+    .name contract-type
+    .proto-name "ContractType"
+    .option [
+        .name half-time-full-time
+        .proto-name "CONTRACT_HALF_TIME_FULL_TIME"
+    ]
+    .option [
+        .name correct-score
+        .proto-name "CONTRACT_CORRECT_SCORE"
+    ]
+    .option [
+        .name generic
+        .proto-name "CONTRACT_GENERIC"
+    ]
+    .option [
+        .name winner
+        .proto-name "CONTRACT_WINNER"
+    ]
+    .option [
+        .name binary
+        .proto-name "CONTRACT_BINARY"
+    ]
+    .option [
+        .name over-under
+        .proto-name "CONTRACT_OVER_UNDER"
+    ]
+]
+
+.enum [
+    .name event-type
+    .proto-name "EventType"
+    .option [
+        .name football-match
+        .proto-name "EVENT_FOOTBALL_MATCH"
+    ]
+    .option [
+        .name football-season
+        .proto-name "EVENT_FOOTBALL_SEASON"
+    ]
+    .option [
+        .name football
+        .proto-name "EVENT_FOOTBALL"
+    ]
+    .option [
+        .name generic
+        .proto-name "EVENT_GENERIC"
+    ]
+    .option [
+        .name football-generic
+        .proto-name "EVENT_FOOTBALL_GENERIC"
+    ]
+    .option [
+        .name golf-season
+        .proto-name "EVENT_GOLF_SEASON"
+    ]
+    .option [
+        .name boxing-season
+        .proto-name "EVENT_BOXING_SEASON"
+    ]
+    .option [
+        .name formula-1-race
+        .proto-name "EVENT_FORMULA_1_RACE"
+    ]
+    .option [
+        .name formula-1-season
+        .proto-name "EVENT_FORMULA_1_SEASON"
+    ]
+    .option [
+        .name horse-racing-race
+        .proto-name "EVENT_HORSE_RACING_RACE"
+    ]
+    .option [
+        .name horse-racing-course
+        .proto-name "EVENT_HORSE_RACING_COURSE"
+    ]
+    .option [
+        .name horse-racing
+        .proto-name "EVENT_HORSE_RACING"
+    ]
+    .option [
+        .name golf-generic
+        .proto-name "EVENT_GOLF_GENERIC"
+    ]
+    .option [
+        .name eurovision-season
+        .proto-name "EVENT_EUROVISION_SEASON"
+    ]
+    .option [
+        .name tennis-match
+        .proto-name "EVENT_TENNIS_MATCH"
+    ]
+    .option [
+        .name tennis-season
+        .proto-name "EVENT_TENNIS_SEASON"
+    ]
+    .option [
+        .name cycling-season
+        .proto-name "EVENT_CYCLING_SEASON"
+    ]
+    .option [
+        .name cycling-race
+        .proto-name "EVENT_CYCLING_RACE"
+    ]
+    .option [
+        .name motogp-season
+        .proto-name "EVENT_MOTOGP_SEASON"
+    ]
+]
+
+.enum [
+    .name entity-relationship-type
+    .proto-name "EntityRelationshipType"
+    .option [
+        .name football-home-team
+        .proto-name "ENTITY_RELATIONSHIP_FOOTBALL_HOME_TEAM"
+    ]
+    .option [
+        .name football-away-team
+        .proto-name "ENTITY_RELATIONSHIP_FOOTBALL_AWAY_TEAM"
+    ]
+    .option [
+        .name football-competition
+        .proto-name "ENTITY_RELATIONSHIP_FOOTBALL_COMPETITION"
+    ]
+    .option [
+        .name horse-racing-course
+        .proto-name "ENTITY_RELATIONSHIP_HORSE_RACING_COURSE"
+    ]
+    .option [
+        .name horse-racing-horse
+        .proto-name "ENTITY_RELATIONSHIP_HORSE_RACING_HORSE"
+    ]
+    .option [
+        .name horse-racing-jockey
+        .proto-name "ENTITY_RELATIONSHIP_HORSE_RACING_JOCKEY"
+    ]
+    .option [
+        .name contract-associated
+        .proto-name "ENTITY_RELATIONSHIP_CONTRACT_ASSOCIATED"
+    ]
+]
+
+.record [
+    .name entity-relationship
+    .proto-name "EntityRelationship"
+    .field [
+        .name entity
+        .type entity
+    ]
+    .field [
+        .name relationship
+        .type entity-relationship-type
+    ]
+]
+
+.record [
+    .name http-found
+    .proto-name "HttpFound"
+    .field [
+        .name seq
+        .type eto/seq
+    ]
+    .field [
+        .name url
+        .type url
+    ]
+]
+
+.record [
+    .name date
+    .proto-name "Date"
+    .field [
+        .name year
+        .type uint32
+    ]
+    .field [
+        .name month
+        .type uint32
+    ]
+    .field [
+        .name day
+        .type uint32
+    ]
+]
+
+.record [
+    .name time
+    .proto-name "Time"
+    .field [
+        .name hour
+        .type uint32
+    ]
+    .field [
+        .name minute
+        .type uint32
+    ]
+]
+
+.enum [
+    .name event-category
+    .proto-name "EventCategory"
+    .option [
+        .name sports
+        .proto-name "EVENT_CATEGORY_SPORTS"
+    ]
+    .option [
+        .name politics
+        .proto-name "EVENT_CATEGORY_POLITICS"
+    ]
+    .option [
+        .name current-affairs
+        .proto-name "EVENT_CATEGORY_CURRENT_AFFAIRS"
+    ]
+    .option [
+        .name tv-and-entertainment
+        .proto-name "EVENT_CATEGORY_TV_AND_ENTERTAINMENT"
+    ]
 ]
