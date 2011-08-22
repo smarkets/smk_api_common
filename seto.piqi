@@ -229,6 +229,7 @@
     .field [
         .name username
         .type string
+        .optional
     ]
     .field [
         .name password
