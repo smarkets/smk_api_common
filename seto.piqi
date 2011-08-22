@@ -626,33 +626,9 @@
         .type events-request-type
     ]
     .field [
-        .name politics
-        .type bool
-        .optional
-        .default false
-    ]
-    .field [
-        .name current-affairs
-        .type bool
-        .optional
-        .default false
-    ]
-    .field [
-        .name tv-and-entertainment
-        .type bool
-        .optional
-        .default false
-    ]
-    .field [
         .name sport-by-date
         .type sport-by-date
         .optional
-    ]
-    .field [
-        .name sport-other
-        .type bool
-        .optional
-        .default false
     ]
 ]
 
