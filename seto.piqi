@@ -626,9 +626,22 @@
         .type events-request-type
     ]
     .field [
+        .name content-type
+        .type content-type
+    ]
+    .field [
         .name sport-by-date
         .type sport-by-date
         .optional
+    ]
+]
+
+.enum [
+    .name content-type
+    .proto-name "ContentType"
+    .option [
+        .name protobuf
+        .proto-name "CONTENT_TYPE_PROTOBUF"
     ]
 ]
 
