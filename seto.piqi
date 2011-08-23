@@ -133,6 +133,11 @@
         .type http-found
         .optional
     ]
+    .field [
+        .name invalid-request
+        .type invalid-request
+        .optional
+    ]
 ]
 
 .enum [
@@ -205,6 +210,10 @@
     .option [
         .name http-found
         .proto-name "PAYLOAD_HTTP_FOUND"
+    ]
+    .option [
+        .name invalid-request
+        .proto-name "PAYLOAD_INVALID_REQUEST"
     ]
 ]
 
@@ -1030,6 +1039,28 @@
     .field [
         .name url
         .type url
+    ]
+]
+
+.record [
+    .name invalid-request
+    .proto-name "InvalidRequest"
+    .field [
+        .name seq
+        .type eto/seq
+    ]
+    .field [
+        .name type
+        .type invalid-request-type
+    ]
+]
+
+.enum [
+    .name invalid-request-type
+    .proto-name "InvalidRequestType"
+    .option [
+        .name date-out-of-range
+        .proto-name "INVALID_REQUEST_DATE_OUT_OF_RANGE"
     ]
 ]
 
