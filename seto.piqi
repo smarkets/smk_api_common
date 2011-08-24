@@ -606,16 +606,8 @@
     .name execution
     .proto-name "Execution"
     .field [
-        .name price-type
-        .type price-type
-    ]
-    .field [
         .name price
         .type uint32
-    ]
-    .field [
-        .name quantity-type
-        .type quantity-type
     ]
     .field [
         .name quantity
