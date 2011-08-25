@@ -114,8 +114,8 @@
         .optional
     ]
     .field [
-        .name contract-quote
-        .type contract-quote
+        .name contract-quotes
+        .type contract-quotes
         .optional
     ]
     .field [
@@ -196,8 +196,8 @@
         .proto-name "PAYLOAD_MARKET_QUOTES"
     ]
     .option [
-        .name contract-quote
-        .proto-name "PAYLOAD_CONTRACT_QUOTE"
+        .name contract-quotes
+        .proto-name "PAYLOAD_CONTRACT_QUOTES"
     ]
     .option [
         .name id-invalid
@@ -523,24 +523,6 @@
         .name last-execution
         .type execution
         .optional
-    ]
-]
-
-.record [
-    .name contract-quote
-    .proto-name "ContractQuote"
-    .field [
-        .name contract
-        .type contract
-    ]
-    .field [
-        .name side
-        .type side
-    ]
-    .field [
-        .name quotes
-        .type quote
-        .repeated
     ]
 ]
 
