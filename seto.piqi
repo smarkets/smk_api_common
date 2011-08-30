@@ -368,11 +368,11 @@
     .name order-cancel-rejected-reason
     .proto-name "OrderCancelRejectedReason"
     .option [
-        .name insufficient-funds
+        .name not-found
         .proto-name "ORDER_CANCEL_REJECTED_NOT_FOUND"
     ]
     .option [
-        .name limit-exceeded
+        .name not-live
         .proto-name "ORDER_CANCEL_REJECTED_NOT_LIVE"
     ]
 ]
