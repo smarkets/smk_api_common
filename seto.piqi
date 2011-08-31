@@ -502,12 +502,6 @@
         .name market
         .type market
     ]
-    .field [
-        .name depth
-        .type uint32
-        .optional
-        .default 5
-    ]
 ]
 
 .record [
@@ -629,6 +623,10 @@
     .field [
         .name quantity
         .type uint32
+    ]
+    .field [
+        .name liquidity
+        .type side
     ]
     .field [
         .name microseconds
