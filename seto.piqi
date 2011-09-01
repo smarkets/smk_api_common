@@ -119,11 +119,6 @@
         .optional
     ]
     .field [
-        .name id-invalid
-        .type id-invalid
-        .optional
-    ]
-    .field [
         .name events-request
         .type events-request
         .optional
@@ -203,10 +198,6 @@
     .option [
         .name contract-quotes
         .proto-name "PAYLOAD_CONTRACT_QUOTES"
-    ]
-    .option [
-        .name id-invalid
-        .proto-name "PAYLOAD_ID_INVALID"
     ]
     .option [
         .name events-request
@@ -534,12 +525,12 @@
         .type contract
     ]
     .field [
-        .name buys
+        .name bids
         .type quote
         .repeated
     ]
     .field [
-        .name sells
+        .name offers
         .type quote
         .repeated
     ]
@@ -565,20 +556,6 @@
     .field [
         .name quantity
         .type uint32
-    ]
-]
-
-.record [
-    .name id-invalid
-    .proto-name "IdInvalid"
-    .field [
-        .name seq
-        .type eto/seq
-    ]
-    .field [
-        .name field
-        .type string
-        .optional
     ]
 ]
 
@@ -631,7 +608,6 @@
     .field [
         .name microseconds
         .type microseconds
-        .optional
     ]
 ]
 
@@ -1021,6 +997,10 @@
         .name contract-associated
         .proto-name "ENTITY_RELATIONSHIP_CONTRACT_ASSOCIATED"
     ]
+    .option [
+        .name generic
+        .proto-name "ENTITY_RELATIONSHIP_GENERIC"
+    ]
 ]
 
 .record [
@@ -1105,8 +1085,8 @@
     .name event-category
     .proto-name "EventCategory"
     .option [
-        .name sports
-        .proto-name "EVENT_CATEGORY_SPORTS"
+        .name sport
+        .proto-name "EVENT_CATEGORY_SPORT"
     ]
     .option [
         .name politics
@@ -1119,5 +1099,9 @@
     .option [
         .name tv-and-entertainment
         .proto-name "EVENT_CATEGORY_TV_AND_ENTERTAINMENT"
+    ]
+    .option [
+        .name generic
+        .proto-name "EVENT_CATEGORY_GENERIC"
     ]
 ]
