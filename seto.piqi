@@ -94,13 +94,13 @@
         .optional
     ]
     .field [
-        .name market-subscription
-        .type market-subscription
+        .name market-subscribe
+        .type market-subscribe
         .optional
     ]
     .field [
-        .name market-unsubscription
-        .type market-unsubscription
+        .name market-unsubscribe
+        .type market-unsubscribe
         .optional
     ]
     .field [
@@ -180,12 +180,12 @@
         .proto-name "PAYLOAD_ORDER_INVALID"
     ]
     .option [
-        .name market-subscription
-        .proto-name "PAYLOAD_MARKET_SUBSCRIPTION"
+        .name market-subscribe
+        .proto-name "PAYLOAD_MARKET_SUBSCRIBE"
     ]
     .option [
-        .name market-unsubscription
-        .proto-name "PAYLOAD_MARKET_UNSUBSCRIPTION"
+        .name market-unsubscribe
+        .proto-name "PAYLOAD_MARKET_UNSUBSCRIBE"
     ]
     .option [
         .name market-quotes-request
@@ -469,8 +469,8 @@
 ]
 
 .record [
-    .name market-subscription
-    .proto-name "MarketSubscription"
+    .name market-subscribe
+    .proto-name "MarketSubscribe"
     .field [
         .name market
         .type market
@@ -478,8 +478,8 @@
 ]
 
 .record [
-    .name market-unsubscription
-    .proto-name "MarketUnsubscription"
+    .name market-unsubscribe
+    .proto-name "MarketUnsubscribe"
     .field [
         .name market
         .type market
