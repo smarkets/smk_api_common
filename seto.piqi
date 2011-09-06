@@ -138,6 +138,16 @@
         .type order-cancel-rejected
         .optional
     ]
+    .field [
+        .name orders-for-market-request
+        .type orders-for-market-request
+        .optional
+    ]
+    .field [
+        .name orders-for-market
+        .type orders-for-market
+        .optional
+    ]
 ]
 
 .enum [
@@ -214,6 +224,14 @@
     .option [
         .name order-cancel-rejected
         .proto-name "PAYLOAD_ORDER_CANCEL_REJECTED"
+    ]
+    .option [
+        .name orders-for-market-request
+        .proto-name "PAYLOAD_ORDERS_FOR_MARKET_REQUEST"
+    ]
+    .option [
+        .name orders-for-market
+        .proto-name "PAYLOAD_ORDERS_FOR_MARKET"
     ]
 ]
 
@@ -1103,5 +1121,81 @@
     .option [
         .name generic
         .proto-name "EVENT_CATEGORY_GENERIC"
+    ]
+]
+
+.record [
+    .name orders-for-market-request
+    .field [
+        .name market
+        .type market
+    ]
+]
+
+.record [
+    .name orders-for-market
+    .field [
+        .name market
+        .type market
+    ] 
+    .field [
+        .name price-type
+        .type price-type
+    ]
+    .field [
+        .name contracts
+        .type orders-for-contract
+        .repeated
+    ]
+]
+
+.record [
+    .name orders-for-contract
+    .field [
+        .name contract
+        .type contract
+    ]
+    .field [
+        .name bids
+        .type orders-for-price
+        .repeated
+    ]
+    .field [
+        .name offers
+        .type orders-for-price
+        .repeated
+    ]
+]
+
+.record [
+    .name orders-for-price
+    .field [
+        .name price
+        .type uint32
+    ]
+    .field [
+        .name order-state
+        .type order-state
+    ]
+]
+
+.record [
+    .name order-state
+    .proto-name "OrderState"
+    .field [
+        .name order
+        .type order
+    ]
+    .field [
+        .name type
+        .type order-create-type
+    ]
+    .field [
+        .name quantity-type
+        .type quantity-type
+    ]
+    .field [
+        .name quantity
+        .type uint32
     ]
 ]
