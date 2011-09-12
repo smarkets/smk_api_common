@@ -1019,6 +1019,22 @@
         .name generic
         .proto-name "ENTITY_RELATIONSHIP_GENERIC"
     ]
+    .option [
+        .name tennis-player-a
+        .proto-name "ENTITY_RELATIONSHIP_TENNIS_PLAYER_A"
+    ]
+    .option [
+        .name tennis-player-b
+        .proto-name "ENTITY_RELATIONSHIP_TENNIS_PLAYER_B"
+    ]
+    .option [
+        .name home-team
+        .proto-name "ENTITY_RELATIONSHIP_HOME_TEAM"
+    ]
+    .option [
+        .name away-team
+        .proto-name "ENTITY_RELATIONSHIP_AWAY_TEAM"
+    ]
 ]
 
 .record [
@@ -1176,6 +1192,7 @@
     .field [
         .name order-state
         .type order-state
+        .repeated
     ]
 ]
 
@@ -1191,8 +1208,56 @@
         .type order-create-type
     ]
     .field [
+        .name status
+        .type order-status
+    ]
+    .field [
         .name quantity-type
         .type quantity-type
+    ]
+    .field [
+        .name quantity
+        .type uint32
+    ]
+    .field [
+        .name executions
+        .type order-execution
+        .repeated
+    ]
+]
+.enum [
+    .name order-status
+    .option [
+        .name open
+        .proto-name "ORDER_STATUS_OPEN"
+    ]
+    .option [
+        .name partially-filled
+        .proto-name "ORDER_STATUS_PARTIALLY_FILLED"
+    ]
+    .option [
+        .name filled
+        .proto-name "ORDER_STATUS_FILLED"
+    ]
+    .option [
+        .name partially-cancelled
+        .proto-name "ORDER_STATUS_PARTIALLY_CANCELLED"
+    ]
+    .option [
+        .name cancelled
+        .proto-name "ORDER_STATUS_CANCELLED"
+    ]
+    .option [
+        .name settled
+        .proto-name "ORDER_STATUS_SETTLED"
+    ]
+]
+.record [
+    .name order-execution
+    .proto-name "OrderExecution"
+    .field [
+        .name price
+        .type uint32
     ]
     .field [
         .name quantity
