@@ -1190,7 +1190,7 @@
         .type uint32
     ]
     .field [
-        .name order-state
+        .name orders
         .type order-state
         .repeated
     ]
@@ -1220,9 +1220,17 @@
         .type uint32
     ]
     .field [
+        .name created-microseconds
+        .type microseconds
+    ]
+    .field [
         .name executions
         .type order-execution
         .repeated
+    ]
+    .field [
+        .name cancelled-microseconds
+        .type microseconds
     ]
 ]
 .enum [
@@ -1247,10 +1255,6 @@
         .name cancelled
         .proto-name "ORDER_STATUS_CANCELLED"
     ]
-    .option [
-        .name settled
-        .proto-name "ORDER_STATUS_SETTLED"
-    ]
 ]
 .record [
     .name order-execution
@@ -1262,5 +1266,9 @@
     .field [
         .name quantity
         .type uint32
+    ]
+    .field [
+        .name microseconds
+        .type microseconds
     ]
 ]
