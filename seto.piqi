@@ -1146,6 +1146,12 @@
         .name market
         .type market
     ]
+    .field [
+        .name with-executions
+        .type bool
+        .optional
+        .default false
+    ]
 ]
 
 .record [
@@ -1229,8 +1235,15 @@
         .repeated
     ]
     .field [
+        .name filled-quantity
+        .type uint32
+        .optional
+        .default 0
+    ]
+    .field [
         .name cancelled-microseconds
         .type microseconds
+        .optional
     ]
 ]
 .enum [
