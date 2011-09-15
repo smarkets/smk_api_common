@@ -1230,12 +1230,7 @@
         .type microseconds
     ]
     .field [
-        .name executions
-        .type order-execution
-        .repeated
-    ]
-    .field [
-        .name filled-quantity
+        .name quantity-filled
         .type uint32
         .optional
         .default 0
@@ -1267,21 +1262,5 @@
     .option [
         .name cancelled
         .proto-name "ORDER_STATUS_CANCELLED"
-    ]
-]
-.record [
-    .name order-execution
-    .proto-name "OrderExecution"
-    .field [
-        .name price
-        .type uint32
-    ]
-    .field [
-        .name quantity
-        .type uint32
-    ]
-    .field [
-        .name microseconds
-        .type microseconds
     ]
 ]
