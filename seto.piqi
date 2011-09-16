@@ -1229,17 +1229,12 @@
         .optional
         .default 0
     ]
-    .field [
-        .name cancelled-microseconds
-        .type microseconds
-        .optional
-    ]
 ]
 .enum [
     .name order-status
     .option [
-        .name open
-        .proto-name "ORDER_STATUS_OPEN"
+        .name live
+        .proto-name "ORDER_STATUS_LIVE"
     ]
     .option [
         .name partially-filled
