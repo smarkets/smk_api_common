@@ -139,6 +139,16 @@
         .optional
     ]
     .field [
+        .name orders-for-account-request
+        .type orders-for-account-request
+        .optional
+    ]
+    .field [
+        .name orders-for-account
+        .type orders-for-account
+        .optional
+    ]
+    .field [
         .name orders-for-market-request
         .type orders-for-market-request
         .optional
@@ -224,6 +234,14 @@
     .option [
         .name order-cancel-rejected
         .proto-name "PAYLOAD_ORDER_CANCEL_REJECTED"
+    ]
+    .option [
+        .name orders-for-account-request
+        .proto-name "PAYLOAD_ORDERS_FOR_ACCOUNT_REQUEST"
+    ]
+    .option [
+        .name orders-for-account
+        .proto-name "PAYLOAD_ORDERS_FOR_ACCOUNT"
     ]
     .option [
         .name orders-for-market-request
@@ -1137,6 +1155,19 @@
     .option [
         .name generic
         .proto-name "EVENT_CATEGORY_GENERIC"
+    ]
+]
+
+.record [
+    .name orders-for-account-request
+]
+
+.record [
+    .name orders-for-account
+    .field [
+        .name markets
+        .type orders-for-market
+        .repeated
     ]
 ]
 
