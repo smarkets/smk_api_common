@@ -389,6 +389,10 @@
         .name crossed-self
         .proto-name "ORDER_REJECTED_CROSSED_SELF"
     ]
+    .option [
+        .name market-not-found
+        .proto-name "ORDER_REJECTED_MARKET_NOT_FOUND"
+    ]
 ]
 
 .enum [
