@@ -138,6 +138,26 @@
         .type order-cancel-rejected
         .optional
     ]
+    .field [
+        .name orders-for-account-request
+        .type orders-for-account-request
+        .optional
+    ]
+    .field [
+        .name orders-for-account
+        .type orders-for-account
+        .optional
+    ]
+    .field [
+        .name orders-for-market-request
+        .type orders-for-market-request
+        .optional
+    ]
+    .field [
+        .name orders-for-market
+        .type orders-for-market
+        .optional
+    ]
 ]
 
 .enum [
@@ -214,6 +234,22 @@
     .option [
         .name order-cancel-rejected
         .proto-name "PAYLOAD_ORDER_CANCEL_REJECTED"
+    ]
+    .option [
+        .name orders-for-account-request
+        .proto-name "PAYLOAD_ORDERS_FOR_ACCOUNT_REQUEST"
+    ]
+    .option [
+        .name orders-for-account
+        .proto-name "PAYLOAD_ORDERS_FOR_ACCOUNT"
+    ]
+    .option [
+        .name orders-for-market-request
+        .proto-name "PAYLOAD_ORDERS_FOR_MARKET_REQUEST"
+    ]
+    .option [
+        .name orders-for-market
+        .proto-name "PAYLOAD_ORDERS_FOR_MARKET"
     ]
 ]
 
@@ -352,6 +388,10 @@
     .option [
         .name crossed-self
         .proto-name "ORDER_REJECTED_CROSSED_SELF"
+    ]
+    .option [
+        .name market-not-found
+        .proto-name "ORDER_REJECTED_MARKET_NOT_FOUND"
     ]
 ]
 
@@ -1001,6 +1041,22 @@
         .name generic
         .proto-name "ENTITY_RELATIONSHIP_GENERIC"
     ]
+    .option [
+        .name tennis-player-a
+        .proto-name "ENTITY_RELATIONSHIP_TENNIS_PLAYER_A"
+    ]
+    .option [
+        .name tennis-player-b
+        .proto-name "ENTITY_RELATIONSHIP_TENNIS_PLAYER_B"
+    ]
+    .option [
+        .name home-team
+        .proto-name "ENTITY_RELATIONSHIP_HOME_TEAM"
+    ]
+    .option [
+        .name away-team
+        .proto-name "ENTITY_RELATIONSHIP_AWAY_TEAM"
+    ]
 ]
 
 .record [
@@ -1103,5 +1159,132 @@
     .option [
         .name generic
         .proto-name "EVENT_CATEGORY_GENERIC"
+    ]
+]
+
+.record [
+    .name orders-for-account-request
+]
+
+.record [
+    .name orders-for-account
+    .field [
+        .name markets
+        .type orders-for-market
+        .repeated
+    ]
+]
+
+.record [
+    .name orders-for-market-request
+    .field [
+        .name market
+        .type market
+    ]
+]
+
+.record [
+    .name orders-for-market
+    .field [
+        .name market
+        .type market
+    ] 
+    .field [
+        .name price-type
+        .type price-type
+    ]
+    .field [
+        .name contracts
+        .type orders-for-contract
+        .repeated
+    ]
+]
+
+.record [
+    .name orders-for-contract
+    .field [
+        .name contract
+        .type contract
+    ]
+    .field [
+        .name bids
+        .type orders-for-price
+        .repeated
+    ]
+    .field [
+        .name offers
+        .type orders-for-price
+        .repeated
+    ]
+]
+
+.record [
+    .name orders-for-price
+    .field [
+        .name price
+        .type uint32
+    ]
+    .field [
+        .name orders
+        .type order-state
+        .repeated
+    ]
+]
+
+.record [
+    .name order-state
+    .proto-name "OrderState"
+    .field [
+        .name order
+        .type order
+    ]
+    .field [
+        .name type
+        .type order-create-type
+    ]
+    .field [
+        .name status
+        .type order-status
+    ]
+    .field [
+        .name quantity-type
+        .type quantity-type
+    ]
+    .field [
+        .name quantity
+        .type uint32
+    ]
+    .field [
+        .name created-microseconds
+        .type microseconds
+    ]
+    .field [
+        .name quantity-filled
+        .type uint32
+        .optional
+        .default 0
+    ]
+]
+.enum [
+    .name order-status
+    .option [
+        .name live
+        .proto-name "ORDER_STATUS_LIVE"
+    ]
+    .option [
+        .name partially-filled
+        .proto-name "ORDER_STATUS_PARTIALLY_FILLED"
+    ]
+    .option [
+        .name filled
+        .proto-name "ORDER_STATUS_FILLED"
+    ]
+    .option [
+        .name partially-cancelled
+        .proto-name "ORDER_STATUS_PARTIALLY_CANCELLED"
+    ]
+    .option [
+        .name cancelled
+        .proto-name "ORDER_STATUS_CANCELLED"
     ]
 ]

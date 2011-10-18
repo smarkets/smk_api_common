@@ -4,3 +4,4 @@ build
 *_pb2.py
 *.pyc
 *.proto
+seto_piqi.*
