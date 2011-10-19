@@ -1267,6 +1267,7 @@
 ]
 .enum [
     .name order-status
+    .proto-name "OrderStatus"
     .option [
         .name live
         .proto-name "ORDER_STATUS_LIVE"
