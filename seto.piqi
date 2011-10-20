@@ -985,12 +985,16 @@
         .proto-name "EVENT_EUROVISION_SEASON"
     ]
     .option [
-        .name tennis-match
-        .proto-name "EVENT_TENNIS_MATCH"
+        .name tennis-round
+        .proto-name "EVENT_TENNIS_ROUND"
     ]
     .option [
-        .name tennis-season
-        .proto-name "EVENT_TENNIS_SEASON"
+        .name tennis-format
+        .proto-name "EVENT_TENNIS_FORMAT"
+    ]
+    .option [
+        .name tennis-tournament
+        .proto-name "EVENT_TENNIS_TOURNAMENT"
     ]
     .option [
         .name cycling-season
@@ -1003,6 +1007,18 @@
     .option [
         .name motogp-season
         .proto-name "EVENT_MOTOGP_SEASON"
+    ]
+    .option [
+        .name boxing-match
+        .proto-name "EVENT_BOXING_MATCH"
+    ]
+    .option [
+        .name american-football-match
+        .proto-name "EVENT_AMERICAN_FOOTBALL_MATCH"
+    ]
+    .option [
+        .name rugby-union-match
+        .proto-name "EVENT_RUGBY_UNION_MATCH"
     ]
 ]
 
@@ -1159,6 +1175,26 @@
     .option [
         .name generic
         .proto-name "EVENT_CATEGORY_GENERIC"
+    ]
+    .option [
+        .name football
+        .proto-name "EVENT_CATEGORY_FOOTBALL"
+    ]
+    .option [
+        .name tennis
+        .proto-name "EVENT_CATEGORY_TENNIS"
+    ]
+    .option [
+        .name horse-racing
+        .proto-name "EVENT_CATEGORY_HORSE_RACING"
+    ]
+    .option [
+        .name american-football
+        .proto-name "EVENT_CATEGORY_AMERICAN_FOOTBALL"
+    ]
+    .option [
+        .name rugby
+        .proto-name "EVENT_CATEGORY_RUGBY"
     ]
 ]
 
