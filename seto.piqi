@@ -1407,7 +1407,7 @@
         .type int64
     ]
     .field [
-        .name shift
+        .name exponent
         .type uint32
         .default 2
         .optional
