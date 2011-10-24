@@ -158,6 +158,16 @@
         .type orders-for-market
         .optional
     ]
+    .field [
+        .name account-state-request
+        .type account-state-request
+        .optional
+    ]
+    .field [
+        .name account-state
+        .type account-state
+        .optional
+    ]
 ]
 
 .enum [
@@ -250,6 +260,14 @@
     .option [
         .name orders-for-market
         .proto-name "PAYLOAD_ORDERS_FOR_MARKET"
+    ]
+    .option [
+        .name account-state-request
+        .proto-name "PAYLOAD_ACCOUNT_STATE_REQUEST"
+    ]
+    .option [
+        .name account-state
+        .proto-name "PAYLOAD_ACCOUNT_STATE"
     ]
 ]
 
@@ -1327,5 +1345,71 @@
     .option [
         .name cancelled
         .proto-name "ORDER_STATUS_CANCELLED"
+    ]
+]
+.record [
+    .name account-state-request
+    .proto-name "AccountStateRequest"
+    .field [
+        .name account
+        .type account
+        .optional
+    ]
+]
+.record [
+    .name account-state
+    .proto-name "AccountState"
+    .field [
+        .name account
+        .type account
+    ]
+    .field [
+        .name currency
+        .type currency
+    ]
+    .field [
+        .name balance
+        .type decimal
+    ]
+    .field [
+        .name bonus
+        .type decimal
+    ]
+    .field [
+        .name exposure
+        .type decimal
+    ]
+]
+.alias [
+    .name account
+    .type uuid-128
+]
+
+.enum [
+    .name currency
+    .proto-name "Currency"
+    .option [
+        .name great-british-pound
+        .erlang-name "'GBP'"
+        .proto-name "CURRENCY_GBP"
+    ]
+    .option [
+        .name euro
+        .erlang-name "'EUR'"
+        .proto-name "CURRENCY_EUR"
+    ]
+]
+.record [
+    .name decimal
+    .proto-name "Decimal"
+    .field [
+        .name value
+        .type int64
+    ]
+    .field [
+        .name shift
+        .type uint32
+        .default 2
+        .optional
     ]
 ]
