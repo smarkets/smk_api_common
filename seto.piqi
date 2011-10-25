@@ -413,7 +413,7 @@
     ]
     .option [
         .name service-temporarily-unavailable
-        .proto-name "LOGOUT_SERVICE_TEMPORARILY_UNAVAILABLE"
+        .proto-name "ORDER_REJECTED_SERVICE_TEMPORARILY_UNAVAILABLE"
     ]
 ]
 
