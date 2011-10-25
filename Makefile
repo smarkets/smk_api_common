@@ -12,11 +12,7 @@ proto: deps
 github:
 	git push origin github-master
 	git push github github-master:master
-	git tag -f v$(VSN)
-	git push github refs/tags/v$(VSN):refs/tags/v$(VSN)
-	git checkout master
-	git pull
+	git push github HEAD:refs/tags/v$(VSN)
 
 delvsn:
-	git tag -d v$(VSN)
 	git push github :refs/tags/v$(VSN)
