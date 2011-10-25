@@ -1368,7 +1368,7 @@
         .type currency
     ]
     .field [
-        .name balance
+        .name cash
         .type decimal
     ]
     .field [
