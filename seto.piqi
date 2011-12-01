@@ -415,6 +415,10 @@
         .name service-temporarily-unavailable
         .proto-name "ORDER_REJECTED_SERVICE_TEMPORARILY_UNAVAILABLE"
     ]
+    .option [
+        .name contract-not-found
+        .proto-name "ORDER_REJECTED_CONTRACT_NOT_FOUND"
+    ]
 ]
 
 .enum [
