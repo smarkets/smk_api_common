@@ -1393,12 +1393,12 @@
     .name currency
     .proto-name "Currency"
     .option [
-        .name great-british-pound
+        .name gbp
         .erlang-name "'GBP'"
         .proto-name "CURRENCY_GBP"
     ]
     .option [
-        .name euro
+        .name eur
         .erlang-name "'EUR'"
         .proto-name "CURRENCY_EUR"
     ]
