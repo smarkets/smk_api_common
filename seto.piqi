@@ -419,6 +419,10 @@
         .name contract-not-found
         .proto-name "ORDER_REJECTED_CONTRACT_NOT_FOUND"
     ]
+    .option [
+        .name account-suspended
+        .proto-name "ORDER_REJECTED_ACCOUNT_SUSPENDED"
+    ]
 ]
 
 .enum [
@@ -1393,12 +1397,12 @@
     .name currency
     .proto-name "Currency"
     .option [
-        .name great-british-pound
+        .name gbp
         .erlang-name "'GBP'"
         .proto-name "CURRENCY_GBP"
     ]
     .option [
-        .name euro
+        .name eur
         .erlang-name "'EUR'"
         .proto-name "CURRENCY_EUR"
     ]
