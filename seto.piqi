@@ -274,6 +274,10 @@
         .name account-state
         .proto-name "PAYLOAD_ACCOUNT_STATE"
     ]
+    .option [
+        .name downtime-alert
+        .proto-name "PAYLOAD_DOWNTIME_ALERT"
+    ]
 ]
 
 .record [
