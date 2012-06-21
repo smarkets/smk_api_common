@@ -168,6 +168,11 @@
         .type account-state
         .optional
     ]
+    .field [
+        .name downtime-alert
+        .type downtime-alert
+        .optional
+    ]
 ]
 
 .enum [
@@ -1419,5 +1424,23 @@
         .type uint32
         .default 2
         .optional
+    ]
+]
+
+.record [
+    .name downtime-alert
+    .proto-name "DowntimeAlert"
+    .field [
+        .name type
+        .type downtime-alert-type
+    ]
+]
+
+.enum [
+    .name downtime-alert-type
+    .proto-name "DowntimeAlertType"
+    .option [
+        .name order-create
+        .proto-name "DOWNTIME_ALERT_ORDER_CREATE"
     ]
 ]
