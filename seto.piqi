@@ -1444,7 +1444,7 @@
     .name downtime-alert-type
     .proto-name "DowntimeAlertType"
     .option [
-        .name order-create
+        .name backend
         .proto-name "DOWNTIME_ALERT_BACKEND"
     ]
 ]
