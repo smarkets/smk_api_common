@@ -352,6 +352,16 @@
         .type uint32
         .optional
     ]
+    .field [
+        .name maq
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name tif
+        .type time-in-force-type
+        .optional
+    ]
 ]
 
 .enum [
@@ -360,6 +370,19 @@
     .option [
         .name limit
         .proto-name "ORDER_CREATE_LIMIT"
+    ]
+]
+
+.enum [
+    .name time-in-force-type
+    .proto-name "TimeInForceType"
+    .option [
+        .name gtc
+        .proto-name "GOOD_TILL_CANCELLED"
+    ]
+    .option [
+        .name ioc
+        .proto-name "IMMEDIATE_OR_CANCEL"
     ]
 ]
 
