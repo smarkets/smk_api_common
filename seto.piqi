@@ -378,7 +378,7 @@
     .proto-name "TimeInForceType"
     .option [
         .name gtc
-        .proto-name "GOOD_TILL_CANCELLED"
+        .proto-name "GOOD_TIL_CANCELLED"
     ]
     .option [
         .name ioc
