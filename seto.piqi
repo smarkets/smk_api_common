@@ -502,6 +502,11 @@
         .name quantity
         .type uint32
     ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
 ]
 
 .record [
