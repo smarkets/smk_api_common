@@ -798,6 +798,38 @@
         .name tennis
         .proto-name "SPORT_BY_DATE_TENNIS"
     ]
+    .option [
+        .name basketball
+        .proto-name "SPORT_BY_DATE_BASKETBALL"
+    ]
+    .option [
+        .name american-football
+        .proto-name "SPORT_BY_DATE_AMERICANFOOTBALL"
+    ]
+    .option [
+        .name baseball
+        .proto-name "SPORT_BY_DATE_BASEBALL"
+    ]
+    .option [
+        .name cricket
+        .proto-name "SPORT_BY_DATE_CRICKET"
+    ]
+    .option [
+        .name handball
+        .proto-name "SPORT_BY_DATE_HANDBALL"
+    ]
+    .option [
+        .name rugby
+        .proto-name "SPORT_BY_DATE_RUGBY"
+    ]
+    .option [
+        .name rugby-league
+        .proto-name "SPORT_BY_DATE_RUGBYLEAGUE"
+    ]
+    .option [
+        .name volleyball
+        .proto-name "SPORT_BY_DATE_VOLLEYBALL"
+    ]
 ]
 
 .record [
@@ -1086,6 +1118,26 @@
     .option [
         .name rugby-union-match
         .proto-name "EVENT_RUGBY_UNION_MATCH"
+    ]
+    .option [
+        .name basketball-match
+        .proto-name "EVENT_BASKETBALL_MATCH"
+    ]
+    .option [
+        .name basketball-season
+        .proto-name "EVENT_BASKETBALL_SEASON"
+    ]
+    .option [
+        .name cricket-match
+        .proto-name "EVENT_CRICKET_MATCH"
+    ]
+    .option [
+        .name cricket-season
+        .proto-name "EVENT_CRICKET_SEASON"
+    ]
+    .option [
+        .name volleyball-match
+        .proto-name "EVENT_VOLLEYBALL_MATCH"
     ]
 ]
 
