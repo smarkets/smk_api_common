@@ -1139,6 +1139,34 @@
         .name volleyball-match
         .proto-name "EVENT_VOLLEYBALL_MATCH"
     ]
+    .option [
+        .name handball-match
+        .proto-name "EVENT_HANDBALL_MATCH"
+    ]
+    .option [
+        .name rugby-union-season
+        .proto-name "EVENT_RUGBY_UNION_SEASON"
+    ]
+    .option [
+        .name rugby-league-match
+        .proto-name "EVENT_RUGBY_LEAGUE_MATCH"
+    ]
+    .option [
+        .name rugby-league-season
+        .proto-name "EVENT_RUGBY_LEAGUE_SEASON"
+    ]
+    .option [
+        .name american-football-season
+        .proto-name "EVENT_AMERICAN_FOOTBALL_SEASON"
+    ]
+    .option [
+        .name baseball-match
+        .proto-name "EVENT_BASEBALL_MATCH"
+    ]
+    .option [
+        .name baseball-season
+        .proto-name "EVENT_BASEBALL_SEASON"
+    ]
 ]
 
 .enum [
