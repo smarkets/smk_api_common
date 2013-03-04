@@ -1167,6 +1167,14 @@
         .name baseball-season
         .proto-name "EVENT_BASEBALL_SEASON"
     ]
+    .option [
+        .name tennis-match
+        .proto-name "EVENT_TENNIS_MATCH"
+    ]
+    .option [
+        .name tennis-season
+        .proto-name "EVENT_TENNIS_SEASON"
+    ]
 ]
 
 .enum [
