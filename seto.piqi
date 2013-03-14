@@ -1531,6 +1531,11 @@
         .erlang-name "'EUR'"
         .proto-name "CURRENCY_EUR"
     ]
+    .option [
+        .name usd
+        .erlang-name "'USD'"
+        .proto-name "CURRENCY_USD"
+    ]
 ]
 .record [
     .name decimal
