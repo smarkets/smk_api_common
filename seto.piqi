@@ -410,6 +410,11 @@
         .name reason
         .type order-cancel-rejected-reason
     ]
+    .field [
+        .name order
+        .type order
+        .optional
+    ]
 ]
 
 .enum [
