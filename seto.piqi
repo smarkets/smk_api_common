@@ -403,17 +403,12 @@
     .name order-cancel-rejected
     .proto-name "OrderCancelRejected"
     .field [
-        .name seq
-        .type eto/seq
+        .name order
+        .type order
     ]
     .field [
         .name reason
         .type order-cancel-rejected-reason
-    ]
-    .field [
-        .name order
-        .type order
-        .optional
     ]
 ]
 
