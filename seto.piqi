@@ -313,6 +313,11 @@
         .type binary
         .optional
     ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
 ]
 
 .record [
