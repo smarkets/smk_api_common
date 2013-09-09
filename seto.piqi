@@ -402,6 +402,11 @@
         .name reason
         .type order-rejected-reason
     ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
 ]
 
 .record [
@@ -414,6 +419,11 @@
     .field [
         .name reason
         .type order-cancel-rejected-reason
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
     ]
 ]
 
@@ -486,6 +496,11 @@
         .name order
         .type order
     ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
 ]
 
 .record [
@@ -533,6 +548,11 @@
     .field [
         .name reason
         .type order-cancelled-reason
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
     ]
 ]
 
