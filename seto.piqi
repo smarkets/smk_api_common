@@ -367,6 +367,11 @@
         .type time-in-force-type
         .optional
     ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
 ]
 
 .enum [
@@ -407,6 +412,11 @@
         .type uint32
         .optional
     ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
 ]
 
 .record [
@@ -423,6 +433,11 @@
     .field [
         .name account-sequence
         .type uint32
+        .optional
+    ]
+    .field [
+        .name reference
+        .type uint64
         .optional
     ]
 ]
@@ -509,6 +524,11 @@
         .type uint32
         .optional
     ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
 ]
 
 .record [
@@ -544,6 +564,11 @@
         .name order
         .type order
     ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
 ]
 
 .record [
@@ -560,6 +585,11 @@
     .field [
         .name account-sequence
         .type uint32
+        .optional
+    ]
+    .field [
+        .name reference
+        .type uint64
         .optional
     ]
 ]
