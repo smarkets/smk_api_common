@@ -623,6 +623,11 @@
         .type order-invalid-reason
         .repeated
     ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
 ]
 
 .enum [
