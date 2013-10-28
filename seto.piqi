@@ -698,7 +698,6 @@
     .field [
         .name market
         .type market
-        .optional
     .field [
         .name contract
         .type contract
