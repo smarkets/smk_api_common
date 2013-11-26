@@ -173,6 +173,11 @@
         .type downtime-alert
         .optional
     ]
+    .field [
+        .name order-execute-voided
+        .type order-execute-voided
+        .optional
+    ]
 ]
 
 .enum [
@@ -277,6 +282,10 @@
     .option [
         .name downtime-alert
         .protobuf-name "PAYLOAD_DOWNTIME_ALERT"
+    ]
+    .option [
+        .name order-execute-voided
+        .proto-name "PAYLOAD_ORDER_EXECUTE_VOIDED"
     ]
 ]
 
@@ -1639,5 +1648,31 @@
     .option [
         .name order-create
         .protobuf-name "DOWNTIME_ALERT_ORDER_CREATE"
+    ]
+]
+
+.record [
+    .name order-execute-voided
+    .proto-name "OrderExecutedVoid"
+    .field [
+        .name order
+        .type order
+    ]
+    .field [
+        .name price
+        .type uint32
+    ]
+    .field [
+        .name quantity-type
+        .type quantity-type
+    ]
+    .field [
+        .name quantity
+        .type uint32
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
     ]
 ]
