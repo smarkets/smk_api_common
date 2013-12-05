@@ -178,6 +178,11 @@
         .type order-execute-voided
         .optional
     ]
+    .field [
+        .name market-state-transition
+        .type market-state-transition
+        .optional
+    ]
 ]
 
 .enum [
@@ -286,6 +291,10 @@
     .option [
         .name order-execute-voided
         .proto-name "PAYLOAD_ORDER_EXECUTE_VOIDED"
+    ]
+    .option [
+        .name market-state-transition
+        .proto-name "PAYLOAD_MARKET_STATE_TRANSITION"
     ]
 ]
 
@@ -1674,5 +1683,39 @@
         .name account-sequence
         .type uint32
         .optional
+    ]
+]
+
+.enum [
+    .name market-state-transition-type
+    .protobuf-name "MarketStateTransitionType"
+    .option [
+        .name open
+        .protobuf-name "OPEN"
+    ]
+    .option [
+        .name live
+        .protobuf-name "LIVE"
+    ]
+    .option [
+        .name halt
+        .protobuf-name "HALT"
+    ]
+    .option [
+        .name resume
+        .protobuf-name "RESUME"
+    ]
+]
+
+.record [
+    .name market-state-transition
+    .proto-name "MarketStateTransition"
+    .field [
+        .name market
+        .type market
+    ]
+    .field [
+        .name state-transition
+        .type market-state-transition-type
     ]
 ]
