@@ -782,6 +782,10 @@
         .name settled
         .protobuf-name "MARKET_STATE_SETTLED"
     ]
+    .option [
+        .name voided
+        .protobuf-name "MARKET_STATE_VOIDED"
+    ]
 ]
 
 .record [
