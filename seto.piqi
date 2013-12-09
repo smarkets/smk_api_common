@@ -104,11 +104,6 @@
         .optional
     ]
     .field [
-        .name market-quotes-request
-        .type market-quotes-request
-        .optional
-    ]
-    .field [
         .name market-quotes
         .type market-quotes
         .optional
@@ -119,58 +114,8 @@
         .optional
     ]
     .field [
-        .name events-request
-        .type events-request
-        .optional
-    ]
-    .field [
-        .name http-found
-        .type http-found
-        .optional
-    ]
-    .field [
-        .name invalid-request
-        .type invalid-request
-        .optional
-    ]
-    .field [
         .name order-cancel-rejected
         .type order-cancel-rejected
-        .optional
-    ]
-    .field [
-        .name orders-for-account-request
-        .type orders-for-account-request
-        .optional
-    ]
-    .field [
-        .name orders-for-account
-        .type orders-for-account
-        .optional
-    ]
-    .field [
-        .name orders-for-market-request
-        .type orders-for-market-request
-        .optional
-    ]
-    .field [
-        .name orders-for-market
-        .type orders-for-market
-        .optional
-    ]
-    .field [
-        .name account-state-request
-        .type account-state-request
-        .optional
-    ]
-    .field [
-        .name account-state
-        .type account-state
-        .optional
-    ]
-    .field [
-        .name downtime-alert
-        .type downtime-alert
         .optional
     ]
     .field [
@@ -179,8 +124,8 @@
         .optional
     ]
     .field [
-        .name market-state-transition
-        .type market-state-transition
+        .name market-state
+        .type market-state
         .optional
     ]
 ]
@@ -233,10 +178,6 @@
         .protobuf-name "PAYLOAD_MARKET_UNSUBSCRIBE"
     ]
     .option [
-        .name market-quotes-request
-        .protobuf-name "PAYLOAD_MARKET_QUOTES_REQUEST"
-    ]
-    .option [
         .name market-quotes
         .protobuf-name "PAYLOAD_MARKET_QUOTES"
     ]
@@ -245,56 +186,16 @@
         .protobuf-name "PAYLOAD_CONTRACT_QUOTES"
     ]
     .option [
-        .name events-request
-        .protobuf-name "PAYLOAD_EVENTS_REQUEST"
-    ]
-    .option [
-        .name http-found
-        .protobuf-name "PAYLOAD_HTTP_FOUND"
-    ]
-    .option [
-        .name invalid-request
-        .protobuf-name "PAYLOAD_INVALID_REQUEST"
-    ]
-    .option [
         .name order-cancel-rejected
         .protobuf-name "PAYLOAD_ORDER_CANCEL_REJECTED"
-    ]
-    .option [
-        .name orders-for-account-request
-        .protobuf-name "PAYLOAD_ORDERS_FOR_ACCOUNT_REQUEST"
-    ]
-    .option [
-        .name orders-for-account
-        .protobuf-name "PAYLOAD_ORDERS_FOR_ACCOUNT"
-    ]
-    .option [
-        .name orders-for-market-request
-        .protobuf-name "PAYLOAD_ORDERS_FOR_MARKET_REQUEST"
-    ]
-    .option [
-        .name orders-for-market
-        .protobuf-name "PAYLOAD_ORDERS_FOR_MARKET"
-    ]
-    .option [
-        .name account-state-request
-        .protobuf-name "PAYLOAD_ACCOUNT_STATE_REQUEST"
-    ]
-    .option [
-        .name account-state
-        .protobuf-name "PAYLOAD_ACCOUNT_STATE"
-    ]
-    .option [
-        .name downtime-alert
-        .protobuf-name "PAYLOAD_DOWNTIME_ALERT"
     ]
     .option [
         .name order-execute-voided
         .proto-name "PAYLOAD_ORDER_EXECUTE_VOIDED"
     ]
     .option [
-        .name market-state-transition
-        .proto-name "PAYLOAD_MARKET_STATE_TRANSITION"
+        .name market-state
+        .proto-name "PAYLOAD_MARKET_STATE"
     ]
 ]
 
@@ -680,15 +581,6 @@
 ]
 
 .record [
-    .name market-quotes-request
-    .protobuf-name "MarketQuotesRequest"
-    .field [
-        .name market
-        .type market
-    ]
-]
-
-.record [
     .name market-quotes
     .protobuf-name "MarketQuotes"
     .field [
@@ -808,806 +700,6 @@
     ]
 ]
 
-.record [
-    .name events-request
-    .protobuf-name "EventsRequest"
-    .field [
-        .name type
-        .type events-request-type
-    ]
-    .field [
-        .name content-type
-        .type content-type
-    ]
-    .field [
-        .name sport-by-date
-        .type sport-by-date
-        .optional
-    ]
-]
-
-.enum [
-    .name content-type
-    .protobuf-name "ContentType"
-    .option [
-        .name protobuf
-        .protobuf-name "CONTENT_TYPE_PROTOBUF"
-    ]
-]
-
-.enum [
-    .name events-request-type
-    .protobuf-name "EventsRequestType"
-    .option [
-        .name politics
-        .protobuf-name "EVENTS_REQUEST_POLITICS"
-    ]
-    .option [
-        .name current-affairs
-        .protobuf-name "EVENTS_REQUEST_CURRENT_AFFAIRS"
-    ]
-    .option [
-        .name tv-and-entertainment
-        .protobuf-name "EVENTS_REQUEST_TV_AND_ENTERTAINMENT"
-    ]
-    .option [
-        .name sport-by-date
-        .protobuf-name "EVENTS_REQUEST_SPORT_BY_DATE"
-    ]
-    .option [
-        .name sport-other
-        .protobuf-name "EVENTS_REQUEST_SPORT_OTHER"
-    ]
-]
-
-.record [
-    .name sport-by-date
-    .protobuf-name "SportByDate"
-    .field [
-        .name type
-        .type sport-by-date-type
-    ]
-    .field [
-        .name date
-        .type date
-    ]
-]
-
-.enum [
-    .name sport-by-date-type
-    .protobuf-name "SportByDateType"
-    .option [
-        .name football
-        .protobuf-name "SPORT_BY_DATE_FOOTBALL"
-    ]
-    .option [
-        .name horse-racing
-        .protobuf-name "SPORT_BY_DATE_HORSE_RACING"
-    ]
-    .option [
-        .name tennis
-        .protobuf-name "SPORT_BY_DATE_TENNIS"
-    ]
-    .option [
-        .name basketball
-        .protobuf-name "SPORT_BY_DATE_BASKETBALL"
-    ]
-    .option [
-        .name american-football
-        .protobuf-name "SPORT_BY_DATE_AMERICANFOOTBALL"
-    ]
-    .option [
-        .name baseball
-        .protobuf-name "SPORT_BY_DATE_BASEBALL"
-    ]
-    .option [
-        .name cricket
-        .protobuf-name "SPORT_BY_DATE_CRICKET"
-    ]
-    .option [
-        .name handball
-        .protobuf-name "SPORT_BY_DATE_HANDBALL"
-    ]
-    .option [
-        .name rugby
-        .protobuf-name "SPORT_BY_DATE_RUGBY"
-    ]
-    .option [
-        .name rugby-league
-        .protobuf-name "SPORT_BY_DATE_RUGBYLEAGUE"
-    ]
-    .option [
-        .name volleyball
-        .protobuf-name "SPORT_BY_DATE_VOLLEYBALL"
-    ]
-]
-
-.record [
-    .name events
-    .protobuf-name "Events"
-    .field [
-        .name with-markets
-        .type event-info
-        .repeated
-    ]
-    .field [
-        .name parents
-        .type event-info
-        .repeated
-    ]
-]
-
-.record [
-    .name event-info
-    .protobuf-name "EventInfo"
-    .field [
-        .name event
-        .type event
-    ]
-    .field [
-        .name type
-        .type event-type
-    ]
-    .field [
-        .name category
-        .type event-category
-    ]
-    .field [
-        .name slug
-        .type slug
-    ]
-    .field [
-        .name name
-        .type string
-    ]
-    .field [
-        .name parent
-        .type event
-        .optional
-    ]
-    .field [
-        .name start-date
-        .type date
-        .optional
-    ]
-    .field [
-        .name start-time
-        .type time
-        .optional
-    ]
-    .field [
-        .name end-date
-        .type date
-        .optional
-    ]
-    .field [
-        .name end-time
-        .type time
-        .optional
-    ]
-    .field [
-        .name entities
-        .type entity-relationship
-        .repeated
-    ]
-    .field [
-        .name markets
-        .type market-info
-        .repeated
-    ]
-    .field [
-        .name description
-        .type string
-        .optional
-    ]
-]
-
-.record [
-    .name market-info
-    .protobuf-name "MarketInfo"
-    .field [
-        .name market
-        .type market
-    ]
-    .field [
-        .name contracts
-        .type contract-info
-        .repeated
-    ]
-    .field [
-        .name slug
-        .type slug
-    ]
-    .field [
-        .name name
-        .type string
-    ]
-    .field [
-        .name start-date
-        .type date
-        .optional
-    ]
-    .field [
-        .name start-time
-        .type time
-        .optional
-    ]
-    .field [
-        .name end-date
-        .type date
-        .optional
-    ]
-    .field [
-        .name end-time
-        .type time
-        .optional
-    ]
-    .field [
-        .name entities
-        .type entity-relationship
-        .repeated
-    ]
-    .field [
-        .name shortname
-        .type string
-        .optional
-    ]
-]
-
-.record [
-    .name contract-info
-    .protobuf-name "ContractInfo"
-    .field [
-        .name contract
-        .type contract
-    ]
-    .field [
-        .name type
-        .type contract-type
-    ]
-    .field [
-        .name slug
-        .type slug
-    ]
-    .field [
-        .name name
-        .type string
-    ]
-    .field [
-        .name entities
-        .type entity-relationship
-        .repeated
-    ]
-    .field [
-        .name shortname
-        .type string
-        .optional
-    ]
-]
-
-.enum [
-    .name contract-type
-    .protobuf-name "ContractType"
-    .option [
-        .name half-time-full-time
-        .protobuf-name "CONTRACT_HALF_TIME_FULL_TIME"
-    ]
-    .option [
-        .name correct-score
-        .protobuf-name "CONTRACT_CORRECT_SCORE"
-    ]
-    .option [
-        .name generic
-        .protobuf-name "CONTRACT_GENERIC"
-    ]
-    .option [
-        .name winner
-        .protobuf-name "CONTRACT_WINNER"
-    ]
-    .option [
-        .name binary
-        .protobuf-name "CONTRACT_BINARY"
-    ]
-    .option [
-        .name over-under
-        .protobuf-name "CONTRACT_OVER_UNDER"
-    ]
-]
-
-.enum [
-    .name event-type
-    .protobuf-name "EventType"
-    .option [
-        .name football-match
-        .protobuf-name "EVENT_FOOTBALL_MATCH"
-    ]
-    .option [
-        .name football-season
-        .protobuf-name "EVENT_FOOTBALL_SEASON"
-    ]
-    .option [
-        .name football
-        .protobuf-name "EVENT_FOOTBALL"
-    ]
-    .option [
-        .name generic
-        .protobuf-name "EVENT_GENERIC"
-    ]
-    .option [
-        .name football-generic
-        .protobuf-name "EVENT_FOOTBALL_GENERIC"
-    ]
-    .option [
-        .name golf-season
-        .protobuf-name "EVENT_GOLF_SEASON"
-    ]
-    .option [
-        .name boxing-season
-        .protobuf-name "EVENT_BOXING_SEASON"
-    ]
-    .option [
-        .name formula-1-race
-        .protobuf-name "EVENT_FORMULA_1_RACE"
-    ]
-    .option [
-        .name formula-1-season
-        .protobuf-name "EVENT_FORMULA_1_SEASON"
-    ]
-    .option [
-        .name horse-racing-race
-        .protobuf-name "EVENT_HORSE_RACING_RACE"
-    ]
-    .option [
-        .name horse-racing-course
-        .protobuf-name "EVENT_HORSE_RACING_COURSE"
-    ]
-    .option [
-        .name horse-racing
-        .protobuf-name "EVENT_HORSE_RACING"
-    ]
-    .option [
-        .name golf-generic
-        .protobuf-name "EVENT_GOLF_GENERIC"
-    ]
-    .option [
-        .name eurovision-season
-        .protobuf-name "EVENT_EUROVISION_SEASON"
-    ]
-    .option [
-        .name tennis-round
-        .protobuf-name "EVENT_TENNIS_ROUND"
-    ]
-    .option [
-        .name tennis-format
-        .protobuf-name "EVENT_TENNIS_FORMAT"
-    ]
-    .option [
-        .name tennis-tournament
-        .protobuf-name "EVENT_TENNIS_TOURNAMENT"
-    ]
-    .option [
-        .name cycling-season
-        .protobuf-name "EVENT_CYCLING_SEASON"
-    ]
-    .option [
-        .name cycling-race
-        .protobuf-name "EVENT_CYCLING_RACE"
-    ]
-    .option [
-        .name motogp-season
-        .protobuf-name "EVENT_MOTOGP_SEASON"
-    ]
-    .option [
-        .name boxing-match
-        .protobuf-name "EVENT_BOXING_MATCH"
-    ]
-    .option [
-        .name american-football-match
-        .protobuf-name "EVENT_AMERICAN_FOOTBALL_MATCH"
-    ]
-    .option [
-        .name rugby-union-match
-        .protobuf-name "EVENT_RUGBY_UNION_MATCH"
-    ]
-    .option [
-        .name basketball-match
-        .protobuf-name "EVENT_BASKETBALL_MATCH"
-    ]
-    .option [
-        .name basketball-season
-        .protobuf-name "EVENT_BASKETBALL_SEASON"
-    ]
-    .option [
-        .name cricket-match
-        .protobuf-name "EVENT_CRICKET_MATCH"
-    ]
-    .option [
-        .name cricket-season
-        .protobuf-name "EVENT_CRICKET_SEASON"
-    ]
-    .option [
-        .name volleyball-match
-        .protobuf-name "EVENT_VOLLEYBALL_MATCH"
-    ]
-    .option [
-        .name handball-match
-        .protobuf-name "EVENT_HANDBALL_MATCH"
-    ]
-    .option [
-        .name rugby-union-season
-        .protobuf-name "EVENT_RUGBY_UNION_SEASON"
-    ]
-    .option [
-        .name rugby-league-match
-        .protobuf-name "EVENT_RUGBY_LEAGUE_MATCH"
-    ]
-    .option [
-        .name rugby-league-season
-        .protobuf-name "EVENT_RUGBY_LEAGUE_SEASON"
-    ]
-    .option [
-        .name american-football-season
-        .protobuf-name "EVENT_AMERICAN_FOOTBALL_SEASON"
-    ]
-    .option [
-        .name baseball-match
-        .protobuf-name "EVENT_BASEBALL_MATCH"
-    ]
-    .option [
-        .name baseball-season
-        .protobuf-name "EVENT_BASEBALL_SEASON"
-    ]
-    .option [
-        .name tennis-match
-        .protobuf-name "EVENT_TENNIS_MATCH"
-    ]
-    .option [
-        .name tennis-season
-        .protobuf-name "EVENT_TENNIS_SEASON"
-    ]
-]
-
-.enum [
-    .name entity-relationship-type
-    .protobuf-name "EntityRelationshipType"
-    .option [
-        .name football-home-team
-        .protobuf-name "ENTITY_RELATIONSHIP_FOOTBALL_HOME_TEAM"
-    ]
-    .option [
-        .name football-away-team
-        .protobuf-name "ENTITY_RELATIONSHIP_FOOTBALL_AWAY_TEAM"
-    ]
-    .option [
-        .name football-competition
-        .protobuf-name "ENTITY_RELATIONSHIP_FOOTBALL_COMPETITION"
-    ]
-    .option [
-        .name horse-racing-course
-        .protobuf-name "ENTITY_RELATIONSHIP_HORSE_RACING_COURSE"
-    ]
-    .option [
-        .name horse-racing-horse
-        .protobuf-name "ENTITY_RELATIONSHIP_HORSE_RACING_HORSE"
-    ]
-    .option [
-        .name horse-racing-jockey
-        .protobuf-name "ENTITY_RELATIONSHIP_HORSE_RACING_JOCKEY"
-    ]
-    .option [
-        .name contract-associated
-        .protobuf-name "ENTITY_RELATIONSHIP_CONTRACT_ASSOCIATED"
-    ]
-    .option [
-        .name generic
-        .protobuf-name "ENTITY_RELATIONSHIP_GENERIC"
-    ]
-    .option [
-        .name tennis-player-a
-        .protobuf-name "ENTITY_RELATIONSHIP_TENNIS_PLAYER_A"
-    ]
-    .option [
-        .name tennis-player-b
-        .protobuf-name "ENTITY_RELATIONSHIP_TENNIS_PLAYER_B"
-    ]
-    .option [
-        .name home-team
-        .protobuf-name "ENTITY_RELATIONSHIP_HOME_TEAM"
-    ]
-    .option [
-        .name away-team
-        .protobuf-name "ENTITY_RELATIONSHIP_AWAY_TEAM"
-    ]
-]
-
-.record [
-    .name entity-relationship
-    .protobuf-name "EntityRelationship"
-    .field [
-        .name entity
-        .type entity
-    ]
-    .field [
-        .name relationship
-        .type entity-relationship-type
-    ]
-]
-
-.record [
-    .name http-found
-    .protobuf-name "HttpFound"
-    .field [
-        .name seq
-        .type eto/seq
-    ]
-    .field [
-        .name url
-        .type url
-    ]
-]
-
-.record [
-    .name invalid-request
-    .protobuf-name "InvalidRequest"
-    .field [
-        .name seq
-        .type eto/seq
-    ]
-    .field [
-        .name type
-        .type invalid-request-type
-    ]
-]
-
-.enum [
-    .name invalid-request-type
-    .protobuf-name "InvalidRequestType"
-    .option [
-        .name date-out-of-range
-        .protobuf-name "INVALID_REQUEST_DATE_OUT_OF_RANGE"
-    ]
-]
-
-.record [
-    .name date
-    .protobuf-name "Date"
-    .field [
-        .name year
-        .type uint32
-    ]
-    .field [
-        .name month
-        .type uint32
-    ]
-    .field [
-        .name day
-        .type uint32
-    ]
-]
-
-.record [
-    .name time
-    .protobuf-name "Time"
-    .field [
-        .name hour
-        .type uint32
-    ]
-    .field [
-        .name minute
-        .type uint32
-    ]
-]
-
-.enum [
-    .name event-category
-    .protobuf-name "EventCategory"
-    .option [
-        .name sport
-        .protobuf-name "EVENT_CATEGORY_SPORT"
-    ]
-    .option [
-        .name politics
-        .protobuf-name "EVENT_CATEGORY_POLITICS"
-    ]
-    .option [
-        .name current-affairs
-        .protobuf-name "EVENT_CATEGORY_CURRENT_AFFAIRS"
-    ]
-    .option [
-        .name tv-and-entertainment
-        .protobuf-name "EVENT_CATEGORY_TV_AND_ENTERTAINMENT"
-    ]
-    .option [
-        .name generic
-        .protobuf-name "EVENT_CATEGORY_GENERIC"
-    ]
-    .option [
-        .name football
-        .protobuf-name "EVENT_CATEGORY_FOOTBALL"
-    ]
-    .option [
-        .name tennis
-        .protobuf-name "EVENT_CATEGORY_TENNIS"
-    ]
-    .option [
-        .name horse-racing
-        .protobuf-name "EVENT_CATEGORY_HORSE_RACING"
-    ]
-    .option [
-        .name american-football
-        .protobuf-name "EVENT_CATEGORY_AMERICAN_FOOTBALL"
-    ]
-    .option [
-        .name rugby
-        .protobuf-name "EVENT_CATEGORY_RUGBY"
-    ]
-]
-
-.record [
-    .name orders-for-account-request
-]
-
-.record [
-    .name orders-for-account
-    .field [
-        .name markets
-        .type orders-for-market
-        .repeated
-    ]
-]
-
-.record [
-    .name orders-for-market-request
-    .field [
-        .name market
-        .type market
-    ]
-]
-
-.record [
-    .name orders-for-market
-    .field [
-        .name market
-        .type market
-    ] 
-    .field [
-        .name price-type
-        .type price-type
-    ]
-    .field [
-        .name contracts
-        .type orders-for-contract
-        .repeated
-    ]
-]
-
-.record [
-    .name orders-for-contract
-    .field [
-        .name contract
-        .type contract
-    ]
-    .field [
-        .name bids
-        .type orders-for-price
-        .repeated
-    ]
-    .field [
-        .name offers
-        .type orders-for-price
-        .repeated
-    ]
-]
-
-.record [
-    .name orders-for-price
-    .field [
-        .name price
-        .type uint32
-    ]
-    .field [
-        .name orders
-        .type order-state
-        .repeated
-    ]
-]
-
-.record [
-    .name order-state
-    .protobuf-name "OrderState"
-    .field [
-        .name order
-        .type order
-    ]
-    .field [
-        .name type
-        .type order-create-type
-    ]
-    .field [
-        .name status
-        .type order-status
-    ]
-    .field [
-        .name quantity-type
-        .type quantity-type
-    ]
-    .field [
-        .name quantity
-        .type uint32
-    ]
-    .field [
-        .name created-microseconds
-        .type microseconds
-    ]
-    .field [
-        .name quantity-filled
-        .type uint32
-        .optional
-        .default 0
-    ]
-]
-.enum [
-    .name order-status
-    .protobuf-name "OrderStatus"
-    .option [
-        .name live
-        .protobuf-name "ORDER_STATUS_LIVE"
-    ]
-    .option [
-        .name partially-filled
-        .protobuf-name "ORDER_STATUS_PARTIALLY_FILLED"
-    ]
-    .option [
-        .name filled
-        .protobuf-name "ORDER_STATUS_FILLED"
-    ]
-    .option [
-        .name partially-cancelled
-        .protobuf-name "ORDER_STATUS_PARTIALLY_CANCELLED"
-    ]
-    .option [
-        .name cancelled
-        .protobuf-name "ORDER_STATUS_CANCELLED"
-    ]
-]
-.record [
-    .name account-state-request
-    .protobuf-name "AccountStateRequest"
-    .field [
-        .name account
-        .type account
-        .optional
-    ]
-]
-.record [
-    .name account-state
-    .protobuf-name "AccountState"
-    .field [
-        .name account
-        .type account
-    ]
-    .field [
-        .name currency
-        .type currency
-    ]
-    .field [
-        .name cash
-        .type decimal
-    ]
-    .field [
-        .name bonus
-        .type decimal
-    ]
-    .field [
-        .name exposure
-        .type decimal
-    ]
-]
-.alias [
-    .name account
-    .type uuid-128
-]
-
 .enum [
     .name currency
     .protobuf-name "Currency"
@@ -1641,25 +733,6 @@
         .optional
     ]
 ]
-
-.record [
-    .name downtime-alert
-    .protobuf-name "DowntimeAlert"
-    .field [
-        .name type
-        .type downtime-alert-type
-    ]
-]
-
-.enum [
-    .name downtime-alert-type
-    .protobuf-name "DowntimeAlertType"
-    .option [
-        .name order-create
-        .protobuf-name "DOWNTIME_ALERT_ORDER_CREATE"
-    ]
-]
-
 .record [
     .name order-execute-voided
     .proto-name "OrderExecutedVoid"
@@ -1687,35 +760,39 @@
 ]
 
 .enum [
-    .name market-state-transition-type
-    .protobuf-name "MarketStateTransitionType"
+    .name market-state-type
+    .protobuf-name "MarketStateType"
+    .option [
+        .name new
+        .protobuf-name "MARKET_STATE_NEW"
+    ]
     .option [
         .name open
-        .protobuf-name "OPEN"
+        .protobuf-name "MARKET_STATE_OPEN"
     ]
     .option [
         .name live
-        .protobuf-name "LIVE"
+        .protobuf-name "MARKET_STATE_LIVE"
     ]
     .option [
-        .name halt
-        .protobuf-name "HALT"
+        .name halted
+        .protobuf-name "MARKET_STATE_HALTED"
     ]
     .option [
-        .name resume
-        .protobuf-name "RESUME"
+        .name settled
+        .protobuf-name "MARKET_STATE_SETTLED"
     ]
 ]
 
 .record [
-    .name market-state-transition
-    .proto-name "MarketStateTransition"
+    .name market-state
+    .proto-name "MarketState"
     .field [
         .name market
         .type market
     ]
     .field [
-        .name state-transition
-        .type market-state-transition-type
+        .name state
+        .type market-state-type
     ]
 ]
