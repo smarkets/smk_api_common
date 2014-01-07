@@ -481,7 +481,7 @@
     ]
     .field [
         .name quantity
-        .type uint32
+        .type uint64
     ]
     .field [
         .name account-sequence
@@ -658,7 +658,7 @@
     ]
     .field [
         .name quantity
-        .type uint32
+        .type uint64
     ]
 ]
 
@@ -702,7 +702,7 @@
     ]
     .field [
         .name quantity
-        .type uint32
+        .type uint64
     ]
     .field [
         .name liquidity
@@ -764,7 +764,7 @@
     ]
     .field [
         .name quantity
-        .type uint32
+        .type uint64
     ]
     .field [
         .name account-sequence
