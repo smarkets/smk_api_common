@@ -42,6 +42,11 @@
     .type string
 ]
 
+.alias [
+    .name runningball-description
+    .type string
+]
+
 .record [
     .name payload
     .protobuf-name "Payload"
@@ -128,6 +133,11 @@
         .type market-state
         .optional
     ]
+    .field [
+        .name runningball-message
+        .type runningball-message
+        .optional
+    ]
 ]
 
 .enum [
@@ -196,6 +206,10 @@
     .option [
         .name market-state
         .protobuf-name "PAYLOAD_MARKET_STATE"
+    ]
+    .option [
+        .name runningball-message
+        .protobuf-name "PAYLOAD_RUNNINGBALL_MESSAGE"
     ]
 ]
 
@@ -798,5 +812,43 @@
     .field [
         .name state
         .type market-state-type
+    ]
+]
+
+.enum [
+    .name runningball-state
+    .protobuf-name "RunningballState"
+    .option [
+        .name safe
+        .protobuf-name "RUNNINGBALL_STATE_SAFE"
+    ]
+    .option [
+        .name danger
+        .protobuf-name "RUNNINGBALL_STATE_DANGER"
+    ]
+    .option [
+        .name alert
+        .protobuf-name "RUNNINGBALL_STATE_ALERT"
+    ]
+    .option [
+        .name finished
+        .protobuf-name "RUNNINGBALL_STATE_FINISHED"
+    ]
+]
+
+.record [
+    .name runningball-message
+    .protobuf-name "RunningballMessage"
+    .field [
+        .name event
+        .type event
+    ]
+    .field [
+        .name state
+        .type runningball-state
+    ]
+    .field [
+        .name message
+        .type runningball-description
     ]
 ]
