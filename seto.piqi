@@ -1,4 +1,4 @@
-.proto-package "smarkets.seto"
+.protobuf-package "smarkets.seto"
 
 .import [ .module eto ]
 
@@ -191,11 +191,11 @@
     ]
     .option [
         .name order-execute-voided
-        .proto-name "PAYLOAD_ORDER_EXECUTE_VOIDED"
+        .protobuf-name "PAYLOAD_ORDER_EXECUTE_VOIDED"
     ]
     .option [
         .name market-state
-        .proto-name "PAYLOAD_MARKET_STATE"
+        .protobuf-name "PAYLOAD_MARKET_STATE"
     ]
 ]
 
@@ -735,7 +735,7 @@
 ]
 .record [
     .name order-execute-voided
-    .proto-name "OrderExecutedVoid"
+    .protobuf-name "OrderExecutedVoid"
     .field [
         .name order
         .type order
@@ -790,7 +790,7 @@
 
 .record [
     .name market-state
-    .proto-name "MarketState"
+    .protobuf-name "MarketState"
     .field [
         .name market
         .type market
