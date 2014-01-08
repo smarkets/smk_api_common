@@ -43,7 +43,7 @@
 ]
 
 .alias [
-    .name runningball-description
+    .name runningball-details
     .type string
 ]
 
@@ -134,8 +134,18 @@
         .optional
     ]
     .field [
-        .name runningball-message
-        .type runningball-message
+        .name event-subscribe
+        .type event-subscribe
+        .optional
+    ]
+    .field [
+        .name event-unsubscribe
+        .type event-unsubscribe
+        .optional
+    ]
+    .field [
+        .name runningball-notification
+        .type runningball-notification
         .optional
     ]
 ]
@@ -208,8 +218,16 @@
         .protobuf-name "PAYLOAD_MARKET_STATE"
     ]
     .option [
-        .name runningball-message
-        .protobuf-name "PAYLOAD_RUNNINGBALL_MESSAGE"
+        .name event-subscribe
+        .protobuf-name "PAYLOAD_EVENT_SUBSCRIBE"
+    ]
+    .option [
+        .name event-unsubscribe
+        .protobuf-name "PAYLOAD_EVENT_UNSUBSCRIBE"
+    ]
+    .option [
+        .name runningball-notification
+        .protobuf-name "PAYLOAD_RUNNINGBALL_NOTIFICATION"
     ]
 ]
 
@@ -837,8 +855,26 @@
 ]
 
 .record [
-    .name runningball-message
-    .protobuf-name "RunningballMessage"
+    .name event-subscribe
+    .protobuf-name "EventSubscribe"
+    .field [
+        .name event
+        .type event
+    ]
+]
+
+.record [
+    .name event-unsubscribe
+    .protobuf-name "EventUnsubscribe"
+    .field [
+        .name event
+        .type event
+    ]
+]
+
+.record [
+    .name runningball-notification
+    .protobuf-name "RunningballNotification"
     .field [
         .name event
         .type event
@@ -848,7 +884,7 @@
         .type runningball-state
     ]
     .field [
-        .name message
-        .type runningball-description
+        .name details
+        .type runningball-details
     ]
 ]
