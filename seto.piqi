@@ -632,6 +632,11 @@
         .name quantity-type
         .type quantity-type
     ]
+    .field [
+        .name executed-volume
+        .type uint64
+        .optional
+    ]
 ]
 
 .record [
@@ -663,6 +668,16 @@
     .field [
         .name last-execution
         .type execution
+        .optional
+    ]
+    .field [
+        .name high
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name low
+        .type uint32
         .optional
     ]
 ]
