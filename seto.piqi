@@ -671,12 +671,12 @@
         .optional
     ]
     .field [
-        .name high
+        .name high-price
         .type uint32
         .optional
     ]
     .field [
-        .name low
+        .name low-price
         .type uint32
         .optional
     ]
