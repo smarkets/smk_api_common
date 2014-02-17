@@ -148,6 +148,11 @@
         .type runningball-notification
         .optional
     ]
+    .field [
+        .name market-managed-state
+        .type market-managed-state
+        .optional
+    ]
 ]
 
 .enum [
@@ -228,6 +233,10 @@
     .option [
         .name runningball-notification
         .protobuf-name "PAYLOAD_RUNNINGBALL_NOTIFICATION"
+    ]
+    .option [
+        .name market-managed-state
+        .protobuf-name "PAYLOAD_MARKET_MANAGED_STATE"
     ]
 ]
 
@@ -901,5 +910,31 @@
     .field [
         .name details
         .type runningball-details
+    ]
+]
+
+.enum [
+    .name market-management-type
+    .protobuf-name "MarketManagementType"
+    .option [
+        .name unmanaged
+        .protobuf-name "MARKET_UNMANAGED"
+    ]
+    .option [
+        .name managed
+        .protobuf-name "MARKET_MANAGED"
+    ]
+]
+
+.record [
+    .name market-managed-state
+    .protobuf-name "MarketManagedState"
+    .field [
+        .name market
+        .type market
+    ]
+    .field [
+        .name managed-state
+        .type market-management-type
     ]
 ]
