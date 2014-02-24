@@ -449,6 +449,10 @@
         .name capacity-reached
         .protobuf-name "ORDER_REJECTED_CAPACITY_REACHED"
     ]
+    .option [
+        .name contract-settled
+        .protobuf-name "ORDER_REJECTED_CONTRACT_SETTLED"
+    ]
 ]
 
 .enum [
