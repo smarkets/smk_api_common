@@ -453,6 +453,10 @@
         .name contract-settled
         .protobuf-name "ORDER_REJECTED_CONTRACT_SETTLED"
     ]
+    .option [
+        .name throttle-exceeded
+        .protobuf-name "ORDER_REJECTED_THROTTLE_EXCEEDED"
+    ]
 ]
 
 .enum [
@@ -469,6 +473,10 @@
     .option [
         .name capacity-reached
         .protobuf-name "ORDER_CANCEL_REJECTED_CAPACITY_REACHED"
+    ]
+    .option [
+        .name throttle-exceeded
+        .protobuf-name "ORDER_CANCEL_REJECTED_THROTTLE_EXCEEDED"
     ]
 ]
 
