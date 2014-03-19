@@ -99,21 +99,6 @@
         .optional
     ]
     .field [
-        .name order-update
-        .type order-update
-        .optional
-    ]
-    .field [
-        .name order-updated
-        .type order-updated
-        .optional
-    ]
-    .field [
-        .name order-update-invalid
-        .type order-update-invalid
-        .optional
-    ]
-    .field [
         .name market-subscribe
         .type market-subscribe
         .optional
@@ -144,11 +129,6 @@
         .optional
     ]
     .field [
-        .name order-update-rejected
-        .type order-update-rejected
-        .optional
-    ]
-    .field [
         .name market-state
         .type market-state
         .optional
@@ -171,6 +151,26 @@
     .field [
         .name market-managed-state
         .type market-managed-state
+        .optional
+    ]
+     .field [
+        .name order-update
+        .type order-update
+        .optional
+    ]
+    .field [
+        .name order-updated
+        .type order-updated
+        .optional
+    ]
+    .field [
+        .name order-update-invalid
+        .type order-update-invalid
+        .optional
+    ]
+    .field [
+        .name order-update-rejected
+        .type order-update-rejected
         .optional
     ]
 ]
@@ -215,18 +215,6 @@
         .protobuf-name "PAYLOAD_ORDER_INVALID"
     ]
     .option [
-        .name order-update
-        .protobuf-name "PAYLOAD_ORDER_UPDATE"
-    ]
-    .option [
-        .name order-updated
-        .protobuf-name "PAYLOAD_ORDER_UPDATED"
-    ]
-    .option [
-        .name order-update-invalid
-        .protobuf-name "PAYLOAD_ORDER_UPDATE_INVALID"
-    ]
-    .option [
         .name market-subscribe
         .protobuf-name "PAYLOAD_MARKET_SUBSCRIBE"
     ]
@@ -251,10 +239,6 @@
         .protobuf-name "PAYLOAD_ORDER_EXECUTE_VOIDED"
     ]
     .option [
-        .name order-update-rejected
-        .protobuf-name "PAYLOAD_ORDER_UPDATE_REJECTED"
-    ]
-    .option [
         .name market-state
         .protobuf-name "PAYLOAD_MARKET_STATE"
     ]
@@ -273,6 +257,22 @@
     .option [
         .name market-managed-state
         .protobuf-name "PAYLOAD_MARKET_MANAGED_STATE"
+    ]
+       .option [
+        .name order-update
+        .protobuf-name "PAYLOAD_ORDER_UPDATE"
+    ]
+    .option [
+        .name order-updated
+        .protobuf-name "PAYLOAD_ORDER_UPDATED"
+    ]
+    .option [
+        .name order-update-invalid
+        .protobuf-name "PAYLOAD_ORDER_UPDATE_INVALID"
+    ]
+    .option [
+        .name order-update-rejected
+        .protobuf-name "PAYLOAD_ORDER_UPDATE_REJECTED"
     ]
 ]
 
