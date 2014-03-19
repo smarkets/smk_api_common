@@ -99,18 +99,18 @@
         .optional
     ]
     .field [
-        .name order-change
-        .type order-change
+        .name order-update
+        .type order-update
         .optional
     ]
     .field [
-        .name order-changed
-        .type order-changed
+        .name order-updated
+        .type order-updated
         .optional
     ]
     .field [
-        .name order-change-invalid
-        .type order-change-invalid
+        .name order-update-invalid
+        .type order-update-invalid
         .optional
     ]
     .field [
@@ -144,8 +144,8 @@
         .optional
     ]
     .field [
-        .name order-change-rejected
-        .type order-change-rejected
+        .name order-update-rejected
+        .type order-update-rejected
         .optional
     ]
     .field [
@@ -215,16 +215,16 @@
         .protobuf-name "PAYLOAD_ORDER_INVALID"
     ]
     .option [
-        .name order-change
-        .protobuf-name "PAYLOAD_ORDER_CHANGE"
+        .name order-update
+        .protobuf-name "PAYLOAD_ORDER_UPDATE"
     ]
     .option [
-        .name order-changed
-        .protobuf-name "PAYLOAD_ORDER_CHANGED"
+        .name order-updated
+        .protobuf-name "PAYLOAD_ORDER_UPDATED"
     ]
     .option [
-        .name order-change-invalid
-        .protobuf-name "PAYLOAD_ORDER_CHANGE_INVALID"
+        .name order-update-invalid
+        .protobuf-name "PAYLOAD_ORDER_UPDATE_INVALID"
     ]
     .option [
         .name market-subscribe
@@ -251,8 +251,8 @@
         .protobuf-name "PAYLOAD_ORDER_EXECUTE_VOIDED"
     ]
     .option [
-        .name order-change-rejected
-        .protobuf-name "PAYLOAD_ORDER_CHANGE_REJECTED"
+        .name order-update-rejected
+        .protobuf-name "PAYLOAD_ORDER_UPDATE_REJECTED"
     ]
     .option [
         .name market-state
@@ -439,15 +439,15 @@
 ]
 
 .record [
-    .name order-change-rejected
-    .protobuf-name "OrderChangeRejected"
+    .name order-update-rejected
+    .protobuf-name "OrderUpdateRejected"
     .field [
         .name order
         .type order
     ]
     .field [
         .name reason
-        .type order-change-rejected-reason
+        .type order-update-rejected-reason
     ]
     .field [
         .name account-sequence
@@ -540,23 +540,23 @@
 ]
 
 .enum [
-    .name order-change-rejected-reason
-    .protobuf-name "OrderChangeRejectedReason"
+    .name order-update-rejected-reason
+    .protobuf-name "OrderUpdateRejectedReason"
     .option [
         .name not-found
-        .protobuf-name "ORDER_CHANGE_REJECTED_NOT_FOUND"
+        .protobuf-name "ORDER_UPDATE_REJECTED_NOT_FOUND"
     ]
     .option [
         .name not-live
-        .protobuf-name "ORDER_CHANGE_REJECTED_NOT_LIVE"
+        .protobuf-name "ORDER_UPDATE_REJECTED_NOT_LIVE"
     ]
     .option [
         .name capacity-reached
-        .protobuf-name "ORDER_CHANGE_REJECTED_CAPACITY_REACHED"
+        .protobuf-name "ORDER_UPDATE_REJECTED_CAPACITY_REACHED"
     ]
     .option [
         .name throttle-exceeded
-        .protobuf-name "ORDER_CHANGE_REJECTED_THROTTLE_EXCEEDED"
+        .protobuf-name "ORDER_UPDATE_REJECTED_THROTTLE_EXCEEDED"
     ]
 ]
 
@@ -664,8 +664,8 @@
 ]
 
 .record [
-    .name order-change
-    .protobuf-name "OrderChange"
+    .name order-update
+    .protobuf-name "OrderUpdate"
     .field [
         .name order
         .type order
@@ -682,15 +682,15 @@
 ]
 
 .record [
-    .name order-changed
-    .protobuf-name "OrderChanged"
+    .name order-updated
+    .protobuf-name "OrderUpdated"
     .field [
         .name order
         .type order
     ]
     .field [
         .name reason
-        .type order-changed-reason
+        .type order-updated-reason
     ]
     .field [
         .name account-sequence
@@ -705,11 +705,11 @@
 ]
 
 .enum [
-    .name order-changed-reason
-    .protobuf-name "OrderChangedReason"
+    .name order-updated-reason
+    .protobuf-name "OrderUpdatedReason"
     .option [
         .name member-requested
-        .protobuf-name "ORDER_CHANGED_MEMBER_REQUESTED"
+        .protobuf-name "ORDER_UPDATED_MEMBER_REQUESTED"
     ]
 ]
 
@@ -746,15 +746,15 @@
 ]
 
 .record [
-    .name order-change-invalid
-    .protobuf-name "OrderChangeInvalid"
+    .name order-update-invalid
+    .protobuf-name "OrderUpdateInvalid"
     .field [
         .name seq
         .type eto/seq
     ]
     .field [
         .name reasons
-        .type order-change-invalid-reason
+        .type order-update-invalid-reason
         .repeated
     ]
     .field [
@@ -765,11 +765,11 @@
 ]
 
 .enum [
-    .name order-change-invalid-reason
-    .protobuf-name "OrderChangeInvalidReason"
+    .name order-update-invalid-reason
+    .protobuf-name "OrderUpdateInvalidReason"
     .option [
         .name invalid-quantity
-        .protobuf-name "ORDER_CHANGE_INVALID_INVALID_QUANTITY"
+        .protobuf-name "ORDER_UPDATE_INVALID_INVALID_QUANTITY"
     ]
 ]
 
