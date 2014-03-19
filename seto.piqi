@@ -671,6 +671,10 @@
         .type order
     ]
     .field [
+        .name quantity
+        .type uint64
+    ]
+    .field [
         .name reference
         .type uint64
         .optional
