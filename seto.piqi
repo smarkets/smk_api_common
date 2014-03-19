@@ -99,6 +99,16 @@
         .optional
     ]
     .field [
+        .name order-change
+        .type order-change
+        .optional
+    ]
+    .field [
+        .name order-changed
+        .type order-changed
+        .optional
+    ]
+    .field [
         .name market-subscribe
         .type market-subscribe
         .optional
@@ -126,6 +136,11 @@
     .field [
         .name order-execute-voided
         .type order-execute-voided
+        .optional
+    ]
+    .field [
+        .name order-change-rejected
+        .type order-change-rejected
         .optional
     ]
     .field [
@@ -195,6 +210,14 @@
         .protobuf-name "PAYLOAD_ORDER_INVALID"
     ]
     .option [
+        .name order-change
+        .protobuf-name "PAYLOAD_ORDER_CHANGE"
+    ]
+    .option [
+        .name order-changed
+        .protobuf-name "PAYLOAD_ORDER_CHANGED"
+    ]
+    .option [
         .name market-subscribe
         .protobuf-name "PAYLOAD_MARKET_SUBSCRIBE"
     ]
@@ -217,6 +240,10 @@
     .option [
         .name order-execute-voided
         .protobuf-name "PAYLOAD_ORDER_EXECUTE_VOIDED"
+    ]
+    .option [
+        .name order-change-rejected
+        .protobuf-name "PAYLOAD_ORDER_CHANGE_REJECTED"
     ]
     .option [
         .name market-state
@@ -402,6 +429,29 @@
     ]
 ]
 
+.record [
+    .name order-change-rejected
+    .protobuf-name "OrderChangeRejected"
+    .field [
+        .name order
+        .type order
+    ]
+    .field [
+        .name reason
+        .type order-change-rejected-reason
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
+]
+
 .enum [
     .name order-rejected-reason
     .protobuf-name "OrderRejectedReason"
@@ -477,6 +527,27 @@
     .option [
         .name throttle-exceeded
         .protobuf-name "ORDER_CANCEL_REJECTED_THROTTLE_EXCEEDED"
+    ]
+]
+
+.enum [
+    .name order-change-rejected-reason
+    .protobuf-name "OrderChangeRejectedReason"
+    .option [
+        .name not-found
+        .protobuf-name "ORDER_CHANGE_REJECTED_NOT_FOUND"
+    ]
+    .option [
+        .name not-live
+        .protobuf-name "ORDER_CHANGE_REJECTED_NOT_LIVE"
+    ]
+    .option [
+        .name capacity-reached
+        .protobuf-name "ORDER_CHANGE_REJECTED_CAPACITY_REACHED"
+    ]
+    .option [
+        .name throttle-exceeded
+        .protobuf-name "ORDER_CHANGE_REJECTED_THROTTLE_EXCEEDED"
     ]
 ]
 
@@ -580,6 +651,52 @@
     .option [
         .name insufficient-liquidity
         .protobuf-name "ORDER_CANCELLED_INSUFFICIENT_LIQUIDITY"
+    ]
+]
+
+.record [
+    .name order-change
+    .protobuf-name "OrderChange"
+    .field [
+        .name order
+        .type order
+    ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
+]
+
+.record [
+    .name order-changed
+    .protobuf-name "OrderChanged"
+    .field [
+        .name order
+        .type order
+    ]
+    .field [
+        .name reason
+        .type order-changed-reason
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
+]
+
+.enum [
+    .name order-changed-reason
+    .protobuf-name "OrderChangedReason"
+    .option [
+        .name member-requested
+        .protobuf-name "ORDER_CHANGED_MEMBER_REQUESTED"
     ]
 ]
 
