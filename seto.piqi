@@ -1066,6 +1066,7 @@
     .option [
         .name finished
         .protobuf-name "RUNNINGBALL_PERIOD_FINISHED"
+    ]
 ]
 
 .record [
