@@ -1048,6 +1048,26 @@
     ]
 ]
 
+.enum [
+    .name runningball-period
+    .protobuf-name "RunningballPeriod"
+    .option [
+        .name firsthalf
+        .protobuf-name "RUNNINGBALL_PERIOD_FIRSTHALF"
+    ]
+    .option [
+        .name pause  % The period between first and second halves
+        .protobuf-name "RUNNINGBALL_PERIOD_PAUSE"
+    ]
+    .option [
+        .name secondhalf
+        .protobuf-name "RUNNINGBALL_PERIOD_SECONDHALF"
+    ]
+    .option [
+        .name finished
+        .protobuf-name "RUNNINGBALL_PERIOD_FINISHED"
+]
+
 .record [
     .name event-subscribe
     .protobuf-name "EventSubscribe"
@@ -1080,6 +1100,22 @@
     .field [
         .name details
         .type runningball-details
+    ]
+    .field [
+        .name period
+        .type runningball-period
+    ]
+    .field [
+        .name playtime  % Game clock in milliseconds. Resets to 45 mins at the pause.
+        .type uint32
+    ]
+    .field [
+        .name score-home
+        .type uint32
+    ]
+    .field [
+        .name score-away
+        .type uint32
     ]
 ]
 
