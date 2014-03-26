@@ -1105,18 +1105,22 @@
     .field [
         .name period
         .type runningball-period
+        .optional
     ]
     .field [
         .name playtime  % Game clock in milliseconds. Resets to 45 mins at the pause.
         .type uint32
+        .optional
     ]
     .field [
         .name score-home
         .type uint32
+        .optional
     ]
     .field [
         .name score-away
         .type uint32
+        .optional
     ]
 ]
 
