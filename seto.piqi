@@ -164,11 +164,6 @@
         .optional
     ]
     .field [
-        .name order-update-invalid
-        .type order-update-invalid
-        .optional
-    ]
-    .field [
         .name order-update-rejected
         .type order-update-rejected
         .optional
@@ -265,10 +260,6 @@
     .option [
         .name order-updated
         .protobuf-name "PAYLOAD_ORDER_UPDATED"
-    ]
-    .option [
-        .name order-update-invalid
-        .protobuf-name "PAYLOAD_ORDER_UPDATE_INVALID"
     ]
     .option [
         .name order-update-rejected
@@ -558,6 +549,10 @@
         .name throttle-exceeded
         .protobuf-name "ORDER_UPDATE_REJECTED_THROTTLE_EXCEEDED"
     ]
+    .option [
+        .name invalid-quantity-change
+        .protobuf-name "ORDER_UPDATE_REJECTED_INVALID_QUANTITY_CHANGE"
+    ]
 ]
 
 .record [
@@ -746,34 +741,6 @@
     .option [
         .name invalid-quantity
         .protobuf-name "ORDER_INVALID_INVALID_QUANTITY"
-    ]
-]
-
-.record [
-    .name order-update-invalid
-    .protobuf-name "OrderUpdateInvalid"
-    .field [
-        .name seq
-        .type eto/seq
-    ]
-    .field [
-        .name reasons
-        .type order-update-invalid-reason
-        .repeated
-    ]
-    .field [
-        .name reference
-        .type uint64
-        .optional
-    ]
-]
-
-.enum [
-    .name order-update-invalid-reason
-    .protobuf-name "OrderUpdateInvalidReason"
-    .option [
-        .name invalid-quantity
-        .protobuf-name "ORDER_UPDATE_INVALID_INVALID_QUANTITY_CHANGE"
     ]
 ]
 
