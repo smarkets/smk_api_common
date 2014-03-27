@@ -671,7 +671,11 @@
         .type order
     ]
     .field [
-        .name quantity
+        .name market
+        .type market
+    ]
+    .field [
+        .name quantity-change
         .type uint64
     ]
     .field [
@@ -769,7 +773,7 @@
     .protobuf-name "OrderUpdateInvalidReason"
     .option [
         .name invalid-quantity
-        .protobuf-name "ORDER_UPDATE_INVALID_INVALID_QUANTITY"
+        .protobuf-name "ORDER_UPDATE_INVALID_INVALID_QUANTITY_CHANGE"
     ]
 ]
 
