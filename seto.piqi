@@ -313,6 +313,8 @@
     .field [
         .name type
         .type order-create-type
+        .optional
+        .default.limit
     ]
     .field [
         .name market
@@ -329,6 +331,8 @@
     .field [
         .name quantity-type
         .type quantity-type
+        .optional
+        .default.payoff-currency
     ]
     .field [
         .name quantity
@@ -338,6 +342,7 @@
         .name price-type
         .type price-type
         .optional
+        .default.percent-odds
     ]
     .field [
         .name price
@@ -352,6 +357,7 @@
     .field [
         .name tif
         .type time-in-force-type
+        .default.gtc
         .optional
     ]
     .field [
