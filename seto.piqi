@@ -168,6 +168,16 @@
         .type order-update-rejected
         .optional
     ]
+    .field [
+        .name price-feed-subscribe
+        .type price-feed-subscribe
+        .optional
+    ]
+    .field [
+        .name price-feed-unsubscribe
+        .type price-feed-unsubscribe
+        .optional
+    ]
 ]
 
 .enum [
@@ -264,6 +274,14 @@
     .option [
         .name order-update-rejected
         .protobuf-name "PAYLOAD_ORDER_UPDATE_REJECTED"
+    ]
+    .option [
+        .name price-feed-subscribe
+        .protobuf-name "PAYLOAD_PRICE_FEED_SUBSCRIBE"
+    ]
+    .option [
+        .name price-feed-unsubscribe
+        .protobuf-name "PAYLOAD_PRICE_FEED_UNSUBSCRIBE"
     ]
 ]
 
@@ -1125,4 +1143,14 @@
         .name managed-state
         .type market-management-type
     ]
+]
+
+.record [
+    .name price-feed-subscribe
+    .protobuf-name "PriceFeedSubscribe"
+]
+
+.record [
+    .name price-feed-unsubscribe
+    .protobuf-name "PriceFeedUnsubscribe"
 ]
