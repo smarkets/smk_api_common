@@ -178,6 +178,11 @@
         .type price-feed-unsubscribe
         .optional
     ]
+    .field [
+        .name order-execute-confirmed
+        .type order-execute-confirmed
+        .optional
+    ]
 ]
 
 .enum [
@@ -282,6 +287,10 @@
     .option [
         .name price-feed-unsubscribe
         .protobuf-name "PAYLOAD_PRICE_FEED_UNSUBSCRIBE"
+    ]
+    .option [
+        .name order-execute-confirmed
+        .protobuf-name "PAYLOAD_ORDER_EXECUTE_CONFIRMED"
     ]
 ]
 
@@ -635,6 +644,12 @@
         .name account-sequence
         .type uint32
         .optional
+    ]
+    .field [
+        .name pending-timeout
+        .type uint32
+        .optional
+        .default 0
     ]
 ]
 
@@ -1163,4 +1178,26 @@
 .record [
     .name price-feed-unsubscribe
     .protobuf-name "PriceFeedUnsubscribe"
+]
+
+.record [
+    .name order-execute-confirmed
+    .protobuf-name "OrderExecuteConfirmed"
+    .field [
+        .name order
+        .type order
+    ]
+    .field [
+        .name price
+        .type uint32
+    ]
+    .field [
+        .name quantity
+        .type uint64
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
 ]
