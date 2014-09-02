@@ -635,6 +635,8 @@
     .field [
         .name quantity-type
         .type quantity-type
+        .optional
+        .default.payoff-currency
     ]
     .field [
         .name quantity
@@ -826,10 +828,14 @@
     .field [
         .name price-type
         .type price-type
+        .optional
+        .default.percent-odds
     ]
     .field [
         .name quantity-type
         .type quantity-type
+        .optional
+        .default.payoff-currency
     ]
     .field [
         .name executed-volume
@@ -993,6 +999,8 @@
     .field [
         .name quantity-type
         .type quantity-type
+        .optional
+        .default.payoff-currency
     ]
     .field [
         .name quantity
