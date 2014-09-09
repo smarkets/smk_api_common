@@ -346,10 +346,12 @@
     .field [
         .name market
         .type market
+        .optional
     ]
     .field [
         .name contract
         .type contract
+        .optional
     ]
     .field [
         .name side
@@ -455,6 +457,7 @@
     .field [
         .name order
         .type order
+        .optional
     ]
     .field [
         .name reason
@@ -483,6 +486,7 @@
     .field [
         .name order
         .type order
+        .optional
     ]
     .field [
         .name reason
@@ -618,6 +622,7 @@
     .field [
         .name order
         .type order
+        .optional
     ]
     .field [
         .name account-sequence
@@ -652,6 +657,7 @@
     .field [
         .name order
         .type order
+        .optional
     ]
     .field [
         .name price
@@ -691,6 +697,7 @@
     .field [
         .name order
         .type order
+        .optional
     ]
     .field [
         .name reference
@@ -710,6 +717,7 @@
     .field [
         .name order
         .type order
+        .optional
     ]
     .field [
         .name reason
@@ -755,10 +763,12 @@
     .field [
         .name order
         .type order
+        .optional
     ]
     .field [
         .name market
         .type market
+        .optional
     ]
     .field [
         .name quantity-change
@@ -787,6 +797,7 @@
     .field [
         .name order
         .type order
+        .optional
     ]
     .field [
         .name reason
@@ -856,6 +867,7 @@
     .field [
         .name market
         .type market
+        .optional
     ]
     .field [
         .name market_id
@@ -870,6 +882,7 @@
     .field [
         .name market
         .type market
+        .optional
     ]
     .field [
         .name market_id
@@ -884,6 +897,7 @@
     .field [
         .name market
         .type market
+        .optional
     ]
     .field [
         .name contract-quotes
@@ -920,10 +934,12 @@
     .field [
         .name market
         .type market
+        .optional
     ]
     .field [
         .name contract
         .type contract
+        .optional
     ]
     .field [
         .name bids
@@ -1071,6 +1087,7 @@
     .field [
         .name order
         .type order
+        .optional
     ]
     .field [
         .name price
@@ -1133,6 +1150,7 @@
     .field [
         .name market
         .type market
+        .optional
     ]
     .field [
         .name state
@@ -1193,6 +1211,7 @@
     .field [
         .name event
         .type event
+        .optional
     ]
     .field [
         .name event_id
@@ -1207,6 +1226,7 @@
     .field [
         .name event
         .type event
+        .optional
     ]
     .field [
         .name event_id
@@ -1221,6 +1241,7 @@
     .field [
         .name event
         .type event
+        .optional
     ]
     .field [
         .name state
@@ -1276,6 +1297,7 @@
     .field [
         .name market
         .type market
+        .optional
     ]
     .field [
         .name managed-state
@@ -1304,6 +1326,7 @@
     .field [
         .name order
         .type order
+        .optional
     ]
     .field [
         .name price
