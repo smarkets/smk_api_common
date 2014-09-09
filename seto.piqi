@@ -392,6 +392,16 @@
         .type uint64
         .optional
     ]
+    .field [
+        .name market_id
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name contract_id
+        .type uint32
+        .optional
+    ]
 ]
 
 .enum [
@@ -460,6 +470,11 @@
         .type uint64
         .optional
     ]
+    .field [
+        .name order_id
+        .type uint64
+        .optional
+    ]
 ]
 
 .record [
@@ -480,6 +495,11 @@
     ]
     .field [
         .name reference
+        .type uint64
+        .optional
+    ]
+    .field [
+        .name order_id
         .type uint64
         .optional
     ]
@@ -619,6 +639,11 @@
         .type uint64
         .optional
     ]
+    .field [
+        .name order_id
+        .type uint64
+        .optional
+    ]
 ]
 
 .record [
@@ -653,6 +678,11 @@
         .optional
         .default 0
     ]
+    .field [
+        .name order_id
+        .type uint64
+        .optional
+    ]
 ]
 
 .record [
@@ -664,6 +694,11 @@
     ]
     .field [
         .name reference
+        .type uint64
+        .optional
+    ]
+    .field [
+        .name order_id
         .type uint64
         .optional
     ]
@@ -687,6 +722,11 @@
     ]
     .field [
         .name reference
+        .type uint64
+        .optional
+    ]
+    .field [
+        .name order_id
         .type uint64
         .optional
     ]
@@ -729,6 +769,16 @@
         .type uint64
         .optional
     ]
+    .field [
+        .name order_id
+        .type uint64
+        .optional
+    ]
+    .field [
+        .name market_id
+        .type uint32
+        .optional
+    ]
 ]
 
 .record [
@@ -749,6 +799,11 @@
     ]
     .field [
         .name reference
+        .type uint64
+        .optional
+    ]
+    .field [
+        .name order_id
         .type uint64
         .optional
     ]
@@ -802,6 +857,11 @@
         .name market
         .type market
     ]
+    .field [
+        .name market_id
+        .type uint32
+        .optional
+    ]
 ]
 
 .record [
@@ -810,6 +870,11 @@
     .field [
         .name market
         .type market
+    ]
+    .field [
+        .name market_id
+        .type uint32
+        .optional
     ]
 ]
 
@@ -840,6 +905,11 @@
     .field [
         .name executed-volume
         .type uint64
+        .optional
+    ]
+    .field [
+        .name market_id
+        .type uint32
         .optional
     ]
 ]
@@ -882,6 +952,16 @@
     ]
     .field [
         .name low-price
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name market_id
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name contract_id
         .type uint32
         .optional
     ]
@@ -1011,6 +1091,11 @@
         .type uint32
         .optional
     ]
+    .field [
+        .name order_id
+        .type uint64
+        .optional
+    ]
 ]
 
 .enum [
@@ -1052,6 +1137,11 @@
     .field [
         .name state
         .type market-state-type
+    ]
+    .field [
+        .name market_id
+        .type uint32
+        .optional
     ]
 ]
 
@@ -1104,6 +1194,11 @@
         .name event
         .type event
     ]
+    .field [
+        .name event_id
+        .type uint32
+        .optional
+    ]
 ]
 
 .record [
@@ -1112,6 +1207,11 @@
     .field [
         .name event
         .type event
+    ]
+    .field [
+        .name event_id
+        .type uint32
+        .optional
     ]
 ]
 
@@ -1150,6 +1250,11 @@
         .type uint32
         .optional
     ]
+    .field [
+        .name event_id
+        .type uint32
+        .optional
+    ]
 ]
 
 .enum [
@@ -1175,6 +1280,11 @@
     .field [
         .name managed-state
         .type market-management-type
+    ]
+    .field [
+        .name market_id
+        .type uint32
+        .optional
     ]
 ]
 
@@ -1206,6 +1316,11 @@
     .field [
         .name account-sequence
         .type uint32
+        .optional
+    ]
+    .field [
+        .name order_id
+        .type uint64
         .optional
     ]
 ]
