@@ -395,12 +395,12 @@
         .optional
     ]
     .field [
-        .name market_id
+        .name market-id
         .type uint32
         .optional
     ]
     .field [
-        .name contract_id
+        .name contract-id
         .type uint32
         .optional
     ]
@@ -474,7 +474,7 @@
         .optional
     ]
     .field [
-        .name order_id
+        .name order-id
         .type uint64
         .optional
     ]
@@ -503,7 +503,7 @@
         .optional
     ]
     .field [
-        .name order_id
+        .name order-id
         .type uint64
         .optional
     ]
@@ -645,7 +645,7 @@
         .optional
     ]
     .field [
-        .name order_id
+        .name order-id
         .type uint64
         .optional
     ]
@@ -685,7 +685,7 @@
         .default 0
     ]
     .field [
-        .name order_id
+        .name order-id
         .type uint64
         .optional
     ]
@@ -705,7 +705,7 @@
         .optional
     ]
     .field [
-        .name order_id
+        .name order-id
         .type uint64
         .optional
     ]
@@ -734,7 +734,7 @@
         .optional
     ]
     .field [
-        .name order_id
+        .name order-id
         .type uint64
         .optional
     ]
@@ -780,12 +780,12 @@
         .optional
     ]
     .field [
-        .name order_id
+        .name order-id
         .type uint64
         .optional
     ]
     .field [
-        .name market_id
+        .name market-id
         .type uint32
         .optional
     ]
@@ -814,7 +814,7 @@
         .optional
     ]
     .field [
-        .name order_id
+        .name order-id
         .type uint64
         .optional
     ]
@@ -870,7 +870,7 @@
         .optional
     ]
     .field [
-        .name market_id
+        .name market-id
         .type uint32
         .optional
     ]
@@ -885,7 +885,7 @@
         .optional
     ]
     .field [
-        .name market_id
+        .name market-id
         .type uint32
         .optional
     ]
@@ -922,7 +922,7 @@
         .optional
     ]
     .field [
-        .name market_id
+        .name market-id
         .type uint32
         .optional
     ]
@@ -972,12 +972,12 @@
         .optional
     ]
     .field [
-        .name market_id
+        .name market-id
         .type uint32
         .optional
     ]
     .field [
-        .name contract_id
+        .name contract-id
         .type uint32
         .optional
     ]
@@ -1109,7 +1109,7 @@
         .optional
     ]
     .field [
-        .name order_id
+        .name order-id
         .type uint64
         .optional
     ]
@@ -1157,7 +1157,7 @@
         .type market-state-type
     ]
     .field [
-        .name market_id
+        .name market-id
         .type uint32
         .optional
     ]
@@ -1214,7 +1214,7 @@
         .optional
     ]
     .field [
-        .name event_id
+        .name event-id
         .type uint32
         .optional
     ]
@@ -1229,7 +1229,7 @@
         .optional
     ]
     .field [
-        .name event_id
+        .name event-id
         .type uint32
         .optional
     ]
@@ -1272,7 +1272,7 @@
         .optional
     ]
     .field [
-        .name event_id
+        .name event-id
         .type uint32
         .optional
     ]
@@ -1304,7 +1304,7 @@
         .type market-management-type
     ]
     .field [
-        .name market_id
+        .name market-id
         .type uint32
         .optional
     ]
@@ -1342,7 +1342,7 @@
         .optional
     ]
     .field [
-        .name order_id
+        .name order-id
         .type uint64
         .optional
     ]
