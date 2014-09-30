@@ -689,6 +689,10 @@
         .type uint64
         .optional
     ]
+    .field [
+        .name side
+        .type side
+    ]
 ]
 
 .record [
