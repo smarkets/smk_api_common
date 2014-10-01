@@ -693,6 +693,14 @@
         .name side
         .type side
     ]
+    .field [
+        .name market-id
+        .type uint32
+    ]
+    .field [
+        .name contract-id
+        .type uint32
+    ]
 ]
 
 .record [
