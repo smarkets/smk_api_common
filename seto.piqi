@@ -585,6 +585,10 @@
         .name throttle-exceeded
         .protobuf-name "ORDER_CANCEL_REJECTED_THROTTLE_EXCEEDED"
     ]
+    .option [
+        .name service-temporarily-unavailable
+        .protobuf-name "ORDER_CANCEL_REJECTED_SERVICE_TEMPORARILY_UNAVAILABLE"
+    ]
 ]
 
 .enum [
