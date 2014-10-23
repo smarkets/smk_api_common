@@ -5,26 +5,31 @@
 .alias [
     .name event
     .type uuid-128
+    .deprecated
 ]
 
 .alias [
     .name market
     .type uuid-128
+    .deprecated
 ]
 
 .alias [
     .name contract
     .type uuid-128
+    .deprecated
 ]
 
 .alias [
     .name order
     .type uuid-128
+    .deprecated
 ]
 
 .alias [
     .name entity
     .type uuid-128
+    .deprecated
 ]
 
 .alias [
@@ -307,6 +312,7 @@
         .optional
         .default 0
     ]
+    .deprecated
 ]
 
 .record [
@@ -347,11 +353,13 @@
         .name market
         .type market
         .optional
+        .deprecated
     ]
     .field [
         .name contract
         .type contract
         .optional
+        .deprecated
     ]
     .field [
         .name side
@@ -458,6 +466,7 @@
         .name order
         .type order
         .optional
+        .deprecated
     ]
     .field [
         .name reason
@@ -487,6 +496,7 @@
         .name order
         .type order
         .optional
+        .deprecated
     ]
     .field [
         .name reason
@@ -627,6 +637,7 @@
         .name order
         .type order
         .optional
+        .deprecated
     ]
     .field [
         .name account-sequence
@@ -662,6 +673,7 @@
         .name order
         .type order
         .optional
+        .deprecated
     ]
     .field [
         .name price
@@ -714,6 +726,7 @@
         .name order
         .type order
         .optional
+        .deprecated
     ]
     .field [
         .name reference
@@ -734,6 +747,7 @@
         .name order
         .type order
         .optional
+        .deprecated
     ]
     .field [
         .name reason
@@ -780,11 +794,13 @@
         .name order
         .type order
         .optional
+        .deprecated
     ]
     .field [
         .name market
         .type market
         .optional
+        .deprecated
     ]
     .field [
         .name quantity-change
@@ -814,6 +830,7 @@
         .name order
         .type order
         .optional
+        .deprecated
     ]
     .field [
         .name reason
@@ -884,6 +901,7 @@
         .name market
         .type market
         .optional
+        .deprecated
     ]
     .field [
         .name market-id
@@ -899,6 +917,7 @@
         .name market
         .type market
         .optional
+        .deprecated
     ]
     .field [
         .name market-id
@@ -914,6 +933,7 @@
         .name market
         .type market
         .optional
+        .deprecated
     ]
     .field [
         .name contract-quotes
@@ -951,11 +971,13 @@
         .name market
         .type market
         .optional
+        .deprecated
     ]
     .field [
         .name contract
         .type contract
         .optional
+        .deprecated
     ]
     .field [
         .name bids
@@ -1104,6 +1126,7 @@
         .name order
         .type order
         .optional
+        .deprecated
     ]
     .field [
         .name price
@@ -1167,6 +1190,7 @@
         .name market
         .type market
         .optional
+        .deprecated
     ]
     .field [
         .name state
@@ -1228,6 +1252,7 @@
         .name event
         .type event
         .optional
+        .deprecated
     ]
     .field [
         .name event-id
@@ -1243,6 +1268,7 @@
         .name event
         .type event
         .optional
+        .deprecated
     ]
     .field [
         .name event-id
@@ -1258,6 +1284,7 @@
         .name event
         .type event
         .optional
+        .deprecated
     ]
     .field [
         .name state
@@ -1314,6 +1341,7 @@
         .name market
         .type market
         .optional
+        .deprecated
     ]
     .field [
         .name managed-state
@@ -1343,6 +1371,7 @@
         .name order
         .type order
         .optional
+        .deprecated
     ]
     .field [
         .name price
