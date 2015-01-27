@@ -188,6 +188,16 @@
         .type order-execute-confirmed
         .optional
     ]
+    .field [
+        .name market-feed-subscribe
+        .type market-feed-subscribe
+        .optional
+    ]
+    .field [
+        .name market-feed-unsubscribe
+        .type market-feed-unsubscribe
+        .optional
+    ]
 ]
 
 .enum [
@@ -296,6 +306,14 @@
     .option [
         .name order-execute-confirmed
         .protobuf-name "PAYLOAD_ORDER_EXECUTE_CONFIRMED"
+    ]
+    .option [
+        .name market-feed-subscribe
+        .protobuf-name "PAYLOAD_MARKET_FEED_SUBSCRIBE"
+    ]
+    .option [
+        .name market-feed-unsubscribe
+        .protobuf-name "PAYLOAD_MARKET_FEED_UNSUBSCRIBE"
     ]
 ]
 
@@ -1391,4 +1409,14 @@
         .type uint64
         .optional
     ]
+]
+
+.record [
+    .name market-feed-subscribe
+    .protobuf-name "MarketFeedSubscribe"
+]
+
+.record [
+    .name market-feed-unsubscribe
+    .protobuf-name "MarketFeedUnsubscribe"
 ]
