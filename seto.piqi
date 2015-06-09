@@ -576,11 +576,6 @@
         .type order-reduce-rejected-reason
     ]
     .field [
-        .name account-sequence
-        .type uint32
-        .optional
-    ]
-    .field [
         .name reference
         .type uint64
         .optional
@@ -983,11 +978,6 @@
     .field [
         .name reason
         .type order-updated-reason
-    ]
-    .field [
-        .name account-sequence
-        .type uint32
-        .optional
     ]
     .field [
         .name reference
