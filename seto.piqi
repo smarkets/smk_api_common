@@ -826,7 +826,7 @@
     ]
     .field [
         .name new-quantity
-        .type int64
+        .type uint64
     ]
 ]
 
