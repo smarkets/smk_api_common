@@ -815,16 +815,6 @@
         .deprecated
     ]
     .field [
-        .name market
-        .type market
-        .optional
-        .deprecated
-    ]
-    .field [
-        .name quantity-change
-        .type int64
-    ]
-    .field [
         .name reference
         .type uint64
         .optional
@@ -835,9 +825,8 @@
         .optional
     ]
     .field [
-        .name market-id
-        .type uint32
-        .optional
+        .name new-quantity
+        .type int64
     ]
 ]
 
