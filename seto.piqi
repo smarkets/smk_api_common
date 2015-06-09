@@ -158,7 +158,7 @@
         .type market-managed-state
         .optional
     ]
-     .field [
+    .field [
         .name order-update
         .type order-update
         .optional
@@ -196,6 +196,21 @@
     .field [
         .name market-feed-unsubscribe
         .type market-feed-unsubscribe
+        .optional
+    ]
+    .field [
+        .name order-reduce
+        .type order-reduce
+        .optional
+    ]
+    .field [
+        .name order-reduced
+        .type order-reduced
+        .optional
+    ]
+    .field [
+        .name order-reduce-rejected
+        .type order-reduce-rejected
         .optional
     ]
 ]
@@ -314,6 +329,18 @@
     .option [
         .name market-feed-unsubscribe
         .protobuf-name "PAYLOAD_MARKET_FEED_UNSUBSCRIBE"
+    ]
+    .option [
+        .name order-reduce
+        .protobuf-name "PAYLOAD_ORDER_REDUCE"
+    ]
+    .option [
+        .name order-reduced
+        .protobuf-name "PAYLOAD_ORDER_REDUCED"
+    ]
+    .option [
+        .name order-reduce-rejected
+        .protobuf-name "PAYLOAD_ORDER_REDUCE_REJECTED"
     ]
 ]
 
@@ -537,6 +564,29 @@
     ]
 ]
 
+.record [
+    .name order-reduce-rejected
+    .protobuf-name "OrderReduceRejected"
+    .field [
+        .name order-id
+        .type uint64
+    ]
+    .field [
+        .name reason
+        .type order-reduce-rejected-reason
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
+]
+
 .enum [
     .name order-rejected-reason
     .protobuf-name "OrderRejectedReason"
@@ -641,6 +691,31 @@
     .option [
         .name invalid-quantity-change
         .protobuf-name "ORDER_UPDATE_REJECTED_INVALID_QUANTITY_CHANGE"
+    ]
+]
+
+.enum [
+    .name order-reduce-rejected-reason
+    .protobuf-name "OrderReduceRejectedReason"
+    .option [
+        .name not-found
+        .protobuf-name "ORDER_REDUCE_REJECTED_NOT_FOUND"
+    ]
+    .option [
+        .name not-live
+        .protobuf-name "ORDER_REDUCE_REJECTED_NOT_LIVE"
+    ]
+    .option [
+        .name capacity-reached
+        .protobuf-name "ORDER_REDUCE_REJECTED_CAPACITY_REACHED"
+    ]
+    .option [
+        .name throttle-exceeded
+        .protobuf-name "ORDER_REDUCE_REJECTED_THROTTLE_EXCEEDED"
+    ]
+    .option [
+        .name invalid-quantity-change
+        .protobuf-name "ORDER_REDUCE_REJECTED_INVALID_QUANTITY"
     ]
 ]
 
@@ -880,6 +955,55 @@
     ]
 ]
 
+.record [
+    .name order-reduce
+    .protobuf-name "OrderReduce"
+    .field [
+        .name order-id
+        .type uint64
+    ]
+    .field [
+        .name new-quantity
+        .type uint64
+    ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
+]
+
+.record [
+    .name order-reduced
+    .protobuf-name "OrderReduced"
+    .field [
+        .name order-id
+        .type uint64
+    ]
+    .field [
+        .name reason
+        .type order-updated-reason
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
+]
+
+.enum [
+    .name order-reduced-reason
+    .protobuf-name "OrderReducedReason"
+    .option [
+        .name member-requested
+        .protobuf-name "ORDER_REDUCED_MEMBER_REQUESTED"
+    ]
+]
 .record [
     .name order-invalid
     .protobuf-name "OrderInvalid"
