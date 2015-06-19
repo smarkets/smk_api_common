@@ -199,18 +199,18 @@
         .optional
     ]
     .field [
-        .name order-qty-reduce
-        .type order-qty-reduce
+        .name order-quantity-reduce
+        .type order-quantity-reduce
         .optional
     ]
     .field [
-        .name order-qty-reduced
-        .type order-qty-reduced
+        .name order-quantity-reduced
+        .type order-quantity-reduced
         .optional
     ]
     .field [
-        .name order-qty-reduce-rejected
-        .type order-qty-reduce-rejected
+        .name order-quantity-reduce-rejected
+        .type order-quantity-reduce-rejected
         .optional
     ]
 ]
@@ -331,15 +331,15 @@
         .protobuf-name "PAYLOAD_MARKET_FEED_UNSUBSCRIBE"
     ]
     .option [
-        .name order-qty-reduce
+        .name order-quantity-reduce
         .protobuf-name "PAYLOAD_ORDER_QUANTITY_REDUCE"
     ]
     .option [
-        .name order-qty-reduced
+        .name order-quantity-reduced
         .protobuf-name "PAYLOAD_ORDER_QUANTITY_REDUCED"
     ]
     .option [
-        .name order-qty-reduce-rejected
+        .name order-quantity-reduce-rejected
         .protobuf-name "PAYLOAD_ORDER_QUANTITY_REDUCE_REJECTED"
     ]
 ]
@@ -565,7 +565,7 @@
 ]
 
 .record [
-    .name order-qty-reduce-rejected
+    .name order-quantity-reduce-rejected
     .protobuf-name "OrderQuantityReduceRejected"
     .field [
         .name order-id
@@ -573,7 +573,7 @@
     ]
     .field [
         .name reason
-        .type order-qty-reduce-rejected-reason
+        .type order-quantity-reduce-rejected-reason
     ]
     .field [
         .name reference
@@ -694,7 +694,7 @@
 ]
 
 .enum [
-    .name order-qty-reduce-rejected-reason
+    .name order-quantity-reduce-rejected-reason
     .protobuf-name "OrderQuantityReduceRejectedReason"
     .option [
         .name not-found
@@ -955,7 +955,7 @@
 ]
 
 .record [
-    .name order-qty-reduce
+    .name order-quantity-reduce
     .protobuf-name "OrderQuantityReduce"
     .field [
         .name order-id
@@ -973,7 +973,7 @@
 ]
 
 .record [
-    .name order-qty-reduced
+    .name order-quantity-reduced
     .protobuf-name "OrderQuantityReduced"
     .field [
         .name order-id
@@ -995,7 +995,7 @@
 ]
 
 .enum [
-    .name order-qty-reduced-reason
+    .name order-quantity-reduced-reason
     .protobuf-name "OrderQuantityReducedReason"
     .option [
         .name member-requested
