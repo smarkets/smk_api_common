@@ -580,6 +580,10 @@
         .type uint64
         .optional
     ]
+    .field [
+        .name new-quantity
+        .type uint64
+    ]
 ]
 
 .enum [
@@ -983,6 +987,10 @@
         .name reference
         .type uint64
         .optional
+    ]
+    .field [
+        .name new-quantity
+        .type uint64
     ]
 ]
 
