@@ -713,8 +713,8 @@
         .protobuf-name "ORDER_QUANTITY_REDUCE_REJECTED_THROTTLE_EXCEEDED"
     ]
     .option [
-        .name invalid-quantity-change
-        .protobuf-name "ORDER_QUANTITY_REDUCE_REJECTED_INVALID_QUANTITY"
+        .name invalid-new-quantity
+        .protobuf-name "ORDER_QUANTITY_REDUCE_REJECTED_INVALID_NEW_QUANTITY"
     ]
 ]
 
