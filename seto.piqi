@@ -877,6 +877,10 @@
         .name insufficient-liquidity
         .protobuf-name "ORDER_CANCELLED_INSUFFICIENT_LIQUIDITY"
     ]
+    .option [
+        .name admin-requested
+        .protobuf-name "ORDER_CANCELLED_ADMIN_REQUESTED"
+    ]
 ]
 
 .record [
