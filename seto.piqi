@@ -213,6 +213,11 @@
         .type order-quantity-reduce-rejected
         .optional
     ]
+    .field [
+        .name order-reduced
+        .type order-reduced
+        .optional
+    ]
 ]
 
 .enum [
@@ -341,6 +346,10 @@
     .option [
         .name order-quantity-reduce-rejected
         .protobuf-name "PAYLOAD_ORDER_QUANTITY_REDUCE_REJECTED"
+    ]
+    .option [
+        .name order-reduced
+        .protobuf-name "PAYLOAD_ORDER_REDUCED"
     ]
 ]
 
@@ -1534,6 +1543,32 @@
     .field [
         .name order-id
         .type uint64
+        .optional
+    ]
+]
+
+.record [
+    .name order-reduced
+    .protobuf-name "OrderReduced"
+    .field [
+        .name order-id
+        .type uint64
+    ]
+    .field [
+        .name price
+        .type uint32
+    ]
+    .field [
+        .name quantity
+        .type uint64
+    ]
+    .field [
+        .name source-quantity
+        .type uint64
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
         .optional
     ]
 ]
