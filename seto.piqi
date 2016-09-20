@@ -218,6 +218,21 @@
         .type order-reduced
         .optional
     ]
+    .field [
+        .name order-cancel-all
+        .type order-cancel-all
+        .optional
+    ]
+    .field [
+        .name order-cancel-all-accepted
+        .type order-cancel-all-accepted
+        .optional
+    ]
+    .field [
+        .name order-cancel-all-rejected
+        .type order-cancel-all-rejected
+        .optional
+    ]
 ]
 
 .enum [
@@ -350,6 +365,18 @@
     .option [
         .name order-reduced
         .protobuf-name "PAYLOAD_ORDER_REDUCED"
+    ]
+    .option [
+        .name order-cancel-all
+        .protobuf-name "PAYLOAD_ORDER_CANCEL_ALL"
+    ]
+    .option [
+        .name order-cancel-all-accepted
+        .protobuf-name "PAYLOAD_ORDER_CANCEL_ALL_ACCEPTED"
+    ]
+    .option [
+        .name order-cancel-all-rejected
+        .protobuf-name "PAYLOAD_ORDER_CANCEL_ALL_REJECTED"
     ]
 ]
 
@@ -1570,6 +1597,59 @@
         .name account-sequence
         .type uint32
         .optional
+    ]
+]
+
+.record [
+    .name order-cancel-all
+    .protobuf-name "OrderCancelAll"
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
+]
+
+.record [
+    .name order-cancel-all-accepted
+    .protobuf-name "OrderCancelAllAccepted"
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
+]
+
+.record [
+    .name order-cancel-all-rejected
+    .protobuf-name "OrderCancelAllRejected"
+    .field [
+        .name reason
+        .type order-cancel-all-rejected-reason
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
+    .field [
+        .name reference
+        .type uint64
+        .optional
+    ]
+]
+
+.enum [
+    .name order-cancel-all-rejected-reason
+    .protobuf-name "OrderCancelAllRejectedReason"
+    .option [
+        .name unknown-error
+        .protobuf-name "ORDER_CANCEL_ALL_REJECTED_UNKNOWN_ERROR"
     ]
 ]
 
