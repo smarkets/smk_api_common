@@ -487,6 +487,7 @@
     .field [
         .name seq
         .type eto/seq
+        .optional
     ]
     .field [
         .name reason
