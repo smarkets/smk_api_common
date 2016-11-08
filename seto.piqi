@@ -524,6 +524,10 @@
         .name ioc
         .protobuf-name "IMMEDIATE_OR_CANCEL"
     ]
+    .option [
+        .name kip
+        .protobuf-name "KEEP_IN_PLAY"
+    ]
 ]
 
 .record [
