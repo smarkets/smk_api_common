@@ -233,6 +233,11 @@
         .type order-cancel-all-rejected
         .optional
     ]
+    .field [
+        .name throttle-limits-changed
+        .type throttle-limits-changed
+        .optional
+    ]
 ]
 
 .enum [
@@ -377,6 +382,10 @@
     .option [
         .name order-cancel-all-rejected
         .protobuf-name "PAYLOAD_ORDER_CANCEL_ALL_REJECTED"
+    ]
+    .option [
+        .name throttle-limits-changed
+        .protobuf-name "PAYLOAD_THROTTLE_LIMITS_CHANGED"
     ]
 ]
 
@@ -1661,4 +1670,21 @@
 .record [
     .name market-feed-unsubscribe
     .protobuf-name "MarketFeedUnsubscribe"
+]
+
+.record [
+    .name throttle-limits-changed
+    .protobuf-name "ThrottleLimitsChanged"
+    .field [
+        .name average-rate-ps
+        .type uint32
+    ]
+    .field [
+        .name burst-size
+        .type uint32
+    ]
+    .field [
+        .name tick-ms
+        .type uint32
+    ]
 ]
