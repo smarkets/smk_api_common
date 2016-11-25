@@ -697,6 +697,10 @@
         .name throttle-exceeded
         .protobuf-name "ORDER_REJECTED_THROTTLE_EXCEEDED"
     ]
+    .option [
+        .name trading-suspended
+        .protobuf-name "ORDER_REJECTED_TRADING_SUSPENDED"
+    ]
 ]
 
 .enum [
