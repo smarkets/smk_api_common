@@ -941,6 +941,10 @@
         .name admin-requested
         .protobuf-name "ORDER_CANCELLED_ADMIN_REQUESTED"
     ]
+    .option [
+        .name trading-suspended
+        .protobuf-name "ORDER_CANCELLED_TRADING_SUSPENDED"
+    ]
 ]
 
 .record [
