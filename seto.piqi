@@ -634,6 +634,12 @@
         .name new-quantity
         .type uint64
     ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+    ]
+
 ]
 
 .enum [
@@ -1045,6 +1051,11 @@
     .field [
         .name new-quantity
         .type uint64
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
     ]
 ]
 
