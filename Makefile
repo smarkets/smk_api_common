@@ -1,15 +1,12 @@
-.PHONY: deps proto clean
+.PHONY: deps clean
 
-PIQI=deps/piqi/priv/piqi-binary/piqi
+all: deps compile
 
-all: deps proto
+compile:
+	./rebar compile
 
 deps:
 	./rebar get-deps update-deps
 
-proto:
-	$(PIQI) to-proto -I deps/eto_common/ \
-		seto.piqi -o seto.piqi.proto
-
 clean:
-	rm seto.piqi.proto
+	./rebar clean
