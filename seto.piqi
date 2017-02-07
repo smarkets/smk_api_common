@@ -1640,6 +1640,11 @@
         .type uint64
         .optional
     ]
+    .field [
+        .name market-id
+        .type uint32
+        .optional
+    ]
 ]
 
 .record [
