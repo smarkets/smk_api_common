@@ -58,185 +58,204 @@
     .field [
         .name type
         .type payload-type
+        .code 1
     ]
     .field [
         .name eto-payload
         .type eto/payload
+        .code 2
     ]
     .field [
         .name login
         .type login
         .optional
+        .code 3
     ]
     .field [
         .name order-create
         .type order-create
         .optional
+        .code 4
     ]
     .field [
         .name order-rejected
         .type order-rejected
         .optional
+        .code 5
     ]
     .field [
         .name order-accepted
         .type order-accepted
         .optional
+        .code 6
     ]
     .field [
         .name order-executed
         .type order-executed
         .optional
+        .code 7
     ]
     .field [
         .name order-cancel
         .type order-cancel
         .optional
+        .code 8
     ]
     .field [
         .name order-cancelled
         .type order-cancelled
         .optional
+        .code 9
     ]
     .field [
         .name order-invalid
         .type order-invalid
         .optional
+        .code 10
     ]
     .field [
         .name market-subscribe
         .type market-subscribe
         .optional
+        .code 11
     ]
     .field [
         .name market-unsubscribe
         .type market-unsubscribe
         .optional
+        .code 12
     ]
     .field [
         .name market-quotes
         .type market-quotes
         .optional
+        .code 13
     ]
     .field [
         .name contract-quotes
         .type contract-quotes
         .optional
+        .code 14
     ]
     .field [
         .name order-cancel-rejected
         .type order-cancel-rejected
         .optional
+        .code 15
     ]
     .field [
         .name order-execute-voided
         .type order-execute-voided
         .optional
+        .code 16
     ]
     .field [
         .name market-state
         .type market-state
         .optional
+        .code 17
     ]
     .field [
         .name event-subscribe
         .type event-subscribe
         .optional
+        .code 18
     ]
     .field [
         .name event-unsubscribe
         .type event-unsubscribe
         .optional
+        .code 19
     ]
     .field [
         .name runningball-notification
         .type runningball-notification
         .optional
+        .code 20
     ]
     .field [
         .name market-managed-state
         .type market-managed-state
         .optional
-    ]
-    .field [
-        .name order-update
-        .type order-update
-        .optional
-    ]
-    .field [
-        .name order-updated
-        .type order-updated
-        .optional
-    ]
-    .field [
-        .name order-update-rejected
-        .type order-update-rejected
-        .optional
+        .code 21
     ]
     .field [
         .name price-feed-subscribe
         .type price-feed-subscribe
         .optional
+        .code 25
     ]
     .field [
         .name price-feed-unsubscribe
         .type price-feed-unsubscribe
         .optional
+        .code 26
     ]
     .field [
         .name order-execute-confirmed
         .type order-execute-confirmed
         .optional
+        .code 27
     ]
     .field [
         .name market-feed-subscribe
         .type market-feed-subscribe
         .optional
+        .code 28
     ]
     .field [
         .name market-feed-unsubscribe
         .type market-feed-unsubscribe
         .optional
+        .code 29
     ]
     .field [
         .name order-quantity-reduce
         .type order-quantity-reduce
         .optional
+        .code 30
     ]
     .field [
         .name order-quantity-reduced
         .type order-quantity-reduced
         .optional
+        .code 31
     ]
     .field [
         .name order-quantity-reduce-rejected
         .type order-quantity-reduce-rejected
         .optional
+        .code 32
     ]
     .field [
         .name order-reduced
         .type order-reduced
         .optional
+        .code 33
     ]
     .field [
         .name order-cancel-all
         .type order-cancel-all
         .optional
+        .code 34
     ]
     .field [
         .name order-cancel-all-accepted
         .type order-cancel-all-accepted
         .optional
+        .code 35
     ]
     .field [
         .name order-cancel-all-rejected
         .type order-cancel-all-rejected
         .optional
+        .code 36
     ]
     .field [
         .name throttle-limits-changed
         .type throttle-limits-changed
         .optional
+        .code 37
     ]
 ]
 
@@ -246,146 +265,167 @@
     .option [
         .name eto
         .protobuf-name "PAYLOAD_ETO"
+        .code 1
     ]
     .option [
         .name login
         .protobuf-name "PAYLOAD_LOGIN"
+        .code 2
     ]
     .option [
         .name order-create
         .protobuf-name "PAYLOAD_ORDER_CREATE"
+        .code 3
     ]
     .option [
         .name order-rejected
         .protobuf-name "PAYLOAD_ORDER_REJECTED"
+        .code 4
     ]
     .option [
         .name order-accepted
         .protobuf-name "PAYLOAD_ORDER_ACCEPTED"
+        .code 5
     ]
     .option [
         .name order-executed
         .protobuf-name "PAYLOAD_ORDER_EXECUTED"
+        .code 6
     ]
     .option [
         .name order-cancel
         .protobuf-name "PAYLOAD_ORDER_CANCEL"
+        .code 7
     ]
     .option [
         .name order-cancelled
         .protobuf-name "PAYLOAD_ORDER_CANCELLED"
+        .code 8
     ]
     .option [
         .name order-invalid
         .protobuf-name "PAYLOAD_ORDER_INVALID"
+        .code 9
     ]
     .option [
         .name market-subscribe
         .protobuf-name "PAYLOAD_MARKET_SUBSCRIBE"
+        .code 10
     ]
     .option [
         .name market-unsubscribe
         .protobuf-name "PAYLOAD_MARKET_UNSUBSCRIBE"
+        .code 11
     ]
     .option [
         .name market-quotes
         .protobuf-name "PAYLOAD_MARKET_QUOTES"
+        .code 12
     ]
     .option [
         .name contract-quotes
         .protobuf-name "PAYLOAD_CONTRACT_QUOTES"
+        .code 13
     ]
     .option [
         .name order-cancel-rejected
         .protobuf-name "PAYLOAD_ORDER_CANCEL_REJECTED"
+        .code 14
     ]
     .option [
         .name order-execute-voided
         .protobuf-name "PAYLOAD_ORDER_EXECUTE_VOIDED"
+        .code 15
     ]
     .option [
         .name market-state
         .protobuf-name "PAYLOAD_MARKET_STATE"
+        .code 16
     ]
     .option [
         .name event-subscribe
         .protobuf-name "PAYLOAD_EVENT_SUBSCRIBE"
+        .code 17
     ]
     .option [
         .name event-unsubscribe
         .protobuf-name "PAYLOAD_EVENT_UNSUBSCRIBE"
+        .code 18
     ]
     .option [
         .name runningball-notification
         .protobuf-name "PAYLOAD_RUNNINGBALL_NOTIFICATION"
+        .code 19
     ]
     .option [
         .name market-managed-state
         .protobuf-name "PAYLOAD_MARKET_MANAGED_STATE"
-    ]
-       .option [
-        .name order-update
-        .protobuf-name "PAYLOAD_ORDER_UPDATE"
-    ]
-    .option [
-        .name order-updated
-        .protobuf-name "PAYLOAD_ORDER_UPDATED"
-    ]
-    .option [
-        .name order-update-rejected
-        .protobuf-name "PAYLOAD_ORDER_UPDATE_REJECTED"
+        .code 20
     ]
     .option [
         .name price-feed-subscribe
         .protobuf-name "PAYLOAD_PRICE_FEED_SUBSCRIBE"
+        .code 24
     ]
     .option [
         .name price-feed-unsubscribe
         .protobuf-name "PAYLOAD_PRICE_FEED_UNSUBSCRIBE"
+        .code 25
     ]
     .option [
         .name order-execute-confirmed
         .protobuf-name "PAYLOAD_ORDER_EXECUTE_CONFIRMED"
+        .code 26
     ]
     .option [
         .name market-feed-subscribe
         .protobuf-name "PAYLOAD_MARKET_FEED_SUBSCRIBE"
+        .code 27
     ]
     .option [
         .name market-feed-unsubscribe
         .protobuf-name "PAYLOAD_MARKET_FEED_UNSUBSCRIBE"
+        .code 28
     ]
     .option [
         .name order-quantity-reduce
         .protobuf-name "PAYLOAD_ORDER_QUANTITY_REDUCE"
+        .code 29
     ]
     .option [
         .name order-quantity-reduced
         .protobuf-name "PAYLOAD_ORDER_QUANTITY_REDUCED"
+        .code 30
     ]
     .option [
         .name order-quantity-reduce-rejected
         .protobuf-name "PAYLOAD_ORDER_QUANTITY_REDUCE_REJECTED"
+        .code 31
     ]
     .option [
         .name order-reduced
         .protobuf-name "PAYLOAD_ORDER_REDUCED"
+        .code 32
     ]
     .option [
         .name order-cancel-all
         .protobuf-name "PAYLOAD_ORDER_CANCEL_ALL"
+        .code 33
     ]
     .option [
         .name order-cancel-all-accepted
         .protobuf-name "PAYLOAD_ORDER_CANCEL_ALL_ACCEPTED"
+        .code 34
     ]
     .option [
         .name order-cancel-all-rejected
         .protobuf-name "PAYLOAD_ORDER_CANCEL_ALL_REJECTED"
+        .code 35
     ]
     .option [
         .name throttle-limits-changed
         .protobuf-name "PAYLOAD_THROTTLE_LIMITS_CHANGED"
+        .code 36
     ]
 ]
 
@@ -585,36 +625,6 @@
 ]
 
 .record [
-    .name order-update-rejected
-    .protobuf-name "OrderUpdateRejected"
-    .field [
-        .name order
-        .type order
-        .optional
-        .deprecated
-    ]
-    .field [
-        .name reason
-        .type order-update-rejected-reason
-    ]
-    .field [
-        .name account-sequence
-        .type uint32
-        .optional
-    ]
-    .field [
-        .name reference
-        .type uint64
-        .optional
-    ]
-    .field [
-        .name order-id
-        .type uint64
-        .optional
-    ]
-]
-
-.record [
     .name order-quantity-reduce-rejected
     .protobuf-name "OrderQuantityReduceRejected"
     .field [
@@ -725,31 +735,6 @@
     .option [
         .name service-temporarily-unavailable
         .protobuf-name "ORDER_CANCEL_REJECTED_SERVICE_TEMPORARILY_UNAVAILABLE"
-    ]
-]
-
-.enum [
-    .name order-update-rejected-reason
-    .protobuf-name "OrderUpdateRejectedReason"
-    .option [
-        .name not-found
-        .protobuf-name "ORDER_UPDATE_REJECTED_NOT_FOUND"
-    ]
-    .option [
-        .name not-live
-        .protobuf-name "ORDER_UPDATE_REJECTED_NOT_LIVE"
-    ]
-    .option [
-        .name capacity-reached
-        .protobuf-name "ORDER_UPDATE_REJECTED_CAPACITY_REACHED"
-    ]
-    .option [
-        .name throttle-exceeded
-        .protobuf-name "ORDER_UPDATE_REJECTED_THROTTLE_EXCEEDED"
-    ]
-    .option [
-        .name invalid-quantity-change
-        .protobuf-name "ORDER_UPDATE_REJECTED_INVALID_QUANTITY_CHANGE"
     ]
 ]
 
@@ -948,81 +933,6 @@
 ]
 
 .record [
-    .name order-update
-    .protobuf-name "OrderUpdate"
-    .field [
-        .name order
-        .type order
-        .optional
-        .deprecated
-    ]
-    .field [
-        .name market
-        .type market
-        .optional
-        .deprecated
-    ]
-    .field [
-        .name quantity-change
-        .type int64
-    ]
-    .field [
-        .name reference
-        .type uint64
-        .optional
-    ]
-    .field [
-        .name order-id
-        .type uint64
-        .optional
-    ]
-    .field [
-        .name market-id
-        .type uint32
-        .optional
-    ]
-]
-
-.record [
-    .name order-updated
-    .protobuf-name "OrderUpdated"
-    .field [
-        .name order
-        .type order
-        .optional
-        .deprecated
-    ]
-    .field [
-        .name reason
-        .type order-updated-reason
-    ]
-    .field [
-        .name account-sequence
-        .type uint32
-        .optional
-    ]
-    .field [
-        .name reference
-        .type uint64
-        .optional
-    ]
-    .field [
-        .name order-id
-        .type uint64
-        .optional
-    ]
-]
-
-.enum [
-    .name order-updated-reason
-    .protobuf-name "OrderUpdatedReason"
-    .option [
-        .name member-requested
-        .protobuf-name "ORDER_UPDATED_MEMBER_REQUESTED"
-    ]
-]
-
-.record [
     .name order-quantity-reduce
     .protobuf-name "OrderQuantityReduce"
     .field [
@@ -1049,7 +959,7 @@
     ]
     .field [
         .name reason
-        .type order-updated-reason
+        .type order-quantity-reduced-reason
     ]
     .field [
         .name reference
