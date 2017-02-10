@@ -486,13 +486,11 @@
     .field [
         .name market-id
         .type uint32
-        .optional
         .code 12
     ]
     .field [
         .name contract-id
         .type uint32
-        .optional
         .code 13
     ]
 ]
@@ -570,7 +568,6 @@
     .field [
         .name order-id
         .type uint64
-        .optional
         .code 5
     ]
 ]
@@ -749,7 +746,6 @@
     .field [
         .name order-id
         .type uint64
-        .optional
         .code 7
     ]
 ]
@@ -790,7 +786,6 @@
     .field [
         .name order-id
         .type uint64
-        .optional
         .code 7
     ]
     .field [
@@ -822,7 +817,6 @@
     .field [
         .name order-id
         .type uint64
-        .optional
         .code 3
     ]
 ]
@@ -850,7 +844,6 @@
     .field [
         .name order-id
         .type uint64
-        .optional
         .code 5
     ]
 ]
@@ -972,7 +965,6 @@
     .field [
         .name market-id
         .type uint32
-        .optional
         .code 2
     ]
 ]
@@ -983,7 +975,6 @@
     .field [
         .name market-id
         .type uint32
-        .optional
         .code 2
     ]
 ]
@@ -1020,7 +1011,6 @@
     .field [
         .name market-id
         .type uint32
-        .optional
         .code 6
     ]
 ]
@@ -1067,13 +1057,11 @@
     .field [
         .name market-id
         .type uint32
-        .optional
         .code 9
     ]
     .field [
         .name contract-id
         .type uint32
-        .optional
         .code 10
     ]
 ]
@@ -1186,7 +1174,6 @@
     .field [
         .name order-id
         .type uint64
-        .optional
         .code 6
     ]
 ]
@@ -1231,7 +1218,6 @@
     .field [
         .name market-id
         .type uint32
-        .optional
         .code 3
     ]
 ]
@@ -1284,7 +1270,6 @@
     .field [
         .name event-id
         .type uint32
-        .optional
         .code 2
     ]
 ]
@@ -1295,7 +1280,6 @@
     .field [
         .name event-id
         .type uint32
-        .optional
         .code 2
     ]
 ]
@@ -1340,7 +1324,6 @@
     .field [
         .name event-id
         .type uint32
-        .optional
         .code 8
     ]
 ]
@@ -1369,7 +1352,6 @@
     .field [
         .name market-id
         .type uint32
-        .optional
         .code 3
     ]
 ]
@@ -1406,7 +1388,6 @@
     .field [
         .name order-id
         .type uint64
-        .optional
         .code 5
     ]
 ]
