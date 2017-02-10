@@ -1299,25 +1299,6 @@
     ]
 ]
 
-.enum [
-    .name currency
-    .protobuf-name "Currency"
-    .option [
-        .name gbp
-        .erlang-name "'GBP'"
-        .protobuf-name "CURRENCY_GBP"
-    ]
-    .option [
-        .name eur
-        .erlang-name "'EUR'"
-        .protobuf-name "CURRENCY_EUR"
-    ]
-    .option [
-        .name usd
-        .erlang-name "'USD'"
-        .protobuf-name "CURRENCY_USD"
-    ]
-]
 .record [
     .name decimal
     .protobuf-name "Decimal"
