@@ -3,36 +3,6 @@
 .import [ .module eto ]
 
 .alias [
-    .name event
-    .type uuid-128
-    .deprecated
-]
-
-.alias [
-    .name market
-    .type uuid-128
-    .deprecated
-]
-
-.alias [
-    .name contract
-    .type uuid-128
-    .deprecated
-]
-
-.alias [
-    .name order
-    .type uuid-128
-    .deprecated
-]
-
-.alias [
-    .name entity
-    .type uuid-128
-    .deprecated
-]
-
-.alias [
     .name microseconds
     .type uint64
 ]
@@ -430,22 +400,6 @@
 ]
 
 .record [
-    .name uuid-128
-    .protobuf-name "Uuid128"
-    .field [
-        .name low
-        .type uint64
-    ]
-    .field [
-        .name high
-        .type uint64
-        .optional
-        .default 0
-    ]
-    .deprecated
-]
-
-.record [
     .name login
     .protobuf-name "Login"
     .field [
@@ -478,69 +432,68 @@
         .type order-create-type
         .optional
         .default.limit
-    ]
-    .field [
-        .name market
-        .type market
-        .optional
-        .deprecated
-    ]
-    .field [
-        .name contract
-        .type contract
-        .optional
-        .deprecated
+        .code 1
     ]
     .field [
         .name side
         .type side
+        .code 4
     ]
     .field [
         .name quantity-type
         .type quantity-type
         .optional
         .default.payoff-currency
+        .code 5
     ]
     .field [
         .name quantity
         .type uint64
+        .code 6
     ]
     .field [
         .name price-type
         .type price-type
         .optional
         .default.percent-odds
+        .code 7
     ]
     .field [
         .name price
         .type uint32
         .optional
+        .code 8
     ]
     .field [
         .name maq
         .type uint32
         .optional
+        .code 9
     ]
     .field [
         .name tif
         .type time-in-force-type
         .default.gtc
         .optional
+        .code 10
     ]
     .field [
         .name reference
         .type uint64
         .optional
+        .code 11
     ]
     .field [
         .name market-id
         .type uint32
         .optional
+        .code 12
     ]
     .field [
         .name contract-id
         .type uint32
         .optional
+        .code 13
     ]
 ]
 
@@ -598,29 +551,27 @@
     .name order-cancel-rejected
     .protobuf-name "OrderCancelRejected"
     .field [
-        .name order
-        .type order
-        .optional
-        .deprecated
-    ]
-    .field [
         .name reason
         .type order-cancel-rejected-reason
+        .code 2
     ]
     .field [
         .name account-sequence
         .type uint32
         .optional
+        .code 3
     ]
     .field [
         .name reference
         .type uint64
         .optional
+        .code 4
     ]
     .field [
         .name order-id
         .type uint64
         .optional
+        .code 5
     ]
 ]
 
@@ -769,37 +720,37 @@
     .field [
         .name seq
         .type eto/seq
-    ]
-    .field [
-        .name order
-        .type order
-        .optional
-        .deprecated
+        .code 1
     ]
     .field [
         .name account-sequence
         .type uint32
         .optional
+        .code 3
     ]
     .field [
         .name reference
         .type uint64
         .optional
+        .code 4
     ]
     .field [
         .name price
         .type uint32
         .optional
+        .code 5
     ]
     .field [
         .name quantity
         .type uint64
         .optional
+        .code 6
     ]
     .field [
         .name order-id
         .type uint64
         .optional
+        .code 7
     ]
 ]
 
@@ -807,52 +758,55 @@
     .name order-executed
     .protobuf-name "OrderExecuted"
     .field [
-        .name order
-        .type order
-        .optional
-        .deprecated
-    ]
-    .field [
         .name price
         .type uint32
+        .code 2
     ]
     .field [
         .name quantity-type
         .type quantity-type
         .optional
         .default.payoff-currency
+        .code 3
     ]
     .field [
         .name quantity
         .type uint64
+        .code 4
     ]
     .field [
         .name account-sequence
         .type uint32
         .optional
+        .code 5
     ]
     .field [
         .name pending-timeout
         .type uint32
         .optional
         .default 0
+        .code 6
     ]
     .field [
         .name order-id
         .type uint64
         .optional
+        .code 7
     ]
     .field [
         .name side
         .type side
+        .code 8
     ]
     .field [
         .name market-id
         .type uint32
+        .code 9
     ]
     .field [
         .name contract-id
         .type uint32
+        .code 10
     ]
 ]
 
@@ -860,20 +814,16 @@
     .name order-cancel
     .protobuf-name "OrderCancel"
     .field [
-        .name order
-        .type order
-        .optional
-        .deprecated
-    ]
-    .field [
         .name reference
         .type uint64
         .optional
+        .code 2
     ]
     .field [
         .name order-id
         .type uint64
         .optional
+        .code 3
     ]
 ]
 
@@ -881,29 +831,27 @@
     .name order-cancelled
     .protobuf-name "OrderCancelled"
     .field [
-        .name order
-        .type order
-        .optional
-        .deprecated
-    ]
-    .field [
         .name reason
         .type order-cancelled-reason
+        .code 2
     ]
     .field [
         .name account-sequence
         .type uint32
         .optional
+        .code 3
     ]
     .field [
         .name reference
         .type uint64
         .optional
+        .code 4
     ]
     .field [
         .name order-id
         .type uint64
         .optional
+        .code 5
     ]
 ]
 
@@ -985,6 +933,7 @@
         .protobuf-name "ORDER_QUANTITY_REDUCED_MEMBER_REQUESTED"
     ]
 ]
+
 .record [
     .name order-invalid
     .protobuf-name "OrderInvalid"
@@ -1021,15 +970,10 @@
     .name market-subscribe
     .protobuf-name "MarketSubscribe"
     .field [
-        .name market
-        .type market
-        .optional
-        .deprecated
-    ]
-    .field [
         .name market-id
         .type uint32
         .optional
+        .code 2
     ]
 ]
 
@@ -1037,15 +981,10 @@
     .name market-unsubscribe
     .protobuf-name "MarketUnsubscribe"
     .field [
-        .name market
-        .type market
-        .optional
-        .deprecated
-    ]
-    .field [
         .name market-id
         .type uint32
         .optional
+        .code 2
     ]
 ]
 
@@ -1053,37 +992,36 @@
     .name market-quotes
     .protobuf-name "MarketQuotes"
     .field [
-        .name market
-        .type market
-        .optional
-        .deprecated
-    ]
-    .field [
         .name contract-quotes
         .type contract-quotes
         .repeated
+        .code 2
     ]
     .field [
         .name price-type
         .type price-type
         .optional
         .default.percent-odds
+        .code 3
     ]
     .field [
         .name quantity-type
         .type quantity-type
         .optional
         .default.payoff-currency
+        .code 4
     ]
     .field [
         .name executed-volume
         .type uint64
         .optional
+        .code 5
     ]
     .field [
         .name market-id
         .type uint32
         .optional
+        .code 6
     ]
 ]
 
@@ -1091,56 +1029,52 @@
     .name contract-quotes
     .protobuf-name "ContractQuotes"
     .field [
-        .name market
-        .type market
-        .optional
-        .deprecated
-    ]
-    .field [
-        .name contract
-        .type contract
-        .optional
-        .deprecated
-    ]
-    .field [
         .name bids
         .type quote
         .repeated
+        .code 3
     ]
     .field [
         .name offers
         .type quote
         .repeated
+        .code 4
     ]
     .field [
         .name executions
         .type execution
         .repeated
+        .code 5
     ]
     .field [
         .name last-execution
         .type execution
         .optional
+        .code 6
     ]
     .field [
         .name high-price
         .type uint32
         .optional
+        .code 7
     ]
     .field [
         .name low-price
         .type uint32
         .optional
+        .code 8
     ]
     .field [
         .name market-id
         .type uint32
         .optional
+        .code 9
     ]
     .field [
         .name contract-id
         .type uint32
         .optional
+        .code 10
     ]
 ]
 
@@ -1227,34 +1161,33 @@
     .name order-execute-voided
     .protobuf-name "OrderExecutedVoid"
     .field [
-        .name order
-        .type order
-        .optional
-        .deprecated
-    ]
-    .field [
         .name price
         .type uint32
+        .code 2
     ]
     .field [
         .name quantity-type
         .type quantity-type
         .optional
         .default.payoff-currency
+        .code 3
     ]
     .field [
         .name quantity
         .type uint64
+        .code 4
     ]
     .field [
         .name account-sequence
         .type uint32
         .optional
+        .code 5
     ]
     .field [
         .name order-id
         .type uint64
         .optional
+        .code 6
     ]
 ]
 
@@ -1291,19 +1224,15 @@
     .name market-state
     .protobuf-name "MarketState"
     .field [
-        .name market
-        .type market
-        .optional
-        .deprecated
-    ]
-    .field [
         .name state
         .type market-state-type
+        .code 2
     ]
     .field [
         .name market-id
         .type uint32
         .optional
+        .code 3
     ]
 ]
 
@@ -1353,15 +1282,10 @@
     .name event-subscribe
     .protobuf-name "EventSubscribe"
     .field [
-        .name event
-        .type event
-        .optional
-        .deprecated
-    ]
-    .field [
         .name event-id
         .type uint32
         .optional
+        .code 2
     ]
 ]
 
@@ -1369,15 +1293,10 @@
     .name event-unsubscribe
     .protobuf-name "EventUnsubscribe"
     .field [
-        .name event
-        .type event
-        .optional
-        .deprecated
-    ]
-    .field [
         .name event-id
         .type uint32
         .optional
+        .code 2
     ]
 ]
 
@@ -1385,43 +1304,44 @@
     .name runningball-notification
     .protobuf-name "RunningballNotification"
     .field [
-        .name event
-        .type event
-        .optional
-        .deprecated
-    ]
-    .field [
         .name state
         .type runningball-state
+        .code 2
     ]
     .field [
         .name details
         .type runningball-details
+        .code 3
     ]
     .field [
         .name period
         .type runningball-period
         .optional
+        .code 4
     ]
     .field [
         .name playtime  % Game clock in milliseconds. Resets to 45 mins at the pause.
         .type uint32
         .optional
+        .code 5
     ]
     .field [
         .name score-home
         .type uint32
         .optional
+        .code 6
     ]
     .field [
         .name score-away
         .type uint32
         .optional
+        .code 7
     ]
     .field [
         .name event-id
         .type uint32
         .optional
+        .code 8
     ]
 ]
 
@@ -1442,19 +1362,15 @@
     .name market-managed-state
     .protobuf-name "MarketManagedState"
     .field [
-        .name market
-        .type market
-        .optional
-        .deprecated
-    ]
-    .field [
         .name managed-state
         .type market-management-type
+        .code 2
     ]
     .field [
         .name market-id
         .type uint32
         .optional
+        .code 3
     ]
 ]
 
@@ -1472,28 +1388,26 @@
     .name order-execute-confirmed
     .protobuf-name "OrderExecuteConfirmed"
     .field [
-        .name order
-        .type order
-        .optional
-        .deprecated
-    ]
-    .field [
         .name price
         .type uint32
+        .code 2
     ]
     .field [
         .name quantity
         .type uint64
+        .code 3
     ]
     .field [
         .name account-sequence
         .type uint32
         .optional
+        .code 4
     ]
     .field [
         .name order-id
         .type uint64
         .optional
+        .code 5
     ]
 ]
 
