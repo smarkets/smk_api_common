@@ -8,16 +8,6 @@
 ]
 
 .alias [
-    .name slug
-    .type string
-]
-
-.alias [
-    .name url
-    .type string
-]
-
-.alias [
     .name runningball-details
     .type string
 ]
@@ -1149,20 +1139,6 @@
     ]
 ]
 
-.record [
-    .name decimal
-    .protobuf-name "Decimal"
-    .field [
-        .name value
-        .type int64
-    ]
-    .field [
-        .name exponent
-        .type uint32
-        .default 2
-        .optional
-    ]
-]
 .record [
     .name order-execute-voided
     .protobuf-name "OrderExecutedVoid"
