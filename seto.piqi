@@ -227,6 +227,16 @@
         .optional
         .code 37
     ]
+    .field [
+        .name settings
+        .type settings
+        .optional
+    ]
+    .field [
+        .name settings-accepted
+        .type settings-accepted
+        .optional
+    ]
 ]
 
 .enum [
@@ -396,6 +406,14 @@
         .name throttle-limits-changed
         .protobuf-name "PAYLOAD_THROTTLE_LIMITS_CHANGED"
         .code 36
+    ]
+    .option [
+        .name settings
+        .protobuf-name "PAYLOAD_SETTINGS"
+    ]
+    .option [
+        .name settings-accepted
+        .protobuf-name "PAYLOAD_SETTINGS_ACCEPTED"
     ]
 ]
 
@@ -1500,5 +1518,24 @@
     .field [
         .name tick-ms
         .type uint32
+    ]
+]
+
+.record [
+    .name settings
+    .protobuf-name "Settings"
+    .field [
+        .name cancel-all-on-failure
+        .type bool
+        .optional
+    ]
+]
+
+.record [
+    .name settings-accepted
+    .protobuf-name "SettingsAccepted"
+    .field [
+        .name cancel-all-on-failure
+        .type bool
     ]
 ]
