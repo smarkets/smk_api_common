@@ -858,6 +858,18 @@
         .type uint64
         .code 5
     ]
+    .field [
+        .name executed-quantity
+        .type uint64
+        .optional
+        .code 6
+    ]
+    .field [
+        .name executed-avg-price
+        .type uint32
+        .optional
+        .code 7
+    ]
 ]
 
 .enum [
