@@ -848,6 +848,30 @@
         .optional
         .code 11
     ]
+    .field [
+        .name total-executed-quantity
+        .type uint64
+        .optional
+        .code 12
+    ]
+    .field [
+        .name executed-avg-price
+        .type uint32
+        .optional
+        .code 13
+    ]
+    .field [
+        .name available-quantity
+        .type uint64
+        .optional
+        .code 14
+    ]
+    .field [
+        .name orig-price
+        .type uint32
+        .optional
+        .code 15
+    ]
 ]
 
 .record [
@@ -909,6 +933,27 @@
         .optional
         .code 8
     ]
+    .field [
+        .name market-id
+        .type uint32
+        .code 9
+    ]
+    .field [
+        .name contract-id
+        .type uint32
+        .code 10
+    ]
+    .field [
+        .name side
+        .type side
+        .code 11
+    ]
+    .field [
+        .name orig-price
+        .type uint32
+        .optional
+        .code 12
+    ]
 ]
 
 .enum [
@@ -960,29 +1005,68 @@
     .field [
         .name order-id
         .type uint64
+        .code 1
     ]
     .field [
         .name reason
         .type order-quantity-reduced-reason
+        .code 2
     ]
     .field [
         .name reference
         .type uint64
         .optional
+        .code 3
     ]
     .field [
         .name new-quantity
         .type uint64
+        .code 4
     ]
     .field [
         .name account-sequence
         .type uint32
         .optional
+        .code 5
     ]
     .field [
         .name account-sequence-64
         .type uint64
         .optional
+        .code 6
+    ]
+    .field [
+        .name market-id
+        .type uint32
+        .code 7
+    ]
+    .field [
+        .name contract-id
+        .type uint32
+        .code 8
+    ]
+    .field [
+        .name side
+        .type side
+        .code 9
+    ]
+    .field [
+        .name orig-price
+        .type uint32
+        .optional
+        .code 10
+    ]
+    .field [
+        .name executed-quantity
+        .type uint64
+        .optional
+        .code 11
+    ]
+    .field [
+        .name executed-avg-price
+        .type uint32
+        .optional
+        .code 12
     ]
 ]
 
@@ -1236,6 +1320,45 @@
         .optional
         .code 7
     ]
+    .field [
+        .name market-id
+        .type uint32
+        .code 8
+    ]
+    .field [
+        .name contract-id
+        .type uint32
+        .code 9
+    ]
+    .field [
+        .name side
+        .type side
+        .code 10
+    ]
+    .field [
+        .name orig-price
+        .type uint32
+        .optional
+        .code 11
+    ]
+    .field [
+        .name executed-quantity
+        .type uint64
+        .optional
+        .code 12
+    ]
+    .field [
+        .name executed-avg-price
+        .type uint32
+        .optional
+        .code 13
+    ]
+    .field [
+        .name available-quantity
+        .type uint64
+        .optional
+        .code 14
+    ]
 ]
 
 .enum [
@@ -1458,34 +1581,80 @@
     ]
 ]
 
+
 .record [
     .name order-reduced
     .protobuf-name "OrderReduced"
     .field [
         .name order-id
         .type uint64
+        .code 1
     ]
     .field [
         .name price
         .type uint32
+        .code 2
     ]
     .field [
         .name quantity
         .type uint64
+        .code 3
     ]
     .field [
         .name source-quantity
         .type uint64
+        .code 4
     ]
     .field [
         .name account-sequence
         .type uint32
         .optional
+        .code 5
     ]
     .field [
         .name account-sequence-64
         .type uint64
         .optional
+        .code 6
+    ]
+    .field [
+        .name market-id
+        .type uint32
+        .code 7
+    ]
+    .field [
+        .name contract-id
+        .type uint32
+        .code 8
+    ]
+    .field [
+        .name side
+        .type side
+        .code 9
+    ]
+    .field [
+        .name orig-price
+        .type uint32
+        .optional
+        .code 10
+    ]
+    .field [
+        .name executed-quantity
+        .type uint64
+        .optional
+        .code 11
+    ]
+    .field [
+        .name executed-avg-price
+        .type uint32
+        .optional
+        .code 12
+    ]
+    .field [
+        .name available-quantity
+        .type uint64
+        .optional
+        .code 13
     ]
 ]
 
