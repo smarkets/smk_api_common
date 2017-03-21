@@ -510,6 +510,12 @@
         .type uint32
         .code 13
     ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 14
+    ]
 ]
 
 .enum [
