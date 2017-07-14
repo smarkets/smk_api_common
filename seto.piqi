@@ -229,6 +229,12 @@
         .optional
         .code 39
     ]
+    .field [
+        .name balance-changed
+        .type balance-changed
+        .optional
+        .code 40
+    ]
 ]
 
 .enum [
@@ -409,6 +415,11 @@
         .protobuf-name "PAYLOAD_SETTINGS_ACCEPTED"
         .code 38
     ]
+    .option [
+        .name balance-changed
+        .protobuf-name "PAYLOAD_BALANCE_CHANGED"
+        .code 39
+    ]
 ]
 
 .record [
@@ -541,6 +552,10 @@
     .option [
         .name kip
         .protobuf-name "KEEP_IN_PLAY"
+    ]
+    .option [
+        .name gth
+        .protobuf-name "GOOD_TILL_HALTED"
     ]
 ]
 
@@ -1787,5 +1802,23 @@
     .field [
         .name cancel-all-on-failure
         .type bool
+    ]
+]
+
+.record [
+    .name balance-changed
+    .protobuf-name "BalanceChanged"
+    .field [
+        .name reason
+        .type string
+    ]
+    .field [
+        .name available-balance
+        .type float64
+    ]
+    .field [
+        .name exposure
+        .type float64
+        .optional
     ]
 ]
