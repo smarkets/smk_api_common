@@ -235,6 +235,12 @@
         .optional
         .code 40
     ]
+    .field [
+        .name order-voided
+        .type order-voided
+        .optional
+        .code 41
+    ]
 ]
 
 .enum [
@@ -419,6 +425,11 @@
         .name balance-changed
         .protobuf-name "PAYLOAD_BALANCE_CHANGED"
         .code 39
+    ]
+    .option [
+        .name order-voided
+        .protobuf-name "PAYLOAD_ORDER_VOIDED"
+        .code 40
     ]
 ]
 
@@ -1820,5 +1831,73 @@
         .name exposure
         .type float64
         .optional
+    ]
+]
+
+.record [
+    .name order-voided
+    .protobuf-name "OrderVoided"
+    .field [
+        .name order-id
+        .type uint64
+        .code 1
+    ]
+    .field [
+        .name quantity
+        .type uint64
+        .code 2
+    ]
+    .field [
+        .name source-quantity
+        .type uint64
+        .code 3
+    ]
+    .field [
+        .name account-sequence
+        .type uint32
+        .optional
+        .code 4
+    ]
+    .field [
+        .name account-sequence-64
+        .type uint64
+        .optional
+        .code 5
+    ]
+    .field [
+        .name market-id
+        .type uint32
+        .optional
+        .code 6
+    ]
+    .field [
+        .name contract-id
+        .type uint32
+        .optional
+        .code 7
+    ]
+    .field [
+        .name side
+        .type side
+        .optional
+        .code 8
+    ]
+    .field [
+        .name orig-price
+        .type uint32
+        .optional
+        .code 9
+    ]
+    .field [
+        .name executed-quantity
+        .type uint64
+        .optional
+        .code 10
+    ]
+    .field [
+        .name executed-avg-price
+        .type uint32
+        .optional
+        .code 11
     ]
 ]
