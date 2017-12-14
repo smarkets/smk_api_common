@@ -597,6 +597,11 @@
         .type uint64
         .optional
     ]
+    .field [
+        .name label
+        .type string
+        .optional
+    ]
 ]
 
 .record [
@@ -630,6 +635,12 @@
         .optional
         .code 6
     ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 7
+    ]
 
 ]
 
@@ -661,6 +672,11 @@
     .field [
         .name account-sequence-64
         .type uint64
+        .optional
+    ]
+    .field [
+        .name label
+        .type string
         .optional
     ]
 ]
@@ -819,6 +835,42 @@
         .optional
         .code 8
     ]
+        .field [
+        .name available-balance
+        .type float64
+        .optional
+        .code 9
+    ]
+    .field [
+        .name exposure
+        .type float64
+        .optional
+        .code 10
+    ]
+    .field [
+        .name contract-id
+        .type uint32
+        .optional
+        .code 11
+    ]
+    .field [
+        .name side
+        .type side
+        .optional
+        .code 12
+    ]
+    .field [
+        .name market-id
+        .type uint32
+        .optional
+        .code 13
+    ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 14
+    ]
 ]
 
 .record [
@@ -904,6 +956,24 @@
         .optional
         .code 15
     ]
+    .field [
+        .name available-balance
+        .type float64
+        .optional
+        .code 16
+    ]
+    .field [
+        .name exposure
+        .type float64
+        .optional
+        .code 17
+    ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 18
+    ]
 ]
 
 .record [
@@ -988,6 +1058,24 @@
         .type uint32
         .optional
         .code 12
+    ]
+    .field [
+        .name available-balance
+        .type float64
+        .optional
+        .code 13
+    ]
+    .field [
+        .name exposure
+        .type float64
+        .optional
+        .code 14
+    ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 15
     ]
 ]
 
@@ -1105,6 +1193,12 @@
         .type uint32
         .optional
         .code 12
+    ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 13
     ]
 ]
 
@@ -1400,6 +1494,24 @@
         .optional
         .code 14
     ]
+    .field [
+        .name available-balance
+        .type float64
+        .optional
+        .code 15
+    ]
+    .field [
+        .name exposure
+        .type float64
+        .optional
+        .code 16
+    ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 17
+    ]
 ]
 
 .enum [
@@ -1620,6 +1732,12 @@
         .optional
         .code 6
     ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 7
+    ]
 ]
 
 
@@ -1699,6 +1817,12 @@
         .type uint64
         .optional
         .code 13
+    ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 14
     ]
 ]
 
@@ -1899,5 +2023,11 @@
         .type uint32
         .optional
         .code 11
+    ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 12
     ]
 ]
