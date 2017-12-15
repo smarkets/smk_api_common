@@ -819,6 +819,18 @@
         .optional
         .code 8
     ]
+        .field [
+        .name available-balance
+        .type float64
+        .optional
+        .code 9
+    ]
+    .field [
+        .name exposure
+        .type float64
+        .optional
+        .code 10
+    ]
 ]
 
 .record [
@@ -904,6 +916,18 @@
         .optional
         .code 15
     ]
+    .field [
+        .name available-balance
+        .type float64
+        .optional
+        .code 16
+    ]
+    .field [
+        .name exposure
+        .type float64
+        .optional
+        .code 17
+    ]
 ]
 
 .record [
@@ -988,6 +1012,18 @@
         .type uint32
         .optional
         .code 12
+    ]
+    .field [
+        .name available-balance
+        .type float64
+        .optional
+        .code 13
+    ]
+    .field [
+        .name exposure
+        .type float64
+        .optional
+        .code 14
     ]
 ]
 
@@ -1399,6 +1435,18 @@
         .type uint64
         .optional
         .code 14
+    ]
+    .field [
+        .name available-balance
+        .type float64
+        .optional
+        .code 15
+    ]
+    .field [
+        .name exposure
+        .type float64
+        .optional
+        .code 16
     ]
 ]
 
