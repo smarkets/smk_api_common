@@ -831,6 +831,24 @@
         .optional
         .code 10
     ]
+    .field [
+        .name contract-id
+        .type uint32
+        .optional
+        .code 11
+    ]
+    .field [
+        .name side
+        .type side
+        .optional
+        .code 12
+    ]
+    .field [
+        .name market-id
+        .type uint32
+        .optional
+        .code 13
+    ]
 ]
 
 .record [
