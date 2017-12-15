@@ -597,6 +597,11 @@
         .type uint64
         .optional
     ]
+    .field [
+        .name label
+        .type string
+        .optional
+    ]
 ]
 
 .record [
@@ -630,6 +635,12 @@
         .optional
         .code 6
     ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 7
+    ]
 
 ]
 
@@ -661,6 +672,11 @@
     .field [
         .name account-sequence-64
         .type uint64
+        .optional
+    ]
+    .field [
+        .name label
+        .type string
         .optional
     ]
 ]
@@ -849,6 +865,12 @@
         .optional
         .code 13
     ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 14
+    ]
 ]
 
 .record [
@@ -946,6 +968,12 @@
         .optional
         .code 17
     ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 18
+    ]
 ]
 
 .record [
@@ -1042,6 +1070,12 @@
         .type float64
         .optional
         .code 14
+    ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 15
     ]
 ]
 
@@ -1159,6 +1193,12 @@
         .type uint32
         .optional
         .code 12
+    ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 13
     ]
 ]
 
@@ -1466,6 +1506,12 @@
         .optional
         .code 16
     ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 17
+    ]
 ]
 
 .enum [
@@ -1686,6 +1732,12 @@
         .optional
         .code 6
     ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 7
+    ]
 ]
 
 
@@ -1765,6 +1817,12 @@
         .type uint64
         .optional
         .code 13
+    ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 14
     ]
 ]
 
@@ -1965,5 +2023,11 @@
         .type uint32
         .optional
         .code 11
+    ]
+    .field [
+        .name label
+        .type string
+        .optional
+        .code 12
     ]
 ]
