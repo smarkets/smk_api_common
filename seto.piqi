@@ -1556,6 +1556,91 @@
         .type uint32
         .code 3
     ]
+    .field [
+        .name reason
+        .type string
+        .optional
+        .code 4
+    ]
+    .field [
+        .name contracts
+        .type contract-state
+        .repeated
+        .code 5
+    ]
+]
+
+.record [
+    .name contract-state
+    .protobuf-name "ContractState"
+    .field [
+        .name contract-id
+        .type uint32
+        .code 1
+    ]
+    .field [
+        .name state
+        .type contract-state-type
+        .code 2
+    ]
+    .field [
+        .name reduce-type
+        .type reduce-type
+        .optional
+        .code 3
+    ]
+    .field [
+        .name reduce-factor
+        .type uint32
+        .optional
+        .code 4
+    ]
+]
+
+.enum [
+    .name reduce-type
+    .protobuf-name "ReduceType"
+    .option [
+        .name quantity
+        .protobuf-name "REDUCE_TYPE_QUANTITY"
+    ]
+    .option [
+        .name price
+        .protobuf-name "REDUCE_TYPE_PRICE"
+    ]
+]
+
+.enum [
+    .name contract-state-type
+    .protobuf-name "ContractStateType"
+    .option [
+        .name new
+        .protobuf-name "CONTRACT_STATE_NEW"
+    ]
+    .option [
+        .name open
+        .protobuf-name "CONTRACT_STATE_OPEN"
+    ]
+    .option [
+        .name live
+        .protobuf-name "CONTRACT_STATE_LIVE"
+    ]
+    .option [
+        .name halted
+        .protobuf-name "CONTRACT_STATE_HALTED"
+    ]
+    .option [
+        .name settled
+        .protobuf-name "CONTRACT_STATE_SETTLED"
+    ]
+    .option [
+        .name voided
+        .protobuf-name "CONTRACT_STATE_VOIDED"
+    ]
+    .option [
+        .name reduced
+        .protobuf-name "CONTRACT_STATE_REDUCED"
+    ]
 ]
 
 .enum [
