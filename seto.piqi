@@ -808,6 +808,10 @@
         .name trading-suspended
         .protobuf-name "ORDER_REJECTED_TRADING_SUSPENDED"
     ]
+    .option [
+        .name stake-limit-exceeded
+        .protobuf-name "ORDER_REJECTED_STAKE_LIMIT_EXCEEDED"
+    ]
 ]
 
 .enum [
@@ -872,6 +876,11 @@
         .name too-late
         .protobuf-name "ORDER_CANCEL_REJECTED_TOO_LATE"
         .code 12
+    ]
+    .option [
+        .name stake-limit-exceeded
+        .protobuf-name "ORDER_CANCEL_REJECTED_STAKE_LIMIT_EXCEEDED"
+        .code 13
     ]
 ]
 
